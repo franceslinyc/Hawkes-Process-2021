@@ -1,0 +1,31 @@
+---
+title: "Lin_Masters"
+author: "Frances Lin"
+date: "June 2021"
+output: pdf_document
+---
+
+# Abstract
+
+# Introduction 
+
+## Motivation 
+
+## Applications
+
+## Objectives
+
+# Definitions and Graphs
+
+## Point Process
+
+## Poisson Process
+
+## Nonhomogeneous Poisson Process
+
+## Hawkes Process 
+
+1. Intensity-based Hawkes Process
+
+2. Cluster-based Hawkes Process
+
