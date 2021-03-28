@@ -5,9 +5,13 @@ date: "June 2021"
 output: pdf_document
 ---
 
-# Abstract
+Major Professor: James Molyneux
 
-# Introduction 
+Committee Members: Lisa Madsen & Charlotte Wickham
+
+# I. Abstract
+
+# II. Introduction 
 
 ## Motivation 
 
@@ -15,7 +19,7 @@ output: pdf_document
 
 ## Objectives
 
-# Definitions and Graphs
+# III. Definitions and Graphs
 
 ## Point Process
 
@@ -28,4 +32,18 @@ output: pdf_document
 1. Intensity-based Hawkes Process
 
 2. Cluster-based Hawkes Process
+
+# IV. Algorithms
+
+# V. Conclusions and Discussion
+
+\newpage
+
+# Acknowledgments
+
+\newpage
+
+# Reference
+
+
 
