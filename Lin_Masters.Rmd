@@ -29,7 +29,13 @@ $$
 \{T_i, i \in N\}
 $$
 
-**(Counting Process)** If *N(t)* is the total number of events occur at time *t*, a stocastic process is said to be a counting process and is defined as 
+**(Stochastic Process)** A stochastic process is a family of random variables and is defined as
+
+$$
+\{ X(t), t \in T \}
+$$
+
+**(Counting Process)** Let *N(t)* be the total number of events up to some time *t*, a stocastic process is said to be a counting process and is defined as 
 
 $$
 \{N(t), t \geq 0\}
