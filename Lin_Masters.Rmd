@@ -26,13 +26,13 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 **(Point Process)** Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
 
 $$
-T_i, i \in N
+\{T_i, i \in N\}
 $$
 
 **(Counting Process)** If *N(t)* is the total number of events occur at time *t*, a stocastic process is said to be a counting process and is defined as 
 
 $$
-N(t), t \geq 0
+\{N(t), t \geq 0\}
 $$
 
 **(Counting Process)** Let \{$T_i, i \in N$\} be a point process, a counting process associated with \{$T_i, i \in N$\} is defined as
