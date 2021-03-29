@@ -19,7 +19,7 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, ecology, criminology, insurance, finance, social media, and neuroscience. 
 
-In seismology, an event can be an earthquake occurance that causes aftershocks. In ecology, an event can be location where a species can be observed. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that triggers claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that triggers movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of neuron that excites spikes (or action potentials) of other neurons.
+In seismology, an event can be an earthquake occurance that causes aftershocks. In ecology, an event can be a set of locations where a species can be observed. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that triggers claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that triggers movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that excites spikes (or action potentials) of other neurons.
 
 ## Objectives
 
