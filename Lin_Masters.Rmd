@@ -19,7 +19,7 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, ecology, criminology, insurance, finance, social media, and neuroscience. 
 
-In seismology, an event can be an earthquake occurrence that causes aftershocks. In ecology, an event can be a set of locations where a species can be observed. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that triggers claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that triggers movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
+In seismology, an event can be an earthquake occurrence that causes aftershocks. In ecology, an event can be a set of locations where a species can be observed. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
 
 ## Objectives
 
@@ -27,25 +27,25 @@ In seismology, an event can be an earthquake occurrence that causes aftershocks.
 
 ## Counting Process
 
-**(Point Process)** Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
+(Point Process) Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
 
 $$
 \{T_i, i \in N\}
 $$
 
-**(Stochastic Process)** A stochastic process is a family of random variables and is defined as
+(Stochastic Process) A stochastic process is a family of random variables and is defined as
 
 $$
 \{ X(t), t \in T \}
 $$
 
-**(Counting Process)** Let *N(t)* be the total number of events up to some time *t*, a stocastic process is said to be a counting process and is defined as 
+(Counting Process) Let *N(t)* be the total number of events up to some time *t*, a stocastic process is said to be a counting process and is defined as 
 
 $$
 \{N(t), t \geq 0\}
 $$
 
-**(Counting Process)** Let \{$T_i, i \in N$\} be a point process, a counting process associated with \{$T_i, i \in N$\} is defined as
+(Counting Process) Let \{$T_i, i \in N$\} be a point process, a counting process associated with \{$T_i, i \in N$\} is defined as
 
 $$
 N(t) = \sum_{i \in N} I_{\{T_i \leq t\}}
@@ -61,31 +61,108 @@ A counting process has to satisfy
 
 4. If $s < t$, then $N(t) - N(s)$ is the number of events occur in the interval (s, t]
 
+Three properties of counting process are
+
+1. Independence 
+
+2. Stationarity 
+
+3. Homogeneity
+
+
+
+
 ## Poisson Process
 
+(Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate $\lambda > 0$ 
 
+1. $N(0) = 0$
+
+2. $N(t)$ has independent increments
+
+3. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+
+4. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
+
+where
 
 
 
 ## Nonhomogeneous Poisson Process
 
+(Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function $\lambda(t), t > 0$
+
+1. $N(0) = 0$
+
+2. $N(t)$ has independent increments
+
+3. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+
+4. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
+
+
+
+
 ## Hawkes Process 
+
+In previous cases, the events either arrive independently, arrive at a constant rate (the Poisson process), or depend on an intensity function (the nonhomogeneous Poisson Process). In the case of Hawkes process, the arrivial rate of the events depends on past events (i.e. the arrivial of an event increases the occurrence of future events). 
+
+(Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with previous events $\{H_t, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | H_t), t > 0$ and takes the form 
+
+$$
+\lambda(t | H_t) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
+$$
+
+where
+
+- $\lambda_0(t)$ is the base intensity function 
+
+- $T_i < t$ are the events time occur before current time $t$ 
+
+- $\phi(\cdot)$ is the kernel function through which intensity function depends on previous events 
+
+
+
+
+In the case of seismic events, 
+
+
+
+
+There are two types of Hawkes processes
 
 1. Intensity-based Hawkes Process
 
 2. Cluster-based Hawkes Process
 
+
+
+
 # IV. Algorithms
 
+
+
+
 # V. Conclusions and Discussion
+
+
+
 
 \newpage
 
 # Acknowledgments
 
+
+
+
 \newpage
 
 # Reference
+
+Obral, K. (2016). Simulation, estimation and applications of hawkes processes (Master's thesis, University of Minnesota, Twin Cities, United States). 
+
+Rizoiu, M. A., Lee, Y., Mishra, S., & Xie, L. (2017). A tutorial on hawkes processes for events in social media. arXiv preprint arXiv:1708.06401. 
+
 
 
 
