@@ -74,7 +74,7 @@ Three properties of counting process are
 
 ## Poisson Process
 
-(Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate $\lambda > 0$ 
+(Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$ 
 
 1. $N(0) = 0$
 
@@ -121,12 +121,15 @@ where
 
 - $\phi(\cdot)$ is the kernel function through which intensity function depends on previous events 
 
+A few choices of $\phi(\cdot)$ are exponentially decaying function and power-law kernel, and they take the form of 
 
+$$
+\phi(x) = \alpha e^ {-\delta x} 
+$$
 
-
-In the case of seismic events, 
-
-
+$$
+\phi(x) = \frac{\alpha} { (x + \delta) ^ {\eta + 1}}
+$$
 
 
 There are two types of Hawkes processes
