@@ -17,13 +17,13 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 ## Applications
 
-Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, ecology, criminology, insurance, finance, social media, and neuroscience. 
+Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social media, and neuroscience. 
 
-In seismology, an event can be an earthquake occurrence that causes aftershocks. In ecology, an event can be a set of locations where a species can be observed. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
+In seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
 
 ## Objectives
 
-# III. Definitions and Graphs
+# III. Definitions, Properties and Graphs
 
 ## Counting Process
 
@@ -80,25 +80,74 @@ Three properties of counting process are
 
 2. $N(t)$ has independent increments
 
-3. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+3. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
 
-4. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
+4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
 where
+
+1. the process starts at $t = 0$
+
+2. the increments are independent
+
+3. $\lambda$ is the rate (or intensity)
+
+4. no 2 or more events can occur at the same location
+
+
+
+
+Properties of Poisson process are 
+
+1. the number of occurence $\sim Pos(\lambda t)$
+
+for all $s, t \geq 0$
+
+$$
+P(N(t + s) - N(s) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
+$$
+
+$n = 0, 1,...$ 
+
+
+2. interarrival times $\sim exp(\frac{1} {\lambda})$
+
+for rate $\lambda > 0$, interarrival times $W_i$ $i=1,2,...$ 
+
+$$
+P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}
+$$
+
+This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]).
+
+In addition, 
+
+$$
+F(t) = P(W_1 \leq t) = 1 - e^{-\lambda t} \ 
+$$
+
+and
+
+$$
+f(t) = \lambda e^{-\lambda t}
+$$
+
+Poisson process has stationary increments since the distribution of the number of events that occur in any interval of time depends only on the length of the time interval but not on the location of the interval. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution can change when shifted in time. 
+
 
 
 
 ## Nonhomogeneous Poisson Process
 
-(Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function $\lambda(t), t > 0$
+(Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
 1. $N(0) = 0$
 
 2. $N(t)$ has independent increments
 
-3. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
-4. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
+4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
 
 
@@ -107,10 +156,10 @@ where
 
 In previous cases, the events either arrive independently, arrive at a constant rate (the Poisson process), or depend on an intensity function (the nonhomogeneous Poisson Process). In the case of Hawkes process, the arrivial rate of the events depends on past events (i.e. the arrivial of an event increases the occurrence of future events). 
 
-(Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with previous events $\{H_t, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | H_t), t > 0$ and takes the form 
+(Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_t, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_t), t > 0$ and takes the form 
 
 $$
-\lambda(t | H_t) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
+\lambda(t | \mathcal{H}_t) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
 $$
 
 where
@@ -119,18 +168,17 @@ where
 
 - $T_i < t$ are the events time occur before current time $t$ 
 
-- $\phi(\cdot)$ is the kernel function through which intensity function depends on previous events 
+- $\phi(\cdot)$ is the kernel function through which intensity function depends on past events 
 
 A few choices of $\phi(\cdot)$ are exponentially decaying function and power-law kernel, and they take the form of 
 
 $$
-\phi(x) = \alpha e^ {-\delta x} 
+\phi(x) = \alpha e^ {-\beta x} 
 $$
 
 $$
-\phi(x) = \frac{\alpha} { (x + \delta) ^ {\eta + 1}}
+\phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}
 $$
-
 
 There are two types of Hawkes processes
 
