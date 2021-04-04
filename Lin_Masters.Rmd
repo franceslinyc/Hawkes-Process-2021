@@ -61,7 +61,7 @@ A counting process has to satisfy
 
 4. If $s < t$, then $N(t) - N(s)$ is the number of events occur in the interval (s, t]
 
-Three properties of counting process are
+Properties of counting process are
 
 1. Independence 
 
@@ -190,7 +190,7 @@ where
 
 - $\mathcal{H}_{t}^{N}$ is called the natural filration, which represents the internal history of N up to time t 
 
-Similarly, it satisfies that
+Similarly, a Hawkes process satisfies that
 
 1. $N(t) = 0$
 
@@ -225,12 +225,18 @@ There are two types of Hawkes processes
 
 
 
-For this project, we focus on...... 
+For this project, we focus on
 
 
 
 
 # IV. Algorithms
+
+## Poisson Process
+
+## Nonhomogeneous Poisson Process
+
+## Hawkes Process 
 
 
 
