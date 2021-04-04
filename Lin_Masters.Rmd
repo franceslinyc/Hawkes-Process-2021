@@ -9,9 +9,9 @@ Major Professor: James Molyneux
 
 Committee Members: Lisa Madsen & Charlotte Wickham
 
-# I. Abstract
+# Abstract
 
-# II. Introduction 
+# 1 Introduction 
 
 ## Motivation 
 
@@ -23,9 +23,9 @@ In seismology, an event can be an earthquake occurrence that causes aftershocks.
 
 ## Objectives
 
-# III. Definitions, Properties and Graphs
+# 2 Definitions, Properties and Graphs
 
-## Counting Process
+## 2.1 Counting Process
 
 (Point Process) Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
 
@@ -72,7 +72,7 @@ Properties of counting process are
 
 
 
-## Poisson Process
+## 2.2 Poisson Process
 
 (Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$ 
 
@@ -137,7 +137,7 @@ Poisson process has stationary increments since the distribution of the number o
 
 
 
-## Nonhomogeneous Poisson Process
+## 2.3 Nonhomogeneous Poisson Process
 
 (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -170,7 +170,7 @@ $n = 0, 1,...$
 
 
 
-## Hawkes Process 
+## 2.4 Hawkes Process 
 
 In previous cases, the events either arrive independently, arrive at a constant rate (the Poisson process), or depend on an intensity function (the nonhomogeneous Poisson Process). In the case of Hawkes process, the arrivial rate of the events depends on past events (i.e. the arrivial of an event increases the occurrence of future events). 
 
@@ -190,7 +190,7 @@ where
 
 - $\mathcal{H}_{t}^{N}$ is called the natural filration, which represents the internal history of N up to time t 
 
-Similarly, a Hawkes process satisfies that
+A Hawkes process satisfies that
 
 1. $N(t) = 0$
 
@@ -230,18 +230,20 @@ For this project, we focus on
 
 
 
-# IV. Algorithms
+# 3 Algorithms
 
-## Poisson Process
+## 3.1 Counting Process
 
-## Nonhomogeneous Poisson Process
+## 3.2 Poisson Process
 
-## Hawkes Process 
+## 3.3 Nonhomogeneous Poisson Process
+
+## 3.4 Hawkes Process 
 
 
 
 
-# V. Conclusions and Discussion
+# 4 Conclusions and Discussion
 
 
 
