@@ -99,7 +99,7 @@ where
 
 Properties of Poisson process are 
 
-1. the number of occurence $\sim Pos(\lambda t)$
+1. the number of events in any interval $t$ $N(t)$ $\sim Pos(\lambda t)$
 
 for all $s, t \geq 0$
 
@@ -110,7 +110,7 @@ $$
 $n = 0, 1,...$ 
 
 
-2. interarrival times $\sim exp(\frac{1} {\lambda})$
+2. interarrival times $w$ $\sim exp(\frac{1} {\lambda})$
 
 for rate $\lambda > 0$, interarrival times $W_i$ $i=1,2,...$ 
 
@@ -148,6 +148,24 @@ Poisson process has stationary increments since the distribution of the number o
 3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+
+Properties of nonhomogeneous Poisson process are 
+
+1. the number of events in any interval $t$ $N(t)$ $\sim Pos(\int_{0}^{t} \lambda (s) ds)$
+
+for all $s, t \geq 0$
+
+$$
+P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
+$$
+
+or 
+
+$$
+P(N(b) - N(a) = n) = \frac{(\int_{a}^{b} \lambda (s) ds)^n e^{\int_{a}^{b} \lambda (s) ds}} {n!} \ \ 
+$$
+
+$n = 0, 1,...$ 
 
 
 
