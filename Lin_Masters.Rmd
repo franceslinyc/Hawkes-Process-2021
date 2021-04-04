@@ -174,10 +174,10 @@ $n = 0, 1,...$
 
 In previous cases, the events either arrive independently, arrive at a constant rate (the Poisson process), or depend on an intensity function (the nonhomogeneous Poisson Process). In the case of Hawkes process, the arrivial rate of the events depends on past events (i.e. the arrivial of an event increases the occurrence of future events). 
 
-(Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_t, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_t), t > 0$ and takes the form 
+(Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 
 $$
-\lambda(t | \mathcal{H}_t) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
+\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
 $$
 
 where
@@ -187,6 +187,21 @@ where
 - $T_i < t$ are the events time occur before current time $t$ 
 
 - $\phi(\cdot)$ is the kernel function through which intensity function depends on past events 
+
+- $\mathcal{H}_{t}^{N}$ is called the natural filration, which represents the internal history of N up to time t 
+
+Similarly, it satisfies that
+
+1. $N(t) = 0$
+
+2. $\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \int_{-\infty}^{t} \phi( t - T_i)dN(s) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)$
+
+3. $P(N(t + h)) - N(t) = 1) | \mathcal{H}_{t}^{N}) = \lambda(t) h + o(h)$
+
+4. $P(N(t + h)) - N(t) \geq 2) | \mathcal{H}_{t}^{N}) = o(h)$
+
+
+
 
 A few choices of $\phi(\cdot)$ are exponentially decaying function and power-law kernel, and they take the form of 
 
@@ -198,11 +213,19 @@ $$
 \phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}
 $$
 
+
+
+
 There are two types of Hawkes processes
 
 1. Intensity-based Hawkes Process
 
 2. Cluster-based Hawkes Process
+
+
+
+
+For this project, we focus on...... 
 
 
 
