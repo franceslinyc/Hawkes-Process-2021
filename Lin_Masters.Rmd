@@ -23,6 +23,19 @@ In seismology, an event can be an earthquake occurrence that causes aftershocks.
 
 ## Objectives
 
+The objectives of this project is to..., which include 
+
+1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, Hawkes process, and spatio-temporal Hawkes process,
+
+2. discussing the algorithms and simulating all of the above processes,
+
+3. extending (temporal) Hawkes process to spatio-temporal Hawkes process, and
+
+4. discussing future work of Hawkes (self-exciting) process.
+
+
+
+
 # 2 Definitions and Properties
 
 ## 2.1 Counting Process
@@ -216,9 +229,7 @@ $$
 
 ## 2.5 Hawkes Process (Spatio-Temporal Form)
 
-Spatio-temporal self-exciting point processes is an extention of temporal Hawkes point processes. 
-
-Recall that temporal Hawkes point processes take the form of 
+Spatio-temporal self-exciting point processes is an extention of temporal Hawkes point processes. Recall that temporal Hawkes point processes take the form of 
 
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i)
