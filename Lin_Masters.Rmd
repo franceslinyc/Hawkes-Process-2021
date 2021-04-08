@@ -17,13 +17,13 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 ## Applications
 
-Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social media, and neuroscience. 
+Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social network, and neuroscience.
 
-In seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social media, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
+In seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social network, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
 
 ## Objectives
 
-The objectives of this project is to..., which include 
+The objectives of this project is to give an overview of various types of point processes, which include 
 
 1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
 
@@ -292,13 +292,13 @@ $$
 
 ## 2.5 Spatio-Temporal Hawkes Process 
 
-Spatio-temporal Hawkes processes is an extention of temporal Hawkes processes. Recall that temporal Hawkes point processes take the form of 
+Spatio-temporal Hawkes processes is an extention of temporal Hawkes processes. Recall that temporal Hawkes processes take the form of 
 
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i)
 $$
 
-Spatio-temporal self-exciting point processes take the form of 
+Spatio-temporal Hawkes processes take the form of 
 
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i)
@@ -313,7 +313,7 @@ where
 
 
 
-For this project, we focus on
+Next, we 
 
 
 
