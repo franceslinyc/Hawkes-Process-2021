@@ -40,29 +40,48 @@ The objectives of this project is to..., which include
 
 ## 2.1 Counting Process
 
-**Definition 2.1.1** (Point Process) Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
+SAY SOMETHING HERE
 
-$$
-\{T_i, i \in N\}
-$$
+For example, 
 
-**Definition 2.1.2** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
+
+
+
+**Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 
 $$
 \{ X(t), t \in T \}
 $$
 
-**Definition 2.1.3** (Counting Process) Let *N(t)* be the total number of events up to some time *t*, a stocastic process is said to be a counting process and is defined as 
+
+
+
+**Definition 2.1.2** (Counting Process) Let *N(t)* be the total number of events up to some time *t* such that the values are nonnegative, interger and nondecreasing, a stocastic process is said to be a counting process and is defined as 
 
 $$
 \{N(t), t \geq 0\}
 $$
+
+
+
+
+**Definition 2.1.3** (Point Process) Let \{$T_i, i \in N$\} be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
+
+$$
+\{T_i, i \in N\}
+$$
+
+
+
 
 **Definition 2.1.4** (Counting Process) Let \{$T_i, i \in N$\} be a point process, a counting process associated with \{$T_i, i \in N$\} is defined as
 
 $$
 N(t) = \sum_{i \in N} I_{\{T_i \leq t\}}
 $$
+
+
+
 
 *Corollary* **2.1.1** A counting process satisfies that
 
@@ -73,6 +92,8 @@ $$
 3. If $s \leq t$, then $N(s) \leq N(t)$
 
 4. If $s < t$, then $N(t) - N(s)$ is the number of events occur in the interval (s, t]
+
+
 
 
 **Proposition 2.1.1** A counting process has the following properties
@@ -94,6 +115,13 @@ Stationarity implies homogeneity.
 
 ## 2.2 Poisson Process
 
+Poisson (point) process is the simplest form of point process.
+
+For example, if we were to model..., we can consider modelling using Poisson process. 
+
+
+
+
 **Definition 2.2.1** (Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$ 
 
 1. $N(0) = 0$
@@ -105,6 +133,8 @@ Stationarity implies homogeneity.
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
+
+
 
 
 **Proposition 2.2.1** Poisson process has the following properties
@@ -147,7 +177,12 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Poisson process has stationary increments since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
+Since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval, (homogeneous) Poisson process has stationary increments. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
+
+For example, if we were to model..., we can consider modelling using nonhomogeneous Poisson process. 
+
+
+
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -158,6 +193,9 @@ Poisson process has stationary increments since the distribution of the number o
 3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+
+
+
 
 **Proposition 2.2.1** Nonhomogeneous Poisson process has the following properties
 
@@ -176,16 +214,27 @@ $$
 $n = 0, 1,...$ 
 
 
+
+
 ## 2.4 Cluster Process
 
-In previous cases, events arrive independently. They either arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process). 
+In previous cases, whether events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process), they arrive independently. Here, we want to discuss cases in which events do not arrive independently.
 
-Examples of cluster process include... 
+Examples of cluster process include Cox process (or doubly stochastic Poisson process), Matérn I and Matérn II process. 
+
+
 
 
 ## 2.5 Hawkes Process 
 
-In the case of Hawkes process, events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. For example, the arrivial of an event increases the occurrence of future events. 
+Hawkes Process is also known as a self-exciting point processes.  
+
+In the case of Hawkes process, events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
+
+Examples of Hawkes process include... In these examples, the arrivial of an event increases the occurrence of future events. 
+
+
+
 
 **Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 
@@ -201,7 +250,10 @@ where
 
 - $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which intensity function depends on past events 
 
-- $\mathcal{H}_{t}^{N}$ is called the natural filration (or simply $\mathcal{H}_{t}^{}$ past history) which represents the internal history of N up to time $t$
+- $\mathcal{H}_{t}^{N}$ is the natural filration (or simply $\mathcal{H}_{t}^{}$ the past history) which represents the internal history of N up to time $t$
+
+
+
 
 *Corollary* **2.5.1** Hawkes process satisfies that
 
@@ -238,9 +290,9 @@ $$
 
 
 
-## 2.5 Hawkes Process (Spatio-Temporal Form)
+## 2.5 Spatio-Temporal Hawkes Process 
 
-Spatio-temporal self-exciting point processes is an extention of temporal Hawkes point processes. Recall that temporal Hawkes point processes take the form of 
+Spatio-temporal Hawkes processes is an extention of temporal Hawkes processes. Recall that temporal Hawkes point processes take the form of 
 
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i)
