@@ -266,7 +266,7 @@ For this project, we focus on
 
 
 
-# 3 Algorithms
+# 3 Algorithms and Simulations
 
 ## 3.1 Counting Process
 
@@ -274,7 +274,9 @@ For this project, we focus on
 
 ## 3.3 Nonhomogeneous Poisson Process
 
-## 3.4 Hawkes Process 
+## 3.4 Cluster Process 
+
+## 3.5 Hawkes Process 
 
 
 
