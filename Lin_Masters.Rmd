@@ -79,9 +79,15 @@ $$
 
 1. (Independence) If...  , a counting process is said to have independent increments.
 
+e.g. Poisson process, nonhomogeneous Poisson process
+
 2. (Stationarity) If... , a counting process is said to have stationary increments.
 
+e.g. Poisson process
+
 3. (Homogeneity)
+
+Stationarity implies homogeneity. 
 
 
 
@@ -170,13 +176,18 @@ $$
 $n = 0, 1,...$ 
 
 
+## 2.4 Cluster Processes
+
+In previous cases, events arrive independently. They either arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process). 
 
 
-## 2.4 Hawkes Process 
 
-In previous cases, the events either arrive independently, arrive at a constant rate $\lambda$ (e.g. Poisson process), or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process). In the case of Hawkes process, the arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. In other words, the arrivial of an event also increases the occurrence of future events.
 
-**Definition 2.4.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
+## 2.5 Hawkes Process 
+
+In the case of Hawkes process, events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. For example, the arrivial of an event increases the occurrence of future events. 
+
+**Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 
 $$
 \lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
@@ -192,7 +203,7 @@ where
 
 - $\mathcal{H}_{t}^{N}$ is called the natural filration (or simply $\mathcal{H}_{t}^{}$ past history) which represents the internal history of N up to time $t$
 
-*Corollary* **2.4.1** Hawkes process satisfies that
+*Corollary* **2.5.1** Hawkes process satisfies that
 
 1. $N(t) = 0$
 
@@ -205,7 +216,7 @@ where
 
 
 
-**2.4.1** Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
+**2.5.1** Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
 
 $$
 \phi(x) = \alpha e^ {-\beta x} 
@@ -218,7 +229,7 @@ $$
 
 
 
-**2.4.2** Two types of Hawkes processes include
+**2.5.2** There are two ways to view Hawkes processes
 
 1. Intensity-based Hawkes Process
 
