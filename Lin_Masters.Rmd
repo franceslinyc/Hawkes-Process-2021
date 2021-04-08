@@ -25,13 +25,13 @@ In seismology, an event can be an earthquake occurrence that causes aftershocks.
 
 The objectives of this project is to..., which include 
 
-1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, Hawkes process, and spatio-temporal Hawkes process,
+1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
 
 2. discussing the algorithms and simulating all of the above processes,
 
 3. extending (temporal) Hawkes process to spatio-temporal Hawkes process, and
 
-4. discussing future work of Hawkes (self-exciting) process.
+4. discussing recent and future work of Hawkes (self-exciting) process.
 
 
 
@@ -176,11 +176,11 @@ $$
 $n = 0, 1,...$ 
 
 
-## 2.4 Cluster Processes
+## 2.4 Cluster Process
 
 In previous cases, events arrive independently. They either arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process). 
 
-
+Examples of cluster process include... 
 
 
 ## 2.5 Hawkes Process 
