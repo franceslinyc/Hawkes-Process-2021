@@ -1,0 +1,82 @@
+---
+title: "2_proc_non_pos"
+author: "Frances Lin"
+date: "4/9/2021"
+output: pdf_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+set.seed(1) # for reproducibility
+
+t_max <- 10 
+t <- 0 
+
+lmbda <- function(t){
+  t
+}
+
+X <- numeric(0) # vector of t
+
+lmbda_star_f <- function() {
+  # not sure
+  max(sapply(seq(1, t_max, length.out = 1000), lmbda)) * 2
+  
+}
+
+lmbda_f <- function(t_upper) {
+  # this lmbda_fun function takes in t_upper and integrate f = 
+  # from t = 0 to t = t_upper 
+  integrate(f = lmbda, lower = 0, upper = t_upper)
+}
+
+while(t <= t_max){
+  # thinning 
+  u       <- runif(1)
+  t       <-  t - log(u)/lmbda_star_f()
+  if(runif(1) < lmbda(t)/lmbda_star_f()) {
+    X <- c(X,t)
+  }
+}
+```
+
+```{r}
+# X
+```
+
+```{r}
+# length(X)
+```
+
+```{r}
+# N <- 0:length(X)
+# length(N)
+```
+
+```{r}
+# # Plot using base R
+# plot(stepfun(x=X, y=N))
+```
+
+```{r}
+# Plot using ggplot2
+# Create a df
+df_NPP = tibble(
+  x = X, 
+  y = 0:(length(X) - 1)
+)
+
+p_NPP <- ggplot() +
+  geom_step(data=df_NPP, mapping=aes(x=x, y=y)) + 
+  labs(title = "Nonhomogeneous Poisson Process lambda(t) = t", 
+       x = "t", 
+       y = "N(t)")
+p_NPP
+```
+
+
+
