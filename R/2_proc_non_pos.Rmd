@@ -70,13 +70,34 @@ df_NPP = tibble(
   y = 0:(length(X) - 1)
 )
 
-p_NPP <- ggplot() +
-  geom_step(data=df_NPP, mapping=aes(x=x, y=y)) + 
+p_NPP <- ggplot(data=df_NPP, mapping=aes(x=x, y=y)) +
+  geom_step() + 
   labs(title = "Nonhomogeneous Poisson Process lambda(t) = t", 
        x = "t", 
        y = "N(t)")
 p_NPP
 ```
 
+```{r}
+# Plot time plot
+df_NPP <- df_NPP %>% add_column(
+  t_fix = rep(2, length(df_NPP$x))
+) 
+```
 
+```{r}
+p_NPP_time <- ggplot(data=df_NPP, mapping=aes(x=x, y=t_fix)) +
+  geom_point() + 
+  ylim(c(1,3)) +
+  labs(title = "Corresponding Inter-Arrivial Times", 
+       x = "t", 
+       y = "y-axis has no meaning")
+
+p_NPP_time
+```
+
+```{r}
+require(gridExtra)
+grid.arrange(p_NPP, p_NPP_time)
+```
 
