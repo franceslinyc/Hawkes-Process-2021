@@ -25,7 +25,7 @@ The defining characteristic of Hawkes processes is that it is self-exciting. In 
 
 ## Objectives
 
-The objectives of this project is to give an overview of various types of point processes, which include 
+The objectives of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes process. The overview includes
 
 1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
 
@@ -119,8 +119,9 @@ Stationarity implies homogeneity.
 
 One of the simplest and most-widely used counting process is Poisson process. 
 
-In the cases of Poisson process, it is assumed that the arrivial rate is constant. 
-For example, if we were to model the number of bus arrivals at a bus stop, the number of car accidents at a site or the requests for documents on a web server, we can consider using Poisson processes.
+In the cases of Poisson process, it is assumed that the arrivial rate (or intensity) is constant. 
+
+For example, if we were to model the number of bus arrivals at a bus stop, the number of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
 
 
 
@@ -180,7 +181,7 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider using nonhomogeneous Poisson processes.
+In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
@@ -221,7 +222,7 @@ $n = 0, 1,...$
 
 ## 2.4 Cluster Process
 
-In the previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process), they arrive independently. Beginning here, we discuss cases in which the events do not arrive independently.
+In the previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss cases in which the events do not arrive independently.
 
 For example, 
 
@@ -331,6 +332,10 @@ Next, we
 
 ## 3.3 Nonhomogeneous Poisson Process
 
+There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion, 2) order statistics, 3) thinning and 4) hybride (inversion $+$ thinning). 
+
+In the example, we use the thinning slgorithm to simulate nonhomogeneous Poisson process with...  since it is the popular choice for both temporal and  spatio-temporal cases. 
+
 ## 3.4 Cluster Process 
 
 ## 3.5 Hawkes Process 
@@ -356,11 +361,15 @@ Next, we
 
 Chen, Y. (2016). Thinning algorithms for simulating point processes. Florida State University, Tallahassee, FL.
 
+
+
 Obral, K. (2016). Simulation, estimation and applications of hawkes processes. (Master's thesis, University of Minnesota, Twin Cities, United States). 
 
 Rizoiu, M. A., Lee, Y., Mishra, S., & Xie, L. (2017). A tutorial on hawkes processes for events in social media. arXiv preprint arXiv:1708.06401. 
 
+Krishna, R. (2015). Simulation of Non-Homogeneous Poisson Processes. 
 
+Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encyclopedia of operations research and management science. 
 
 # Terminology
 
