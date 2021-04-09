@@ -86,12 +86,13 @@ df_NPP <- df_NPP %>% add_column(
 ```
 
 ```{r}
-p_NPP_time <- ggplot(data=df_NPP, mapping=aes(x=x, y=t_fix)) +
-  geom_point() + 
+p_NPP_time <- ggplot(data=df_NPP, mapping=aes(x=x, y=t_fix, label = y)) +
+  geom_point(size=0.5) + 
   ylim(c(1,3)) +
   labs(title = "Corresponding Inter-Arrivial Times", 
        x = "t", 
-       y = "y-axis has no meaning")
+       y = "y-axis has no meaning") + 
+  geom_text(vjust=4, size=1)
 
 p_NPP_time
 ```
