@@ -13,11 +13,13 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 # 1 Introduction 
 
+Hawkes process is also known as a self-exciting point process. 
+
 ## Motivation 
 
 ## Applications
 
-Applications of Hawkes Processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social network, and neuroscience.
+Applications of Hawkes (self-exciting) processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social network, and neuroscience.
 
 In seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social network, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
 
@@ -31,7 +33,7 @@ The objectives of this project is to give an overview of various types of point 
 
 3. extending (temporal) Hawkes process to spatio-temporal Hawkes process, and
 
-4. discussing recent and future work of Hawkes (self-exciting) process.
+4. discussing recent and future work of Hawkes process.
 
 
 
@@ -42,7 +44,7 @@ The objectives of this project is to give an overview of various types of point 
 
 SAY SOMETHING HERE
 
-For example, 
+For example, if we were to count $N(t)$ the occurences (or arrivial) of events such as the number of customers arriving at a supermarket or the number of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
 
 
 
@@ -115,9 +117,10 @@ Stationarity implies homogeneity.
 
 ## 2.2 Poisson Process
 
-Poisson (point) process is the simplest form of point process.
+One of the simplest and most-widely used counting process is Poisson process. 
 
-For example, if we were to model..., we can consider modelling using Poisson process. 
+In the cases of Poisson process, it is assumed that the arrivial rate is constant. 
+For example, if we were to model the number of bus arrivals at a bus stop, the number of car accidents at a site or the requests for documents on a web server, we can consider using Poisson processes.
 
 
 
@@ -177,11 +180,11 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval, (homogeneous) Poisson process has stationary increments. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
+In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider using nonhomogeneous Poisson processes.
 
-For example, if we were to model..., we can consider modelling using nonhomogeneous Poisson process. 
+For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
-
+Put it more formally, (homogeneous) Poisson process has stationary increments since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
 
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
@@ -218,20 +221,22 @@ $n = 0, 1,...$
 
 ## 2.4 Cluster Process
 
-In previous cases, whether events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process), they arrive independently. Here, we want to discuss cases in which events do not arrive independently.
+In the previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson Process), they arrive independently. Here, there are cases in which the events do not arrive independently.
 
-Examples of cluster process include Cox process (or doubly stochastic Poisson process), Matérn I and Matérn II process. 
+For example, 
+
+Types of cluster process include Cox process (or doubly stochastic Poisson process), Matérn I process and Matérn II process. 
 
 
 
 
 ## 2.5 Hawkes Process 
 
-Hawkes Process is also known as a self-exciting point processes.  
+Hawkes process is also known as a self-exciting point process.  
 
-In the case of Hawkes process, events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
+In the cases of Hawkes process, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
 
-Examples of Hawkes process include... In these examples, the arrivial of an event increases the occurrence of future events. 
+Examples that can be modelled using Hawkes process include... In these examples, the occurrence of an event increases the occurrence of future events. 
 
 
 
@@ -357,4 +362,10 @@ Rizoiu, M. A., Lee, Y., Mishra, S., & Xie, L. (2017). A tutorial on hawkes proce
 
 
 
+# Terminology
 
+[Counting Processes](https://www.probabilitycourse.com/chapter11/11_1_1_counting_processes.php)
+
+[Poisson Process](https://www.probabilitycourse.com/chapter11/11_1_2_basic_concepts_of_the_poisson_process.php)
+
+[Nonhomogeneous Poisson Processes](https://www.probabilitycourse.com/chapter11/11_1_4_nonhomogeneous_poisson_processes.php)
