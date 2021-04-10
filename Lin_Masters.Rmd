@@ -44,7 +44,7 @@ The objectives of this project is to give an overview of various types of point 
 
 SAY SOMETHING HERE
 
-For example, if we were to count $N(t)$ the occurences (or arrivial) of events such as the number of customers arriving at a supermarket or the number of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
+For example, if we were to count  the occurences (or arrivial) of events $N(t)$ such as the number of customers arriving at a supermarket or the number of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
 
 
 
@@ -143,7 +143,7 @@ In other words, 1. the process starts at $t = 0$, 2. the increments are independ
 
 **Proposition 2.2.1** Poisson process has the following properties
 
-1. $N(t)$, the number of events in any interval $t$, $\sim Pos(\lambda t)$. That is, for all $s, t \geq 0$
+1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\lambda t)$. That is, for all $s, t \geq 0$
 
 $$
 P(N(t + s) - N(s) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
@@ -152,7 +152,7 @@ $$
 $n = 0, 1,...$. 
 
 
-2. $W$, the interarrival times, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$ 
+2. The interarrival times, $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$ 
 
 $$
 P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}
@@ -203,7 +203,7 @@ Additionally, (homogeneous) Poisson process has stationary increments since the 
 
 **Proposition 2.2.1** Nonhomogeneous Poisson process has the following properties
 
-1. $N(t)$, the number of events in any interval $t$, $\sim Pos(\int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
+1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
 
 $$
 P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
@@ -334,7 +334,7 @@ Next, we
 
 There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion, 2) order statistics, 3) thinning and 4) hybride (inversion $+$ thinning). 
 
-In the example, we use the thinning slgorithm to simulate nonhomogeneous Poisson process with...  since it is the popular choice for both temporal and  spatio-temporal cases. 
+In this example, we use the thinning slgorithm to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
 
 ## 3.4 Cluster Process 
 
