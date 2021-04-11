@@ -1,0 +1,59 @@
+---
+title: "Lin_Masters_Written"
+author: "Frances Lin"
+date: "4/11/2021"
+output: pdf_document
+---
+
+## 2.1 Counting Process
+
+SAY SOMETHING HERE
+
+For example, if we were to count  the occurences (or arrivial) of events $N(t)$ such as the number of customers arriving at a supermarket or the number of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
+
+
+
+
+## 2.2 Poisson Process
+
+One of the simplest and most-widely used counting process is Poisson process. 
+
+In the cases of Poisson process, it is assumed that the arrivial rate (or intensity) is constant. 
+
+For example, if we were to model the number of bus arrivals at a bus stop, the number of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
+
+
+
+
+## 2.3 Nonhomogeneous Poisson Process
+
+In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
+
+For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
+
+Additionally, (homogeneous) Poisson process has stationary increments since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
+
+
+
+
+## 2.4 Cluster Process
+
+In the previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss cases in which the events do not arrive independently.
+
+For example, 
+
+Types of cluster process include Cox process (or doubly stochastic Poisson process), Matérn I process and Matérn II process. 
+
+
+
+
+## 2.5 Hawkes Process 
+
+Hawkes process is also known as a self-exciting point process.  
+
+In the cases of Hawkes process, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
+
+Examples that can be modelled using Hawkes process include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of future events. 
+
+
+
