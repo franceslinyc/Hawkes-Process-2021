@@ -1,0 +1,59 @@
+---
+title: "proc_using_spatstat"
+author: "Frances Lin"
+date: "4/8/2021"
+output: pdf_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(spatstat)
+```
+
+```{r}
+# Check to see how to use the function 
+?rpoispp
+# Check to see how this is written
+#View(rpoispp)
+```
+
+```{r}
+# Plot a homogeneous Poisson process
+# p.1334 of https://mran.microsoft.com/snapshot/2016-04-25/web/packages/spatstat/spatstat.pdf
+# https://spatstat.org/SSAI2017/solutions/solution04.html
+
+lmbda = 100
+
+plot(rpoispp(lambda = lmbda, win=square(1)),
+     main = "homogeneous Poisson process rate = 100")
+```
+
+```{r}
+# Plot a homogeneous Poisson process
+# p.33 of https://spatstat.org/resources/spatstatJSSpaper.pdf
+
+lmbda_function <- function(x, y) 200 * x
+
+plot(rpoispp(lambda = lmbda_function, win=square(1)),
+     main = "nonhomogeneous Poisson process rate = 100")
+```
+
+```{r}
+?rMaternII
+```
+
+```{r}
+# Plot a Matern I process
+
+plot(rMaternI(kappa = 100, r = 0.05), 
+     main = "Matern I process kappa = , r = ")
+```
+
+```{r}
+# Plot a Matern II process
+
+plot(rMaternII(kappa = 100, r = 0.05), 
+     main = "Matern II process kappa = , r = ")
+```
+
+
+
