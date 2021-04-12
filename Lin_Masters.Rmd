@@ -98,11 +98,11 @@ $$
 
 **Proposition 2.1.1** A counting process has the following properties
 
-1. (Independence) If...  , a counting process is said to have independent increments.
+1. (Independence) If the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, a counting process is said to have independent increments.
 
 e.g. Poisson process, nonhomogeneous Poisson process
 
-2. (Stationarity) If... , a counting process is said to have stationary increments.
+2. (Stationarity) If the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, a counting process is said to have stationary increments.
 
 e.g. Poisson process
 
@@ -152,19 +152,7 @@ $$
 P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}
 $$
 
-This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]), 
-
-$$
-F(t) = P(W_1 \leq t) = 1 - e^{-\lambda t} \ 
-$$
-
-and
-
-$$
-f(t) = \lambda e^{-\lambda t}.
-$$
-
-Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
+This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
 
 $$
 P(W_2 > t | W_1 = s) = P(N(t + s) - N(s)) = P(N(t) = 0) = e^{-\lambda t}. 
