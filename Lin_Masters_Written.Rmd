@@ -9,7 +9,7 @@ output: pdf_document
 
 SAY SOMETHING HERE
 
-For example, if we were to count  the occurences (or arrivial) of events $N(t)$ such as the number of customers arriving at a supermarket or the number of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
+For example, if we were to count  the occurences (or arrivial) of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
 
 
 
@@ -20,25 +20,35 @@ One of the simplest and most-widely used counting process is Poisson process.
 
 In the cases of Poisson process, it is assumed that the arrivial rate (or intensity) is constant. 
 
-For example, if we were to model the number of bus arrivals at a bus stop, the number of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
+For example, if we were to model the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
 
 
 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
+In the cases of counting process and Poisson process, we assume that the arrivial rate is constant. If we have reasons to believe that the arrivial rate is not constant, we should consider modelling using nonhomogeneous Poisson processes. Indeed, nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes.
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
-Additionally, (homogeneous) Poisson process has stationary increments since the distribution of the number of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the time interval but not the location of the interval. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
+Additionally, (homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. 
 
 
 
 
-## 2.4 Cluster Process
+## 2.4 Cox Process and Cluster Process
 
 In the previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss cases in which the events do not arrive independently.
+
+In Cox processes, the intensity function $\Lambda (t)$ is treated as random.
+
+In cluster processes, the procedure involves two step: 
+
+1. generate the 'parent' points **Y** 
+
+2. each 'parent' point $y_i$ gives to 'offspring' points $x_{ij}$
+
+Since only the offsprings are observed, cluster processes are consisted of **X**. 
 
 For example, 
 
