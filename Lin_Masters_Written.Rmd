@@ -16,7 +16,7 @@ For example, if we were to count the numbers of events $N(t)$ such as the number
 
 ## 2.2 Poisson Process
 
-One of the simplest and most-widely used counting processes is Poisson processes. Here, we assume that the numbers (or arrivials) of events $N(t)$ follows a Poisson distribution with a constant rate $lambda$ and the interarrival times between events $W$ are exponentially distributed. 
+One of the simplest and most-widely used counting processes is Poisson processes. Here, we assume that the numbers (or arrivials) of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 For example, if we were to model the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
 
@@ -25,24 +25,24 @@ For example, if we were to model the numbers of bus arrivals at a bus stop, the 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Previously, we assume that the rate $lambda$ is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes. Indeed, nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes. 
+Previously, we assume that the rate $\lambda$ is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes. Indeed, nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes. 
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
-Additionally, (homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity,... and hence the name nonhomogeneous Poisson processes. 
+Put it more formally, (homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity,... and hence the name nonhomogeneous Poisson processes. 
 
 
 
 
 ## 2.4 Cox and Cluster Process
 
-In previous cases, whether the events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss models that allow dependence between events. 
+In previous cases, whether events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss models that allow dependence between events. 
 
-For example, 
+Examples that can be modelled using Cox and cluster processes include...  
 
 In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (t)$ is treated as random. 
 
-In cluster processes, the randomness arises from the following two steps: First, the 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. Altogether **Y** and $Z_{ij}$ form a Cox process **X** and only **X** is observed. 
+In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. Altogether **Y** and $Z_{ij}$ form a Cox process **X** and only **X** is observed. 
 
 Specific models of cluster processes depend on the choices of assumptions. For example, Matern process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent.
 
@@ -55,9 +55,9 @@ Simulations of Matern I and Matern II processes are generated using the `rMatern
 
 Hawkes process is also known as a self-exciting point process.  
 
-In the cases of Hawkes process, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
+In Hawkes processes, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
 
-Examples that can be modelled using Hawkes process include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of future events. 
+Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of future events. 
 
 
 

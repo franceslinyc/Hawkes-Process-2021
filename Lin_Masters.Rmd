@@ -214,19 +214,9 @@ $n = 0, 1,...$
 
 6. Isotropic clusters
 
+In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of eeach other, 3. clusters, when shifted, have the same distributions, 4. the numbers of 'offspring' points of each parent point follow a Poisson distribution, 5. the locations of 'offspring' points of each parent point are independently and identically distributed, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
+
 Under assumption 1 - 5, cluster process is a Cox process. 
-
-Assumption 1
-
-Assumption 2
-
-Assumption 3
-
-Assumption 4
-
-Assumption 5
-
-Assumption 6
 
 
 ## 2.5 Hawkes Process 
