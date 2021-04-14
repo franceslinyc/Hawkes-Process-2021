@@ -42,8 +42,6 @@ The objectives of this project is to give an overview of various types of point 
 
 ## 2.1 Counting Process
 
-SAY SOMETHING HERE
-
 
 
 
@@ -114,8 +112,6 @@ Stationarity implies homogeneity.
 
 
 ## 2.2 Poisson Process
-
-SAY SOMETHING HERE
 
 
 
@@ -198,9 +194,39 @@ $n = 0, 1,...$
 
 
 
-## 2.4 Cluster Process
+## 2.4 Cox and Cluster Process
 
+(Cox Process) Let **X** be a Poisson process with intensity function $\Lambda (t)$, then **X** is a Cox process with intensity function $\lambda (t) = E(\Lambda (t))$.
 
+(Cluster Process) 
+
+**Proposition 2.4.1** Cluster Process has the following model assumptions
+
+1. Poisson parents
+
+2. Independent clusters
+
+3. Identically distributed clusters
+
+4. Poisson number of offsprings 
+
+5. Offsprings independent within a cluster 
+
+6. Isotropic clusters
+
+Under assumption 1 - 5, cluster process is a Cox process. 
+
+Assumption 1
+
+Assumption 2
+
+Assumption 3
+
+Assumption 4
+
+Assumption 5
+
+Assumption 6
 
 
 ## 2.5 Hawkes Process 
@@ -300,9 +326,11 @@ Next, we
 
 There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion, 2) order statistics, 3) thinning and 4) hybride (inversion $+$ thinning). 
 
-In this example, we use the thinning slgorithm to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
+In this example, we use the thinning algorithm to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
 
-## 3.4 Cluster Process 
+Thinning algorithm involves deleting points from a point pattern. 
+
+## 3.4 Cox and Cluster Process 
 
 ## 3.5 Hawkes Process 
 
