@@ -29,7 +29,7 @@ Previously, we assume that the rate $\lambda$ is constant. If we have reasons to
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
-Put it more formally, (homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity,... and hence the name nonhomogeneous Poisson processes. 
+Put it more formally, (homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$.
 
 
 
