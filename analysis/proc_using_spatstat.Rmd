@@ -21,38 +21,44 @@ library(spatstat)
 # p.1334 of https://mran.microsoft.com/snapshot/2016-04-25/web/packages/spatstat/spatstat.pdf
 # https://spatstat.org/SSAI2017/solutions/solution04.html
 
-lmbda = 100
-
-plot(rpoispp(lambda = lmbda, win=square(1)),
-     main = "homogeneous Poisson process rate = 100")
+par(mfrow=c(1, 1))
+plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
+#plot(rpoispp(lambda = 50, win=square(1)),main = "HPP (rate = 50)")
+#plot(rpoispp(lambda = 10, win=square(1)),main = "HPP (rate = 10)")
 ```
 
 ```{r}
 # Plot a homogeneous Poisson process
 # p.33 of https://spatstat.org/resources/spatstatJSSpaper.pdf
 
-lmbda_function <- function(x, y) 200 * x
+#lmbda_function <- function(x, y) 100*x
 
-plot(rpoispp(lambda = lmbda_function, win=square(1)),
-     main = "nonhomogeneous Poisson process rate = 100")
+par(mfrow=c(1, 1))
+plot(rpoispp(lambda = function(x, y) 100*x, win=square(1)), main = "NPP (intensity = 100*x)")
+#plot(rpoispp(lambda = function(x, y) 50*x, win=square(1)), main = "NPP (intensity = 50*x)")
+#plot(rpoispp(lambda = function(x, y) 10*x, win=square(1)), main = "NPP (intensity = 10*x)")
 ```
 
 ```{r}
 ?rMaternII
+# kappa = intensity
+# r = inhibition distance
 ```
 
 ```{r}
 # Plot a Matern I process
-
-plot(rMaternI(kappa = 100, r = 0.05), 
-     main = "Matern I process kappa = , r = ")
+par(mfrow=c(1, 1))
+plot(rMaternI(kappa = 100, r = 0.05), main = "Matern I (kappa = 100, r = 0.05)")
+#plot(rMaternI(kappa = 50, r = 0.05), main = "Matern I (kappa = 50, r = 0.05)")
+#plot(rMaternI(kappa = 10, r = 0.05), main = "Matern I (kappa = 10, r = 0.05)")
 ```
 
 ```{r}
 # Plot a Matern II process
-
-plot(rMaternII(kappa = 100, r = 0.05), 
-     main = "Matern II process kappa = , r = ")
+par(mfrow=c(1, 1))
+plot(rMaternII(kappa = 100, r = 0.05), main = "Matern II (kappa = 100, r = 0.05)")
+#plot(rMaternII(kappa = 50, r = 0.05), main = "Matern II (kappa = 50, r = 0.05)")
+#plot(rMaternII(kappa = 10, r = 0.05), main = "Matern II (kappa = 10, r = 0.05)")
 ```
 
 
