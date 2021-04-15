@@ -5,11 +5,6 @@ date: "June 2021"
 output: pdf_document
 ---
 
-```{r warning=FALSE, message=FALSE}
-library(tidyverse)
-library(here)
-```
-
 Major Professor: James Molyneux
 
 Committee Members: Lisa Madsen & Charlotte Wickham
@@ -26,7 +21,7 @@ Hawkes process is also known as a self-exciting point process.
 
 Applications of Hawkes processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social network, and neuroscience.
 
-The defining characteristic of Hawkes processes is that it is self-exciting. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social network, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
+The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social network, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
 
 ## Objectives
 
@@ -127,9 +122,9 @@ $$
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
 
+**Proposition 2.1.1** Poisson process has the same (?) properties as those of counting process. 
 
-
-**Proposition 2.2.1** Poisson process has the following properties
+**Proposition 2.2.2** Poisson process has additional properties
 
 1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\lambda t)$. That is, for all $s, t \geq 0$
 
@@ -171,9 +166,13 @@ $$
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
 
-
-
 **Proposition 2.2.1** Nonhomogeneous Poisson process has the following properties
+
+1. Independence
+
+(Homogeneous) Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$.
+
+**Proposition 2.2.2** Nonhomogeneous Poisson process has the following properties
 
 1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
 
@@ -189,14 +188,19 @@ $$
 
 $n = 0, 1,...$ 
 
+2. 
+
 
 
 
 ## 2.4 Cox and Cluster Process
 
-(Cox Process) Let **X** be a Poisson process with intensity function $\Lambda (t)$, then **X** is a Cox process with intensity function $\lambda (t) = E(\Lambda (t))$.
+**Definition 2.4.1**  (Cox Process) Let **X** be a Poisson process with intensity function $\Lambda (t)$, then **X** is a Cox process with intensity function $\lambda (t) = E(\Lambda (t))$.
 
-(Cluster Process) 
+**Definition 2.4.2** (Cluster Process) 
+
+
+
 
 **Proposition 2.4.1** Cluster Process has the following model assumptions
 
@@ -206,15 +210,15 @@ $n = 0, 1,...$
 
 3. Identically distributed clusters
 
-4. Poisson number of offsprings 
+4. Offsprings independent within a cluster 
 
-5. Offsprings independent within a cluster 
+5. Poisson number of offsprings
 
 6. Isotropic clusters
 
-In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of each other, 3. clusters, when shifted, have the same distributions, 4. the numbers of 'offspring' points of each parent point follow a Poisson distribution, 5. the locations of 'offspring' points of each parent point are independently and identically distributed, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
+In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of each other, 3. clusters, when shifted, have the same distributions, 4. the locations of 'offspring' points of each parent point are independently and identically distributed, 5. the numbers of 'offspring' points of each parent point follow a Poisson distribution, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
 
-Under assumption 1 - 5, cluster process is a Cox process. 
+Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, we have Matern cluster process and Thomas cluster process. 
 
 
 ## 2.5 Hawkes Process 
@@ -325,7 +329,15 @@ The following functions use thinning algorithm. Simulations of Matern I and Mate
 
 ## 3.5 Hawkes Process 
 
+## 3.5 Plots in 2D
 
+All the following plots are created using the **spatstat** package in `R`. 
+
+HPP
+
+NPP
+
+Matern process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent.
 
 
 # 4 Conclusions and Discussion
