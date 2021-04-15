@@ -1,0 +1,47 @@
+---
+title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point
+  Processes and Some Simulations'
+author: "Frances Lin"
+date: " June 2021"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r warning=FALSE, message=FALSE}
+library(spatstat)
+library(tidyverse)
+library(here)
+```
+
+## Background and Objectives
+
+## Definitions, Properties, and Graphs
+
+## HPP vs. NPP vs. Matern
+
+```{r}
+par(mfrow=c(1, 3))
+plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)") #plot_2D_HPP
+plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 100*x)") #plot_2D_NPP
+plot(rMatClust(kappa = 100, r = 0.05, mu = 5), main = "Matern (kappa = 100, r = 0.05, mu = 5)") #plot_2D_Matern
+```
+
+## HPP
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_HPP.png)
+
+
+## NPP
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_NPP.png)
+
+## Matern
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_Matern.png)
+
+
+
+
