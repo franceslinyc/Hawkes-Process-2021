@@ -311,9 +311,12 @@ There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion
 
 In this example, we use the thinning algorithm to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
 
-Thinning algorithm involves deleting points from a point pattern. 
+Broadly put, thinning algorithm involves deleting points from a point pattern. 
 
 ## 3.4 Cox and Cluster Process 
+
+The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
+
 
 ## 3.5 Hawkes Process 
 
