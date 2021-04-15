@@ -31,12 +31,24 @@ plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
 # Plot a homogeneous Poisson process
 # p.33 of https://spatstat.org/resources/spatstatJSSpaper.pdf
 
-#lmbda_function <- function(x, y) 100*x
+#lmbda_function <- function(x, y) 400*x 
+#so that they have the same expected # of events but why ???
 
 par(mfrow=c(1, 1))
-plot(rpoispp(lambda = function(x, y) 100*x, win=square(1)), main = "NPP (intensity = 100*x)")
+plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 100*x)")
 #plot(rpoispp(lambda = function(x, y) 50*x, win=square(1)), main = "NPP (intensity = 50*x)")
 #plot(rpoispp(lambda = function(x, y) 10*x, win=square(1)), main = "NPP (intensity = 10*x)")
+```
+
+```{r}
+?rMatClust
+#kappa = intensity
+#scale = radius of the clusters
+#mu = mean # of points per cluster or reference intensity ???
+```
+
+```{r}
+plot(rMatClust(kappa = 100, r = 0.05, mu = 5), main = "Matern (kappa = 100, r = 0.05, mu = 5)")
 ```
 
 ```{r}

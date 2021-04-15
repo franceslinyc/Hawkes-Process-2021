@@ -98,9 +98,9 @@ $$
 
 1. (Independence) If the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, a counting process is said to have independent increments.
 
-2. (Stationarity) If the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, a counting process is said to have stationary increments. Stationarity implies homogeneity.
+2. (Stationarity) If the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, a counting process is said to have stationary increments. 
 
-3. (Homogeneity) If the transition probability between any two states at two times depends only on the difference between the states, a stochastic process is said to be homogeneous. 
+3. (Homogeneity) If the transition probability between any two states at two times depends only on the difference between the states, a stochastic process is said to be homogeneous. Stationarity implies homogeneity.
 
 
 
