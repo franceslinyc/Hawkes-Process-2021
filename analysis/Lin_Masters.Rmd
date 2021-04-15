@@ -5,6 +5,11 @@ date: "June 2021"
 output: pdf_document
 ---
 
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+```
+
 Major Professor: James Molyneux
 
 Committee Members: Lisa Madsen & Charlotte Wickham

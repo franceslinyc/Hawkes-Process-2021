@@ -7,6 +7,8 @@ output: pdf_document
 
 ```{r warning=FALSE, message=FALSE}
 library(spatstat)
+library(tidyverse)
+library(here)
 ```
 
 ```{r}
@@ -22,7 +24,8 @@ library(spatstat)
 # https://spatstat.org/SSAI2017/solutions/solution04.html
 
 par(mfrow=c(1, 1))
-plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
+plot_2D_HPP <- plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
+plot_2D_HPP
 #plot(rpoispp(lambda = 50, win=square(1)),main = "HPP (rate = 50)")
 #plot(rpoispp(lambda = 10, win=square(1)),main = "HPP (rate = 10)")
 ```
@@ -35,7 +38,8 @@ plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
 #so that they have the same expected # of events but why ???
 
 par(mfrow=c(1, 1))
-plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 100*x)")
+plot_2D_NPP <- plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 100*x)")
+plot_2D_NPP
 #plot(rpoispp(lambda = function(x, y) 50*x, win=square(1)), main = "NPP (intensity = 50*x)")
 #plot(rpoispp(lambda = function(x, y) 10*x, win=square(1)), main = "NPP (intensity = 10*x)")
 ```
@@ -48,7 +52,8 @@ plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (inten
 ```
 
 ```{r}
-plot(rMatClust(kappa = 100, r = 0.05, mu = 5), main = "Matern (kappa = 100, r = 0.05, mu = 5)")
+plot_2D_Matern <- plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern (kappa = 20, r = 0.05, mu = 5)")
+plot_2D_Matern
 ```
 
 ```{r}
@@ -73,5 +78,15 @@ plot(rMaternII(kappa = 100, r = 0.05), main = "Matern II (kappa = 100, r = 0.05)
 #plot(rMaternII(kappa = 10, r = 0.05), main = "Matern II (kappa = 10, r = 0.05)")
 ```
 
+```{r}
+# # Save out results
+# write_rds(plot_2D_HPP, here("results", "plot_2D_HPP.jpeg"))
+```
+
+```{r}
+# # Error checking
+# plot_2D_HPP <- readRDS(here("results", "plot_2D_HPP.jpeg"))
+# plot_2D_HPP
+```
 
 
