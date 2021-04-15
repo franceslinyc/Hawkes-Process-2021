@@ -1,0 +1,51 @@
+---
+title: "1_proc_HPP"
+author: "Frances Lin"
+date: "4/15/2021"
+output: pdf_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+set.seed(1) # for reproducibility
+
+t_max <- 10 
+t <- 0 
+
+lmbda <- 10
+
+X <- numeric(0) # vector of t
+
+while(t <= t_max){
+  u       <- runif(1)
+  t       <-  t - log(u)/lmbda                # t ~ exp(1/lambda)
+  if(t < t_max) {
+    X <- c(X,t)                               # update index 
+  }
+}
+```
+
+```{r}
+length(X)
+```
+
+```{r}
+df_HPP = tibble(
+  x = X, 
+  y = 0:(length(X) - 1)
+)
+
+p_HPP <- ggplot(data=df_HPP, mapping=aes(x=x, y=y)) +
+  geom_step() + 
+  labs(title = "Homogeneous Poisson Process lambda(t) = t", 
+       x = "t", 
+       y = "N(t)")
+p_HPP
+```
+
+
+
