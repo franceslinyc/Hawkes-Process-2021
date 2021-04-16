@@ -83,9 +83,7 @@ p_NPP
 df_NPP <- df_NPP %>% add_column(
   t_fix = rep(2, length(df_NPP$x))
 ) 
-```
 
-```{r}
 p_NPP_time <- ggplot(data=df_NPP, mapping=aes(x=x, y=t_fix, label = y)) +
   geom_point(size=0.5) + 
   ylim(c(1,3)) +
