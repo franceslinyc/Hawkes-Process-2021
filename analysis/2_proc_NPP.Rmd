@@ -37,7 +37,7 @@ lmbda_f <- function(t_upper) {
 while(t <= t_max){
   # thinning 
   u       <- runif(1)
-  t       <-  t - log(u)/lmbda_star_f()    # t ~ exp
+  t       <-  t - log(u)/lmbda_star_f()    # set t = t + w where w ~ exp
   if(runif(1) < lmbda(t)/lmbda_star_f()) { # accpet with accepting probabiliy 
     X <- c(X,t)                            # update index 
   }

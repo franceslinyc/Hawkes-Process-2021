@@ -38,7 +38,7 @@ plot_2D_HPP
 #so that they have the same expected # of events but why ???
 
 par(mfrow=c(1, 1))
-plot_2D_NPP <- plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 100*x)")
+plot_2D_NPP <- plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 400*x*y)")
 plot_2D_NPP
 #plot(rpoispp(lambda = function(x, y) 50*x, win=square(1)), main = "NPP (intensity = 50*x)")
 #plot(rpoispp(lambda = function(x, y) 10*x, win=square(1)), main = "NPP (intensity = 10*x)")

@@ -16,7 +16,7 @@ For example, if we were to count the numbers of events $N(t)$ such as the number
 
 ## 2.2 Poisson Process
 
-One of the simplest and most-widely used counting processes is Poisson processes. Here, we assume that the numbers (or arrivials) of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
+Poisson processes is one of the simplest and most-widely used point processes. Here, we assume that the numbers (or arrivials) of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 For example, if we were to model the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
 
@@ -25,7 +25,7 @@ For example, if we were to model the numbers of bus arrivals at a bus stop, the 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes. Previously, we assume that the rate $\lambda$ is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
+Nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes that allow the rate $\lambda$ to vary with function of time $g(t)$. Previously, we assume that the rate is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
@@ -51,7 +51,7 @@ Specific models of cluster processes depend on the choices of assumptions.
 
 Hawkes process is also known as a self-exciting point process.  
 
-In Hawkes processes, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$. 
+In Hawkes processes, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to aomw time $t$. 
 
 Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of future events. 
 
