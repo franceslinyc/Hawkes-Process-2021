@@ -41,11 +41,31 @@ df_HPP = tibble(
 
 p_HPP <- ggplot(data=df_HPP, mapping=aes(x=x, y=y)) +
   geom_step() + 
-  labs(title = "Homogeneous Poisson Process lambda(t) = t", 
+  labs(title = "Homogeneous Poisson Process lambda = ", 
        x = "t", 
        y = "N(t)")
 p_HPP
 ```
 
+```{r}
+# Plot time plot
+df_HPP <- df_HPP %>% add_column(
+  t_fix = rep(2, length(df_HPP$x))
+) 
 
+p_HPP_time <- ggplot(data=df_HPP, mapping=aes(x=x, y=t_fix, label = y)) +
+  geom_point(size=0.5) + 
+  ylim(c(1,3)) +
+  labs(title = "Corresponding Inter-Arrivial Times", 
+       x = "t", 
+       y = "y-axis has no meaning") + 
+  geom_text(vjust=4, size=1)
+
+p_HPP_time
+```
+
+```{r}
+require(gridExtra)
+grid.arrange(p_HPP, p_HPP_time)
+```
 
