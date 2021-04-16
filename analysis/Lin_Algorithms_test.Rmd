@@ -1,0 +1,33 @@
+---
+title: "Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations"
+author: "Frances Lin"
+date: "June 2021"
+output: 
+  pdf_document:
+    keep_tex: true
+    includes:
+      in_header: header.tex
+---
+
+```{r}
+#tinytex::reinstall_tinytex()
+```
+
+```{cat, engine.opts = list(file = "header.tex")}
+\renewcommand{\linethickness}{0.05em}
+```
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+
+# Heading
+***
+
+Text
+
+***
+
+\begin{center}\rule{6in}{0.4pt}\end{center}

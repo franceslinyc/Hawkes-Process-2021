@@ -1,0 +1,43 @@
+---
+title: "Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations"
+author: "Frances Lin"
+date: "June 2021"
+output: pdf_document
+---
+
+## Algorithm 1: Simulations of HPP
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+\ \ Input $\lambda$, $t_{max}$
+
+1. Initialize $t$, $t_{vector}$
+
+2. **while** ($t \leq t_{max}$)
+
+3. \ \ Generate $u \sim U(0,1)$
+
+4. \ \ Set $t_{current}$ = $t + w$ where $w \sim exp(\lambda^{*} = \lambda)$ 
+
+5. \ \ **if** ($t_{current} \leq t_{max}$)
+
+6. \ \ | Add $t_{vector}$ = $c(t_{vector}, t_{current})$
+
+6. \ \ **else**
+
+7. \ \ | **return** $\{t_{k}\}_{k = 0, 1,... }$
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+
+
+
+## Algorithm 2: Simulations of NPP via Thinning Algorithm
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+1.
+
+2.
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
