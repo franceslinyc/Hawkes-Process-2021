@@ -7,7 +7,7 @@ output: pdf_document
 
 ## 2.1 Counting Process
 
-Counting processes deal with the numbers (or arrivials) of events over time.
+Counting processes deal with the numbers (or occurrences) of events over time.
 
 For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can consider using counting processes.
 
@@ -16,7 +16,7 @@ For example, if we were to count the numbers of events $N(t)$ such as the number
 
 ## 2.2 Poisson Process
 
-Poisson processes is one of the simplest and most-widely used point processes. Here, we assume that the numbers (or arrivials) of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
+Poisson processes is one of the simplest and most-widely used point processes. Here, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 For example, if we were to model the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
 
@@ -25,7 +25,7 @@ For example, if we were to model the numbers of bus arrivals at a bus stop, the 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes that allow the rate $\lambda$ to vary with function of time $g(t)$. Previously, we assume that the rate is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
+Nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes that allow the rate $\lambda$ to vary with function of time $t$. Previously, we assume that the rate is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
 
 For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider using nonhomogeneous Poisson processes. 
 
@@ -34,7 +34,7 @@ For example, if we were to model the number of customers arriving at a supermark
 
 ## 2.4 Cox and Cluster Process
 
-In previous cases, we assume independence. That is, whether events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss models that allow dependence between events. 
+In previous cases, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they occur independently. Here, we discuss models that allow dependence between events. 
 
 In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (t)$ is treated as random. 
 
@@ -49,9 +49,9 @@ Examples that can be modelled using Cox and cluster processes include seedlings 
 
 Hawkes process is also known as a self-exciting point process. (?) Hawkes processes can be temporal or spatio-temporal. When we retain the spatial components of Hawkes's, it becomes closely related to Cox processes.
 
-In Hawkes processes, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to aomw time $t$. 
+In Hawkes processes, the events also do not occur independently. The occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. 
 
-Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of future events. 
+Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
 
 
 
