@@ -36,20 +36,18 @@ For example, if we were to model the number of customers arriving at a supermark
 
 In previous cases, we assume independence. That is, whether events arrive at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they arrive independently. Here, we discuss models that allow dependence between events. 
 
-Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
-
 In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (t)$ is treated as random. 
 
 In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. Altogether **Y** and $Z_{ij}$ form a Cox process **X** and only **X** is observed. 
 
-Specific models of cluster processes depend on the choices of assumptions.
+Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
 
 
 
 
 ## 2.5 Hawkes Process 
 
-Hawkes process is also known as a self-exciting point process.  
+Hawkes process is also known as a self-exciting point process. (?) Hawkes processes can be temporal or spatio-temporal. When we retain the spatial components of Hawkes's, it becomes closely related to Cox processes.
 
 In Hawkes processes, the events also do not arrive independently. The arrivial rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to aomw time $t$. 
 

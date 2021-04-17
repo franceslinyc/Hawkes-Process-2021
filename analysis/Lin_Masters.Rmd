@@ -220,6 +220,10 @@ In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters ar
 
 Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, we have Matern cluster process and Thomas cluster process. 
 
+**2.4.1** Specific models of cluster processes depend on the choices of assumptions.
+
+
+
 
 ## 2.5 Hawkes Process 
 
