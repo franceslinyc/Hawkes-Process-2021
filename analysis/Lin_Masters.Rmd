@@ -129,13 +129,7 @@ In other words, 1. the process starts at $t = 0$, 2. the increments are independ
 1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\lambda t)$. That is, for all $s, t \geq 0$
 
 $$
-P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
-$$
-
-or 
-
-$$
-P(N(t + s) - N(s) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
+P(N(t + s) - N(s) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
 $$
 
 $n = 0, 1,...$. 
@@ -150,7 +144,7 @@ $$
 This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
 
 $$
-P(W_2 > t | W_1 = s) = P(N(t + s) - N(s)) = P(N(t) = 0) = e^{-\lambda t}. 
+P(W_2 > t | W_1 = s) = P(N(t + s) - N(s) | N(s) - N(s^{-}) = 1) = P(N(t + s) - N(s)) = P(N(t) = 0) = e^{-\lambda t}. 
 $$
 
 
@@ -186,18 +180,30 @@ $$
 P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{-\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
 $$
 
-or if we let n to be the numbers of events occur in the interval $[a, b]$, then 
-
-$$
-P(N(b) - N(a) = n) = \frac{(\int_{a}^{b} \lambda (s) ds)^n e^{-\int_{a}^{b} \lambda (s) ds}} {n!} \ \ 
-$$
-
 $n = 0, 1,...$ 
 
+2. The law of occurance for the next point can be determined by 
+
+$$
+P(N(a,b] = 0) = e^{- \int_{a}^{b} \lambda (s) ds} .
+$$
 
 
 
-In the following sections, we discuss conditional intensity models. Such models include Cox, cluster, and Hawkes processes. 
+
+In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First, we want to define conditional intensity function.
+
+**Definition 2.4.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $lambda(t)$ associated with $N(t)$ is defined as 
+
+$$
+\lambda(t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0) | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
+$$
+
+where $\mathcal{H}_t$ is the history prior to time $t$ 
+
+? hazard function
+
+? Still don't see connection
 
 ## 2.4 Cox and Cluster Process
 
@@ -334,7 +340,7 @@ where
 
 
 
-Next, we 
+Next, we simulate... through... and packages.  
 
 
 
