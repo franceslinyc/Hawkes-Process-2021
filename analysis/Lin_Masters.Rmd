@@ -201,9 +201,9 @@ $$
 
 where $\mathcal{H}_t$ is the history prior to time $t$ 
 
-? hazard function
+(?) Hazard function
 
-? Still don't see connection
+(?) Still don't see connection
 
 ## 2.4 Cox and Cluster Process
 
@@ -213,7 +213,13 @@ $$
 P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!} = 
 $$
 
-? How to get here
+(?)
+
+$$
+\Lambda (u) \overset{a.s.} =  \int_u \lambda (x) dx
+$$
+
+(?) How to get here
 
 $$
 = \int_{0}^{\infty} \frac{x^n e^{-x} F_u(dx)} {n!}
@@ -420,4 +426,10 @@ Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encycloped
 
 [Poisson Process](https://www.probabilitycourse.com/chapter11/11_1_2_basic_concepts_of_the_poisson_process.php)
 
-[Nonhomogeneous Poisson Processes](https://www.probabilitycourse.com/chapter11/11_1_4_nonhomogeneous_poisson_processes.php)
+[Nonhomogeneous Poisson Process](https://www.probabilitycourse.com/chapter11/11_1_4_nonhomogeneous_poisson_processes.php)
+
+[Cox Process](https://en.wikipedia.org/wiki/Point_process#Cox_point_process)
+
+
+
+
