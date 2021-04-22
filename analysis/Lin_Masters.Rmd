@@ -129,6 +129,12 @@ In other words, 1. the process starts at $t = 0$, 2. the increments are independ
 1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\lambda t)$. That is, for all $s, t \geq 0$
 
 $$
+P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
+$$
+
+or 
+
+$$
 P(N(t + s) - N(s) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
 $$
 
@@ -174,35 +180,61 @@ $$
 
 **Proposition 2.2.2** Nonhomogeneous Poisson process has the following properties
 
-1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
+1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
 
 $$
-P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
+P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{-\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
 $$
 
-or 
+or if we let n to be the numbers of events occur in the interval $[a, b]$, then 
 
 $$
-P(N(b) - N(a) = n) = \frac{(\int_{a}^{b} \lambda (s) ds)^n e^{\int_{a}^{b} \lambda (s) ds}} {n!} \ \ 
+P(N(b) - N(a) = n) = \frac{(\int_{a}^{b} \lambda (s) ds)^n e^{-\int_{a}^{b} \lambda (s) ds}} {n!} \ \ 
 $$
 
 $n = 0, 1,...$ 
 
-2. 
 
 
 
+In the following sections, we discuss conditional intensity models. Such models include Cox, cluster, and Hawkes processes. 
 
 ## 2.4 Cox and Cluster Process
 
-**Definition 2.4.1**  (Cox Process) Let **X** be a Poisson process with intensity function $\Lambda (t)$, then **X** is a Cox process with intensity function $\lambda (t) = E(\Lambda (t))$.
+**Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that $\Lambda (u)$ is a locally integrable function. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is, 
+
+$$
+P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!} = 
+$$
+
+? How to get here
+
+$$
+= \int_{0}^{\infty} \frac{x^n e^{-x} F_u(dx)} {n!}
+$$
+
+Note. $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable $\forall u \in S$.
+
+Note. $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally intergrable with probabiliy 1. 
+
+**Proposition 2.4.1** Propertities of Cox process are as follow
+
+1. Propertities of Cox process X follow immediately from the properties of Poisson process X | $\Lambda$. For example, if $\Lambda$ is stationary, then X is stationary. 
+
+2. For bounded $B \subseteq S$, the void probabilities are given by
+
+$$
+\nu (B) = E(P(N(B) = 0) | \Lambda) = E(exp (- \int_B Z(u) du)). 
+$$
+
+Note. The void (or avoidance) probability $\nu$ is defined as the probability that no points of a point process N existing in B where B is a subset of the underlying space $R^d$. 
 
 **Definition 2.4.2** (Cluster Process) 
 
 
 
 
-**Proposition 2.4.1** Cluster Process has the following model assumptions
+**Proposition 2.4.2** Cluster Process has the following model assumptions
 
 1. Poisson parents
 
@@ -220,15 +252,10 @@ In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters ar
 
 Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, we have Matern cluster process and Thomas cluster process. 
 
-**2.4.1** Specific models of cluster processes depend on the choices of assumptions.
-
 
 
 
 ## 2.5 Hawkes Process 
-
-
-
 
 **Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 
@@ -314,24 +341,32 @@ Next, we
 
 # 3 Algorithms and Simulations
 
-## 3.1 Counting Process
-
 ## 3.2 Poisson Process
+
+## Algorithm 1
+
+
+
 
 ## 3.3 Nonhomogeneous Poisson Process
 
 There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion, 2) order statistics, 3) thinning and 4) hybride (inversion $+$ thinning). 
 
-In this example, we use the thinning algorithm to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
+In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
 
-Broadly put, thinning algorithm involves deleting points from a point pattern. 
+Broadly put, thinning algorithm involves randomly deleting points from a point pattern. 
 
-## 3.4 Cox and Cluster Process 
+## Algorithm 2
 
-The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
+
 
 
 ## 3.5 Hawkes Process 
+
+## Algorithm 3
+
+
+
 
 ## 3.5 Plots in 2D
 
@@ -343,6 +378,7 @@ NPP
 
 Matern process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent.
 
+The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
 
 # 4 Conclusions and Discussion
 
