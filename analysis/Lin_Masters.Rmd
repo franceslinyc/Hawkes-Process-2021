@@ -191,12 +191,12 @@ $$
 
 
 
-In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First, we want to define conditional intensity function.
+In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First we want to define the conditional intensity function.
 
 **Definition 2.4.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
 
 $$
-\lambda(t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0) | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
+\lambda(t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
 $$
 
 where $\mathcal{H}_t$ is the history prior to time $t$ but can also be... Wiki: Intensity of a point process
@@ -372,6 +372,8 @@ Broadly put, thinning algorithm involves randomly deleting points from a point p
 
 
 
+
+Similarly, there are multiple ways to simulate Hawkes process. Here we use thinning algorithm (or acceptance-rejection method) 
 
 ## 3.5 Hawkes Process 
 
