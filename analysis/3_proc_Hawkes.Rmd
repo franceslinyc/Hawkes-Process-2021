@@ -1,0 +1,122 @@
+---
+title: "3_proc_Hawkes"
+author: "Frances Lin"
+date: "4/22/2021"
+output: pdf_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+# Simuluate HPP 
+set.seed(1) # for reproducibility
+
+t_max <- 10 
+t <- 0 
+
+lmbda <- 10
+
+t_vec <- numeric(0) # vector of t # consider change it to t_vec
+
+while(t <= t_max){
+  u       <- runif(1)
+  t       <-  t - log(u)/lmbda                # t ~ exp(1/lambda)
+  if(t < t_max) {
+    t_vec <- c(t_vec,t)                       
+  }
+}
+```
+
+```{r}
+# Create lambda(t) function
+
+mu = 0.5
+alpha = 0.7
+beta = 0.5
+
+lmbda_fun <- function(time){
+  diff = time - t_vec
+  diff = diff[diff > 0]
+  a = sum(alpha * exp(-beta * diff))
+  out = mu + a
+  return(out)
+}
+```
+
+```{r}
+lmbda_star <- sapply(X = t_vec, FUN = lmbda_fun)
+lmbda_star
+```
+
+```{r}
+# Plot lmbda_star 
+# Not thinned yet
+x_max = length(lmbda_star) - 1
+plot(x = 0:x_max, y = lmbda_star)
+```
+
+```{r}
+# while(t <= t_max){
+#   if(runif(1) < min(lmbda/lmbda_star, 1)){
+#     X_keep <- c(X, t)
+#   }
+#   return(X_keep)
+# }
+```
+
+```{r}
+# length(X_keep)
+```
+
+```{r}
+# Try Jame's way 
+lmbda <- 10
+p_keep <- lmbda / lmbda_star
+t_keep <- t_vec[runif(length(p_keep)) < min(p_keep, 1)]
+t_keep
+```
+
+```{r}
+# Plot using ggplot2
+# Create a df
+df_Hawkes = tibble(
+  x = t_keep, 
+  y = 0:(length(t_keep) - 1)
+)
+
+p_Hawkes <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=y)) +
+  geom_step() + 
+  labs(title = "Hawkes Process", 
+       x = "t", 
+       y = "N(t)")
+#p_Hawkes
+```
+
+```{r}
+# Plot time plot
+df_Hawkes <- df_Hawkes %>% add_column(
+  t_fix = rep(2, length(df_Hawkes$x))
+) 
+
+p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=t_fix)) +
+  geom_point(size=0.5) + 
+  ylim(c(1,3)) +
+  labs(title = "Corresponding Inter-Arrivial Times", 
+       x = "t", 
+       y = "y-axis has no meaning")
+#p_Hawkes_time
+```
+
+```{r}
+require(gridExtra)
+grid.arrange(p_Hawkes, p_Hawkes_time)
+```
+
+
+```{r}
+# Plot lambda_star vs t
+```
+
