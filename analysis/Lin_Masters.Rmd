@@ -245,12 +245,18 @@ $$
 
 Note. The void (or avoidance) probability $\nu$ is defined as the probability that no points of a point process N existing in B where B is a subset of the underlying space $R^d$. 
 
-**Definition 2.4.2** (Cluster Process) 
+**Definition 2.4.2** (Cluster Process) Let $x$ be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$, then the union of all the clusters forms a cluster process $N_c$. That is, 
+
+$$
+N_c = \bigcup_{x \in N} N_x
+$$
+
+In addition, condition on..., the cluster process has the intensity function...
 
 
 
 
-**Proposition 2.4.2** Cluster Process has the following model assumptions
+**Proposition 2.4.2** Cluster process has the following model assumptions
 
 1. Poisson parents
 
@@ -322,9 +328,15 @@ $$
 
 1. Intensity-based Hawkes Process
 
+Here, Hawkes process is defined through conditional intensity process. 
+
+In **Section 3.5**, we discuss algorithm for simulating intensity-based Hawkes process in details.
+
+
+
 2. Cluster-based Hawkes Process
 
-
+Alternatively, Hawkes process can also be defined through marked Poisson cluster process. 
 
 
 ## 2.5 Spatio-Temporal Hawkes Process 

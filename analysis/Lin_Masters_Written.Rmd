@@ -42,7 +42,7 @@ Examples that can be modelled using Cox and cluster processes include seedlings 
 
 In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (u)$ is treated as random. Examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
 
-In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a Cox process **X** and only **X** is observed.
+In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
 
 Specific models of cluster processes depend on the choices of assumptions. Examples of cluster processes include Neyman-Scott process, Matern cluster process, and Thomas cluster process. 
 
