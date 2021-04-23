@@ -12,11 +12,9 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Description:
 
-Reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder. 
+Main report can be found: [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters.pdf) and the written parts can be found: [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Written.pdf). 
 
-Main report can be found: [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters.pdf) and written parts can be found: [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Written.pdf).
-
-In addition, 
+Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
 1_proc_HPP.Rmd simulates HPP
 
