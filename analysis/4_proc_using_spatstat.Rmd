@@ -90,3 +90,4 @@ plot(rMaternII(kappa = 100, r = 0.05), main = "Matern II (kappa = 100, r = 0.05)
 ```
 
 
+
