@@ -1,5 +1,5 @@
 ---
-title: "Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations"
+title: "Lin_Algorithms"
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
@@ -32,7 +32,7 @@ output: pdf_document
 
 
 
-## Algorithm 2: Simulations of NPP via Thinning Algorithm
+## Algorithm 2: Simulations of NPP via Thinning Algorithm (May skip)
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
@@ -41,3 +41,20 @@ output: pdf_document
 2.
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
+
+
+
+
+
+## Algorithm 3: Simulations of Hawkes Process via Thinning Algorithm
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+1.
+
+2.
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+
+
