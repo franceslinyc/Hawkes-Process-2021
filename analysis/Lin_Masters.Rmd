@@ -191,7 +191,7 @@ $$
 
 
 
-In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First we want to define the conditional intensity function.
+In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First, we want to define the conditional intensity function.
 
 **Definition 2.4.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
 
@@ -262,7 +262,7 @@ Note. The void (or avoidance) probability $\nu$ is defined as the probability th
 
 In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of each other, 3. clusters, when shifted, have the same distributions, 4. the locations of 'offspring' points of each parent point are independently and identically distributed, 5. the numbers of 'offspring' points of each parent point follow a Poisson distribution, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
 
-Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, we have Matern cluster process and Thomas cluster process. 
+Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, they are Matern cluster process and Thomas cluster process. 
 
 
 
@@ -373,7 +373,7 @@ Broadly put, thinning algorithm involves randomly deleting points from a point p
 
 
 
-Similarly, there are multiple ways to simulate Hawkes process. Here we use thinning algorithm (or acceptance-rejection method) 
+Similarly, there are multiple ways to simulate Hawkes process. Here, we use thinning algorithm (or acceptance-rejection method) 
 
 ## 3.5 Hawkes Process 
 
@@ -382,7 +382,7 @@ Similarly, there are multiple ways to simulate Hawkes process. Here we use thinn
 
 
 
-## 3.5 Plots in 2D
+## 3.6 Plots in 2D
 
 All the following plots are created using the **spatstat** package in `R`. 
 
@@ -395,6 +395,11 @@ Matern process involves generating homogeneous Poisson parents and each parent g
 The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
 
 # 4 Conclusions and Discussion
+
+
+
+
+# 5 Recent Advancement
 
 
 
