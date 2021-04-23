@@ -21,15 +21,17 @@ Hawkes process is also known as a self-exciting point process.
 
 Applications of Hawkes processes can be found in a wide variety of fields such as seismology, criminology, insurance, finance, social network, and neuroscience.
 
-The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In insurance, an event can be a standard claim that increases claims. In finance, an event can be a transcation that influences future prices or volumes of transcations or a news that leads to movements in stock prices or trading behaviors. In social network, an event can be a tweet about an event on Twitter that follows a cascade of retweets from other users on the same social networking platform. In neuroscience, an event can be firing of a neuron that triggers spikes (or action potentials) of other neurons.
+The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. 
+
+Applications of Hawkes processes can aso be found in modelling insurance claims, financial transcations, social network events, and neuron activities. 
 
 ## Objectives
 
 The objectives of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes process. The overview includes
 
-1. defining and discussing properties of counting process, (homogeneous) Poisson process, nonhomogeneous Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
+1. defining and discussing properties of counting process, (homogeneous and nonhomogeneous) Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
 
-2. discussing the algorithms and simulating all of the above processes,
+2. discussing the algorithms and simulating the processes,
 
 3. extending (temporal) Hawkes process to spatio-temporal Hawkes process, and
 
@@ -119,6 +121,8 @@ $$
 
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
+where $o(h)$ function of little o... 
+
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
 
@@ -201,7 +205,7 @@ $$
 
 where $\mathcal{H}_t$ is the history prior to time $t$ but can also be... Wiki: Intensity of a point process
 
-(?) Still don't see connection
+(?) Still don't quite see connection to Cox and cluster process
 
 (?) Hazard function
 
