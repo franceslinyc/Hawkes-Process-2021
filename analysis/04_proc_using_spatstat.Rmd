@@ -48,7 +48,7 @@ plot_2D_NPP
 ?rMatClust
 #kappa = intensity
 #scale = radius of the clusters
-#mu = mean # of points per cluster or reference intensity ???
+#mu = mean # of points per cluster
 ```
 
 ```{r}
@@ -63,11 +63,15 @@ plot_2D_Matern
 ```
 
 ```{r}
-# Plot a Matern I process
+# Plot a Matern I process #Inhibition 
 par(mfrow=c(1, 1))
-plot(rMaternI(kappa = 100, r = 0.05), main = "Matern I (kappa = 100, r = 0.05)")
+plot(rMaternI(kappa = 100, r = 0.1), main = "Matern I (kappa = 100, r = 0.05)")
 #plot(rMaternI(kappa = 50, r = 0.05), main = "Matern I (kappa = 50, r = 0.05)")
 #plot(rMaternI(kappa = 10, r = 0.05), main = "Matern I (kappa = 10, r = 0.05)")
+points <- rMaternI(kappa = 100, r = 0.07)
+length(points)
+pairdist(points)
+min(pairdist(points)[upper.tri(pairdist(points))])
 ```
 
 ```{r}
