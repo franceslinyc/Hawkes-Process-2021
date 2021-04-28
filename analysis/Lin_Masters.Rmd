@@ -37,7 +37,7 @@ Given the flexibility and applicability of Hawkess processes, it is surprising t
 
 ## Objectives
 
-The objectives of this project is then to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes process. The overview includes
+The objective of this project is then to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes process. The overview includes
 
 1. introducing, defining and discussing properties of counting process, (homogeneous and nonhomogeneous) Poisson process, cluster process, Hawkes process, and spatio-temporal Hawkes process,
 
@@ -56,7 +56,8 @@ The objectives of this project is then to give an overview of various types of p
 
 Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes.
 
-Before formally defined counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$. The differences between stocastic process and point process are not clear, but they are included to help defining counting process. The definion of stocastic process and point process are as follow. 
+Before formally define counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$ (or by space $s$, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to help defining counting process. The definion of stocastic process and point process are as follow. 
+
 
 **Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 
@@ -86,7 +87,7 @@ $$
 
 
 
-Here, if we let the first occurrence of event occurs at $time = T_1$, the 2nd occurence of event occurs at $time = T_2$, and so on, then with counting process, we again sum up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on.
+Here, if we let the first occurrence of event occurs at $time = T_1$, the 2nd occurence of event occurs at $time = T_2$, and so on, then with counting process, we again add up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on.
 
 **A PICTURE HERE WOULD HELP**
 
@@ -133,7 +134,7 @@ In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ a
 
 Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with $rate = 100$ in $\mathbb{R}^2$. The figure in the middle is a realization of NPP (nonhomogeneous Poisson process) with $intensity = 400xy$ in $\mathbb{R}^2$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
 
-We elaborate more and discuss in details each type of point process in the following sections. For now, we can see that while HPP points... and NPP points..., Matern cluster process points appear clustered. 
+We can see that while HPP points...... and NPP points......, Matern cluster process points appear clustered. We elaborate more and discuss in details each type of point process in the following sections. 
 
 \newpage
 
@@ -153,16 +154,16 @@ We elaborate more and discuss in details each type of point process in the follo
 
 4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
 
-where $o(h)$ function of little o... 
+where $o(h)$ function of little o...... 
 
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
-Again, we denote the total number of events as $N(t)$. We also denote the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$.
+
+
 
 **A PICTURE HERE WOULD HELP**
 
-
-
+Again, we denote the total number of events as $N(t)$. We also denote the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$.
 
 In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
