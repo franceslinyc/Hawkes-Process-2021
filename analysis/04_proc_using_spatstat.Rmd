@@ -12,6 +12,17 @@ library(here)
 ```
 
 ```{r}
+par(mfrow=c(1, 3))
+plot(rpoispp(lambda = 100, win=square(1)), main="") #plot_2D_HPP
+plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main="") #plot_2D_NPP
+plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main="") #plot_2D_Matern
+
+#HPP (rate = 100)
+#NPP (intensity = 400*x*y)
+#Matern (kappa = 20, r = 0.05, mu = 5)
+```
+
+```{r}
 # Check to see how to use the function 
 ?rpoispp
 # Check to see how this is written
