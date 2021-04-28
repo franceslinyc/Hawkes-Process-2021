@@ -14,11 +14,7 @@ Counting processes count the occurrences (or numbers) of events over time. For e
 
 ## 2.2 Poisson Process
 
-Poisson processes is one of the simplest and most-widely used point processes. 
-
-For example, if we were to model the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can consider modelling using Poisson processes.
-
-Here, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
+(Homogeneous) Poisson Process (HPP) is one of the simplest and most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
 
 
 

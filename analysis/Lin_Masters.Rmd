@@ -74,7 +74,7 @@ $$
 
 
 
-Here, we define a functnion $N(t)$ such that it counts the total number of events up to some time $t$. For example, the total number of event from $t=0$ up to $t=1$ is denoted as $N(0)$, the total number of events from $t=1$ up to $t=2$ is denoted as $N(1)$, and so on. 
+Next, we define a functnion $N(t)$ such that it counts the total number of events up to some time $t$. For example, the total number of event from $t=0$ up to $t=1$ is denoted as $N(0)$, the total number of events from $t=1$ up to $t=2$ is denoted as $N(1)$, and so on. 
 
 
 **Definition 2.1.3** (Counting Process) Let $N(t)$ be the total number of events up to some time $t$ such that the values are nonnegative, interger and nondecreasing, a stocastic process is said to be a counting process and is defined as 
@@ -86,9 +86,12 @@ $$
 
 
 
-Next, if we let the first occurrence of event occurs at $T_1$, the 2nd occurence of event occurs at $T_2$, and so on, then with counting process, we again sum up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on.
+Here, if we let the first occurrence of event occurs at $time = T_1$, the 2nd occurence of event occurs at $time = T_2$, and so on, then with counting process, we again sum up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on.
 
-A PICTURE HERE MIGHT HELP
+**A PICTURE HERE WOULD HELP**
+
+
+
 
 **Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in N}$ be a point process, a counting process associated with $\{T_i\}_{i \in N}$ is defined as
 
@@ -109,23 +112,36 @@ $$
 
 4. If $s < t$, then $N(t) - N(s)$ is the number of events occur in the interval (s, t]
 
-
+In other words, 1. the total number of events has to $\geq 0$, 2. the total number of events is an integer,...... 
 
 
 **Proposition 2.1.1** A counting process has the following properties
 
-1. (Independence) If the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, a counting process is said to have independent increments.
+1. Independence
 
-2. (Stationarity) If the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, a counting process is said to have stationary increments. 
+2. Stationarity
 
-3. (Homogeneity) If the transition probability between any two states at two times depends only on the difference between the states, a stochastic process is said to be homogeneous. Stationarity implies homogeneity.
+3. Homogeneity
 
+In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
 
+\newpage
+
+## A Motivating Example 
+
+![Left: HPP (rate = 100) Middle: NPP (intensity = 400*x*y) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
+
+Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with $rate = 100$ in $\mathbb{R}^2$. The figure in the middle is a realization of NPP (nonhomogeneous Poisson process) with $intensity = 400xy$ in $\mathbb{R}^2$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
+
+We elaborate more and discuss in details each type of point process in the following sections. For now, we can see that while HPP points... and NPP points..., Matern cluster process points appear clustered. 
+
+\newpage
 
 ## 2.2 Poisson Process
 
+(Homogeneous) Poisson Process (HPP) is one of the simplest and most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
 
-
+(Homogeneous) Poisson Process has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the definition as follows.
 
 **Definition 2.2.1** (Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$ 
 
@@ -141,8 +157,14 @@ where $o(h)$ function of little o...
 
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
+Again, we denote the total number of events as $N(t)$. We also denote the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$.
 
-**Proposition 2.1.1** Poisson process has the same (?) properties as those of counting process. 
+**A PICTURE HERE WOULD HELP**
+
+
+
+
+In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 **Proposition 2.2.2** Poisson process has additional properties
 
