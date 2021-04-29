@@ -9,38 +9,30 @@ output: pdf_document
 
 Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes.
 
-
+Counting processes is independent, stationary, and homogeneous. In addition, 
 
 
 ## 2.2 Poisson Process
 
-(Homogeneous) Poisson Process (HPP) is one of the simplest and most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
+Homogeneous Poisson process (HPP) is one of the simplest and most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
+
+HPP is independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 
 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Nonhomogeneous Poisson processes is a generalization of homogeneous Poisson processes that allow the rate $\lambda$ to vary with function of time $t$. Previously, we assume that the rate is constant. If we have reasons to believe that the rate is not constant, we should consider modelling using nonhomogeneous Poisson processes.
+Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$.
 
-For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to 2pm, we should consider modelling using nonhomogeneous Poisson processes. 
+Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we should model using nonhomogeneous Poisson processes. 
+
+In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$.
 
 
 
 
 ## 2.4 Cox and Cluster Process
-
-In previous cases, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. Poisson process) or depend on an intensity function $\lambda (t)$ (e.g. nonhomogeneous Poisson process), they occur independently. Here, we discuss models that allow dependence between events. 
-
-Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
-
-(?) We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. 
-
-In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (u)$ is treated as random. Examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
-
-In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
-
-Specific models of cluster processes depend on the choices of assumptions. Examples of cluster processes include Neyman-Scott process, Matern cluster process, and Thomas cluster process. 
 
 
 
