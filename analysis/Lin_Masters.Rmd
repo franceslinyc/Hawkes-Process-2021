@@ -279,7 +279,7 @@ In Cox processes (or doubly stochastic Poisson process), the intensity function 
 
 In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
 
-Specific models of cluster processes depend on the choices of assumptions. **PICK ONE TO TALK IN DETAILS**. Matern cluster process...... Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
+Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
 
 \ 
 \ 
@@ -477,13 +477,13 @@ Similarly, there are multiple ways to simulate Hawkes process. Here, we use thin
 
 ## 3.6 Plots in 2D
 
-All the following plots are created using the **spatstat** package in `R`. 
+All of the corresponding plots can be found in the Appendix section and all of the plots in this section are created using the **spatstat** package in `R`. 
 
 HPP
 
 NPP
 
-Matern process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent.
+Matern cluster process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. kappa... $r$ specifies..., and $\mu$....
 
 The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
 
@@ -533,5 +533,8 @@ Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encycloped
 [Cox Process](https://en.wikipedia.org/wiki/Point_process#Cox_point_process)
 
 
+\newpage 
+
+# Appendix
 
 
