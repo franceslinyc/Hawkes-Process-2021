@@ -1,5 +1,6 @@
 ---
-title: "Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations"
+title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point
+  Processes and Some Simulations'
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
@@ -13,16 +14,24 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 # 1 Introduction 
 
+**TALK ABOUT DATA HERE (From broad to specific)** 
 
+- spatial data
 
+- According to..., there are three types of data. 
 
+- Point process data
 
+- Self-exciting point process
 
 Hawkes process is also known as a self-exciting point process. More specifically, the original Hawkes processes (e.g. ETAS model) are temporal, whereas the more recently developed spatio-temporal, self-exciting point processes have been extended from temporal Hawkess processes to account for both the spatial and temporal aspects of the data. 
 
 The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. 
 
-## Applications
+
+
+
+## Applications (Remove this when done)
 
 In addition to modelling earthquake epicenters in seismology and crime patterns in criminology, Hawkess processes have also been used in modelling events such as forest wildfires, insurance claims, financial transcations, social network events, neuron activities, and disease spread or transmission. Thus, it can be found in a wide variety of fields such as emergency and disaster management, insurance, finance, social network, neuroscience, and epidemiology.
 
@@ -31,9 +40,9 @@ More recent work have been focused on modelling...... and leveraging the power t
 
 
 
-## Motivation 
+## Motivation (Remove this when done)
 
-Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gain enough attentions from the machine learning communities, which would find their predicting capability practical. In addition, understanding Hawkess processes would benefit from knowing some of the relevant point processes (e.g. Cox, cluster processes), which are often left out from graduate-level, introductory spatial statistics and stochastic processes course. 
+Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gain enough attention from the machine learning communities, which would find their predicting capability beneficial. In addition, understanding Hawkess processes would benefit from knowing some of the relevant point processes (e.g. Cox, cluster processes), which are often left out from graduate-level, introductory spatial statistics and stochastic processes course. 
 
 ## Objectives
 
@@ -58,8 +67,10 @@ Counting processes count the occurrences (or numbers) of events over time. For e
 
 Counting processes is independent, stationary, and homogeneous. In addition,......  
 
-Before formally define counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$ (or by space $s$, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to help defining counting process. The definion of stocastic process and point process are as follow. 
+Before formally define counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$ (or by space $s$, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to define counting process. 
 
+\ 
+\ 
 
 **Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 
@@ -74,8 +85,8 @@ $$
 \{T_i\}_{i \in N}
 $$
 
-
-
+\ 
+\ 
 
 Next, we define a function $N(t)$ such that it counts the total number of events up to some time $t$. For example, the total number of event from $t=0$ up to $t=1$ is denoted as $N(0)$, the total number of events from $t=1$ up to $t=2$ is denoted as $N(1)$, and so on. 
 
@@ -86,8 +97,8 @@ $$
 \{N(t), t \geq 0\}
 $$
 
-
-
+\ 
+\ 
 
 Here, if we let the first occurrence of event occurs at $time = T_1$, the 2nd occurence of event occurs at $time = T_2$, and so on, then with counting process, we again add up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on.
 
@@ -136,7 +147,7 @@ In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ a
 
 Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$ in $\mathbb{R}^2$. The figure in the middle 1 is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$ in $\mathbb{R}^2$. The figure in the middle 2 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
 
-We can see that while HPP points appear randomly spaced and NPP points seem to concentrate at the upper-right corner, Matern cluster process points appear clustered. We elaborate more and discuss in details each type of point process in the following sections. 
+We can see that while HPP points appear randomly spaced and NPP points seem to concentrate at the upper-right corner, both Cox process and Matern cluster process points appear clustered. We elaborate more and discuss in details each type of point process in the following sections. 
 
 \newpage
 
@@ -170,6 +181,9 @@ In other words, 1. the process starts at $t = 0$, 2. the increments are independ
 
 **A PICTURE HERE WOULD HELP**
 
+\ 
+\ 
+
 Again, we denote the total number of events as $N(t)$. We also denote the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$.
 
 We assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
@@ -202,11 +216,11 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$.
+Assuming that the rate is constant is not that realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
 
 Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we should model using nonhomogeneous Poisson processes. 
 
-In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$.
+In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. 
 
 \ 
 \ 
@@ -223,6 +237,9 @@ In contrast to HPP, NPP is independent but not stationary nor homogeneous. In ad
 
 
 **Proposition 2.3.1** Nonhomogeneous Poisson process is independent but not stationary nor homogeneous. Homogeneous Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity, nonhomogeneous Poisson process is nonhomogeneous.
+
+\ 
+\ 
 
 Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, here we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity vary with function of time.
 
@@ -244,42 +261,21 @@ $$
 
 
 
-## Conditional Intensity Function
-
-In the following sections, we discuss conditional intensity models. Examples of such models include Cox, cluster, and Hawkes processes. First we want to define conditional intensity function since it is through the conditional intensity function a point process is fully characterized.
-
-\ 
-\ 
-
-**Definition 2.4.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
-
-$$
-\lambda(t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
-$$
-
-where $\mathcal{H}_t$ is the history prior to time $t$ but can also be... Wiki: Intensity of a point process
-
-(?) Still don't quite see connection to Cox and cluster process
-
-(?) Hazard function
 
 ## 2.4 Cox and Cluster Process
 
-Cox and cluster processes are processes that allow depdence between events. 
-
-Previously, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. HPP) or depend on an intensity function $\lambda (t)$ (e.g. NPP), they occur independently. Here, we discuss models that allow dependence between events. 
-
+Even more flexible models than NPP are Cox and cluster processes that allow depdence between events. Previously, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. HPP) or depend on an intensity function $\lambda (t)$ (e.g. NPP), they occur independently. Here, we discuss models that allow dependence between events. 
 Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
 
 We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. **ELABORATE MORE**. 
 
-In addition, Cox process conditions on (?) random field, whereas cluster process conditions on...... (?) in bounded region. 
+In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but the governing function $\Lambda (u)$ is also random, instead of governing by one single function $\lambda(t)$ also as in the case of a NPP. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. Other examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
 
-In Cox processes (or doubly stochastic Poisson process), the intensity function $\Lambda (u)$ is treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. Other examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
+In cluster processes, the randomness also arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
 
-In cluster processes, the randomness arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
+Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process.
 
-Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
+In addition, the differences between Cox process and cluster process are such that Cox process conditions on (?) random field, whereas cluster process conditions on...... (?) in bounded region. 
 
 \ 
 \ 
@@ -355,6 +351,23 @@ Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, th
 
 
 ## 2.5 Hawkes Process 
+
+Hawkes process...... 
+
+\ 
+\ 
+
+We can think of Hawkes process as a model that incorporates cluster process and conditional intensity function. 
+
+Conditional intensity function can be thought as the instantaneous rate of events per unit time. For example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is past history. It is worth noting that through the conditional intensity function a point process is fully characterized. 
+
+**Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
+
+$$
+\lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
+$$
+
+where $\mathcal{H}_t$ is the history prior to time $t$ here in the case of a Hawkes process.
 
 **Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 
@@ -436,13 +449,10 @@ where
 
 - ${t_i, i = 1,2,...}$ are the times of the events 
 
+\ 
+\ 
 
-
-
-Next, we simulate... through... and packages.  
-
-
-
+Next, we simulate some of the aforementioned point processes in 1D ($\mathbb{R}^1$) through algorithms and the processes in 2D ($\mathbb{R}^2$) using `R` packages.  
 
 # 3 Algorithms and Simulations
 
@@ -457,25 +467,25 @@ Next, we simulate... through... and packages.
 
 There are multiple ways to simulate nonhomogeneous Poisson process: 1) inversion, 2) order statistics, 3) thinning and 4) hybride (inversion $+$ thinning). 
 
-In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$ ... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
+In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate nonhomogeneous Poisson process with the intensity function $\lambda (t)=$... since it is one of the most popular choices for both temporal and spatio-temporal cases. 
 
-Broadly put, thinning algorithm involves randomly deleting points from a point pattern. 
+Broadly put, thinning algorithm involves randomly deleting points from a point pattern. **ELABORATE MORE**. 
 
 ## Algorithm 2
 
 
 
 
-Similarly, there are multiple ways to simulate Hawkes process. Here, we use thinning algorithm (or acceptance-rejection method) 
-
 ## 3.5 Hawkes Process 
+
+Similarly, there are multiple ways to simulate Hawkes process. Here, we use thinning algorithm (or acceptance-rejection method).  
 
 ## Algorithm 3
 
 
 
 
-## 3.6 Plots in 2D
+## 3.6 Simulations in 2D using the **spatstat** package in `R`
 
 All of the corresponding plots can be found in the Appendix section and all of the plots in this section are created using the **spatstat** package in `R`. 
 
@@ -483,7 +493,9 @@ HPP
 
 NPP
 
-Matern cluster process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. kappa... $r$ specifies..., and $\mu$....
+Cox process 
+
+Matern cluster process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
 
 The following functions use thinning algorithm. Simulations of Matern I and Matern II processes are generated using the `rMaternI` and `rMaternII` functions of the **spatstat** package. 
 
