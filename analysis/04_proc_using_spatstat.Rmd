@@ -9,18 +9,43 @@ output: pdf_document
 library(spatstat)
 library(tidyverse)
 library(here)
+library(mvtnorm)
+```
+
+```{r}
+# Cox?
+#rmvnorm(1, c(0.5, 0.5))
+```
+
+```{r}
+# Cox?
+#plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "") #plot_2D_NPP
+```
+
+```{r}
+# Cox?
+#fun <- function (x, y) x*y + rbeta(1, 1/5, 1/5)*400
+plot(rpoispp(lambda = rbeta(1, 1/5, 1/5)*150, win = square(1)), main = "")
+```
+
+```{r}
+# Cox?
+plot(rpoispp(lambda = rnorm(n = 1, 50, 0.05)), main = "") #plot_2D_Cox
 ```
 
 ```{r}
 set.seed(1234) 
 par(mfrow=c(1, 4), mai = c(0.1, 0.1, 0.1, 0.1))
-plot(rpoispp(lambda = 100, win=square(1)), main = "") #plot_2D_HPP
-plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "") #plot_2D_NPP
-plot(rpoispp(lambda = rexp(n = 1, rate = 1/100)), main = "") #plot_2D_Cox
-plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "") #plot_2D_Matern
+
+plot(rpoispp(lambda = 100, win=square(1)), main = "HPP (rate = 100)") #plot_2D_HPP
+plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "NPP (intensity = 400*x*y)") #plot_2D_NPP
+plot(rpoispp(lambda = rexp(n = 1, rate = 1/100)), main = "Cox Process") #plot_2D_Cox
+plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern Process") #plot_2D_Matern
 
 #HPP (rate = 100)
 #NPP (intensity = 400*x*y)
+#Cox Process
+#Matern Process
 #Cox (intensity = exp(n = 1, rate = 1/100))
 #Matern (kappa = 20, r = 0.05, mu = 5)
 ```
