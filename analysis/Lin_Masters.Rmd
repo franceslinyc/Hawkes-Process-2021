@@ -132,9 +132,9 @@ In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ a
 
 ## A Motivating Example 
 
-![Left: HPP (rate = 100) Middle: NPP (intensity = 400*x*y) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
+![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
 
-Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$ in $\mathbb{R}^2$. The figure in the middle is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$ in $\mathbb{R}^2$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
+Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$ in $\mathbb{R}^2$. The figure in the middle 1 is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$ in $\mathbb{R}^2$. The figure in the middle 2 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
 
 We can see that while HPP points appear randomly spaced and NPP points seem to concentrate at the upper-right corner, Matern cluster process points appear clustered. We elaborate more and discuss in details each type of point process in the following sections. 
 
@@ -509,8 +509,6 @@ The following functions use thinning algorithm. Simulations of Matern I and Mate
 # Reference
 
 Chen, Y. (2016). Thinning algorithms for simulating point processes. Florida State University, Tallahassee, FL.
-
-
 
 Obral, K. (2016). Simulation, estimation and applications of hawkes processes. (Master's thesis, University of Minnesota, Twin Cities, United States). 
 

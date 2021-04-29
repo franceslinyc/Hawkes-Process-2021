@@ -12,13 +12,16 @@ library(here)
 ```
 
 ```{r}
-par(mfrow=c(1, 3))
-plot(rpoispp(lambda = 100, win=square(1)), main="") #plot_2D_HPP
-plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main="") #plot_2D_NPP
-plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main="") #plot_2D_Matern
+set.seed(1234) 
+par(mfrow=c(1, 4), mai = c(0.1, 0.1, 0.1, 0.1))
+plot(rpoispp(lambda = 100, win=square(1)), main = "") #plot_2D_HPP
+plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "") #plot_2D_NPP
+plot(rpoispp(lambda = rexp(n = 1, rate = 1/100)), main = "") #plot_2D_Cox
+plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "") #plot_2D_Matern
 
 #HPP (rate = 100)
 #NPP (intensity = 400*x*y)
+#Cox (intensity = exp(n = 1, rate = 1/100))
 #Matern (kappa = 20, r = 0.05, mu = 5)
 ```
 
@@ -35,14 +38,14 @@ plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main="") #plot_2D_Matern
 # https://spatstat.org/SSAI2017/solutions/solution04.html
 
 par(mfrow=c(1, 1))
-plot_2D_HPP <- plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)")
+plot_2D_HPP <- plot(rpoispp(lambda = 100, win=square(1)), main = "HPP (rate = 100)")
 plot_2D_HPP
 #plot(rpoispp(lambda = 50, win=square(1)),main = "HPP (rate = 50)")
 #plot(rpoispp(lambda = 10, win=square(1)),main = "HPP (rate = 10)")
 ```
 
 ```{r}
-# Plot a homogeneous Poisson process
+# Plot a nonhomogeneous Poisson process
 # p.33 of https://spatstat.org/resources/spatstatJSSpaper.pdf
 
 #lmbda_function <- function(x, y) 400*x 
@@ -54,6 +57,16 @@ plot_2D_NPP
 #plot(rpoispp(lambda = function(x, y) 50*x, win=square(1)), main = "NPP (intensity = 50*x)")
 #plot(rpoispp(lambda = function(x, y) 10*x, win=square(1)), main = "NPP (intensity = 10*x)")
 ```
+
+```{r}
+# Plot a Cox process
+# p.80 of https://darrylmcleod.com/wp-content/uploads/2016/06/Analysing-spatial-point-patterns-in-R.pdf
+
+lmbda <- rexp(n = 1, rate = 1/100)
+X <- rpoispp(lmbda)
+plot(X, main = "Cox (intensity = exp(n = 1, rate = 1/100))")
+```
+
 
 ```{r}
 ?rMatClust
