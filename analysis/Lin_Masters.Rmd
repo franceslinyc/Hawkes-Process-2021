@@ -48,7 +48,7 @@ Given the flexibility and applicability of Hawkess processes, it is surprising t
 
 The objective of this project is then to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes process. 
 
-The outline of this project is as follows: In section 2, we introduce, define and discuss properties of counting process, (homogeneous and nonhomogeneous) Poisson process, cluster process, Hawkes process, and spatio-temporal self-exciting process. In section 3, we discussing the algorithms and simulating selected processes in 1D and 2D. In section 4 and 5, we discuss recent and future work of Hawkes process. 
+The outline of this project is as follows: In section 2, we introduce, define and discuss properties of counting process, (homogeneous and nonhomogeneous) Poisson process, cluster process, Hawkes process, and spatio-temporal self-exciting process. In section 3, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In section 4 and 5, we discuss recent and future work of Hawkes process. 
 
 
 
@@ -57,7 +57,7 @@ The outline of this project is as follows: In section 2, we introduce, define an
 
 ## 2.1 Counting Process
 
-Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes.
+Let us beging with counting process. Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes.
 
 Counting processes is independent, stationary, and homogeneous. In addition,......  
 
@@ -212,9 +212,9 @@ $$
 
 Assuming that the rate is constant is not that realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
 
-Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. For example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we should model using nonhomogeneous Poisson processes. 
+Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. Back to the supermarket example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we should model using nonhomogeneous Poisson processes. 
 
-In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. 
+In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. That is, the intensity now varies with the location of the time interval.
 
 \ 
 \ 
