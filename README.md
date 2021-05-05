@@ -12,7 +12,7 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Description:
 
-Main report can be found: [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters.pdf). 
+Main report can be found in [Lin_Masters](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters.pdf). 
 
 Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
