@@ -60,7 +60,7 @@ Let us begin with counting process. Counting processes count the occurrences (or
 
 The processes require that the total number of events $N(t)$ has to be greater than zero, the total number of events is an integer,...... In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
 
-Before formally define counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$ (or by space $s$ or by space-time, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to define counting process. 
+Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$ (or by space $s$ or by space-time, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to define counting process. 
 
 \ 
 \ 
@@ -261,15 +261,13 @@ Even more flexible models than NPP are Cox and cluster processes that allow depe
 
 Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
 
-We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. **ELABORATE MORE**. 
+We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. **ELABORATE MORE**. In addition, the differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random field, whereas points in cluster process cluster in some bounded region. 
 
-In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but the governing function $\Lambda (u)$ is also random, instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. Other examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
+In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. Other examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
 
-In cluster processes, the randomness also arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed.
+In cluster processes, the randomness also arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
 
 Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process.
-
-In addition, the differences between Cox process and cluster process are such that Cox process conditions on (?) random field, whereas cluster process conditions on...... (?) in bounded region. 
 
 \ 
 \ 
