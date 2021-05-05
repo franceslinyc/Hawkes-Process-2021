@@ -344,20 +344,21 @@ Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, th
 
 ## 2.5 Hawkes Process 
 
-Hawkes process is also known as a self-exciting point process. 
+Hawkes process is also known as a self-exciting point process. Like Cox and cluster process, the model also allows depdence between events. However, their depdence differs. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
 
-Like Cox and cluster process, the model also allows depdence between events. However, their depdence differ. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
+Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
 
-Because the intensity is now as a function of past history, a defining characteristic of Hawkes processes is that it self-excites. Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
-
-
+Because the intensity is now as a function of past history, a defining characteristic of Hawkes processes is that it self-excites. **WHY?** Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. **HOW?** These characteristics are captured by the triggering part $\phi(\cdot)$ of the intensity function $\lambda(t | \mathcal{H}_t)$. 
 
 
 We can think of Hawkes process as a model that incorporates cluster process and conditional intensity function. 
 
-Next we want to define conditional intensity function since it is through which a point process is fully characterized.
+\ 
+\ 
 
-Conditional intensity function can be thought as the instantaneous rate of events per unit time (, per unit space, or per unit space-time). For example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history.
+First we want to define conditional intensity function since it is through which a point process is fully characterized.
+
+Conditional intensity function can be thought as the instantaneous rate of events per unit time (, space or space-time). For example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history. 
 
 **Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
 
