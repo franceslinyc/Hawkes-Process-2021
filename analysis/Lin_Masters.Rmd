@@ -56,9 +56,9 @@ The objective of this project is to give an overview of various types of point p
 
 ## 2.1 Counting Process
 
-Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes.
+Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time. For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes. 
 
-Counting processes is independent, stationary, and homogeneous. In other words,...... In addition,......  
+The processes require that the total number of events $N(t)$ has to be greater than zero, the total number of events is an integer,...... In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
 
 Before formally define counting process, first we need to define stocastic process and point process. Stocastic process is a collection of random variables indexed by time $t$ (or by space $s$ or by space-time, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to define counting process. 
 
@@ -140,7 +140,7 @@ In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ a
 
 Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$ in $\mathbb{R}^2$. The figure in the middle 1 is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$ in $\mathbb{R}^2$. The figure in the middle 2 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
 
-We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. That is, points in Cox process cluster accordingly to some specified distribution, where points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
+We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
 
 \newpage
 
@@ -148,7 +148,7 @@ We can see that while HPP points appear randomly spaced, NPP points seem to conc
 
 Homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
 
-HPP is independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
+Like counting process, HPP is also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. 
 
 \ 
 \ 
@@ -209,9 +209,9 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Assuming that the rate is constant is not that realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
+Assuming that the rate is constant is often not realistic in practice. We may want a model that allows for more flexibility. Indeed, nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
 
-Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. Back to the supermarket example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we should model using nonhomogeneous Poisson processes. 
+Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. Back to the supermarket example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2pm, we could model using nonhomogeneous Poisson processes. 
 
 In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. That is, the intensity now varies with the location of the time interval.
 
@@ -339,7 +339,7 @@ In addition, condition on..., the cluster process has the intensity function...
 
 In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of each other, 3. clusters, when shifted, have the same distributions, 4. the locations of 'offspring' points of each parent point are independently and identically distributed, 5. the numbers of 'offspring' points of each parent point follow a Poisson distribution, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
 
-Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, they are Matern cluster process and Thomas cluster process. 
+Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, it can be a Matern cluster process or a Thomas cluster process. 
 
 
 
@@ -348,15 +348,18 @@ Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, th
 
 Hawkes process is also known as a self-exciting point process. 
 
-Like Cox and cluster process, the model also allows depdence between events. However, their conditional intensity function differ. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. However, neither Cox nor clust process captures the past history of events. 
+Like Cox and cluster process, the model also allows depdence between events. However, their depdence differ. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
 
-Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
+Because the intensity is now as a function of past history, a defining characteristic of Hawkes processes is that it self-excites. Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
+
+
+
 
 We can think of Hawkes process as a model that incorporates cluster process and conditional intensity function. 
 
-Before formally define counting process, first we need to define conditional intensity function since it is through which a point process is fully characterized.
+Next we want to define conditional intensity function since it is through which a point process is fully characterized.
 
-Conditional intensity function can be thought as the instantaneous rate of events per unit time (or space or space-time). For example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is past history.
+Conditional intensity function can be thought as the instantaneous rate of events per unit time (, per unit space, or per unit space-time). For example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history.
 
 **Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
 
