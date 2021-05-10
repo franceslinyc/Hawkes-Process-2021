@@ -40,7 +40,7 @@ df_Counting <- df_Counting %>% add_column(
 p_Counting_time <- ggplot(data=df_Counting, mapping=aes(x=x, y=t_fix)) +
   geom_point(size=0.5) + 
   ylim(c(1,3)) +
-  labs(title = "Corresponding Inter-Arrivial Times", 
+  labs(title = "Corresponding Arrivial Times", 
        x = "t", 
        y = "y-axis has no meaning") + 
   scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 1))
