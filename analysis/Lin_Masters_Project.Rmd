@@ -1,6 +1,5 @@
 ---
-title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point
-  Processes and Some Simulations'
+title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations'
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
@@ -14,9 +13,9 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 # 1 Introduction 
 
-Real-world data are often spatial, temporal, or spatio-temporal in nature. Spatial data (e.g. soil properties, housing prices) often involves locations such as points and areas. Temporal data (e.g. sensor readings, stock prices) often involves times such as moments and intervals. Spatio-temporal data involves both locations and times. Examples of spatio-temoral data include chemical wastes, forest inventories, remotely sensed images, earthquake epicenters, disease cases, map services and travel times, to name a few. 
+Real-world data are often spatial, temporal, or spatio-temporal in nature. Spatial data (e.g. soil properties, housing prices) often involves locations such as points and areas. Temporal data (e.g. sensor readings, stock prices) often involves times such as moments and intervals. Spatio-temporal data are data that relates to both locations and times. Examples of spatio-temoral data include forest inventories, remotely sensed images, earthquake epicenters, disease cases, map services and travel times, to name a few. 
 
-There are various models suitable for modelling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. We focus primarily on point process models here. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
+There are various models suitable for modelling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. We focus primarily on point process models. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
 
 
 
@@ -42,7 +41,7 @@ More recent work have been focused on modelling...... and leveraging the advance
 
 
 
-Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gain enough attention from the machine learning communities, which would find their predicting capabilities beneficial. In addition, understanding Hawkess processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. 
+Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gain enough attention from the machine learning communities, which would find their predictive capabilities beneficial. In addition, understanding Hawkess processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. 
 
 
  
@@ -56,14 +55,13 @@ The objective of this project is to give an overview of various types of point p
 
 ## 2.1 Counting Process
 
-Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time. 
-<!-- This is true for space, or space-time, or even in the most general sense, "A metric space" or some mathematical construct in which things occur and can be "counted"  -->
-For example, if we were to count the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket or the numbers of phone calls receiving at the help line up to some time $t$, we can use counting processes. 
-<!-- Include some examples of counting processes in space (trees in different parts of a forest) or space-time (number of earthquakes which have occurred in some place and in some time interval. -->
+Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time, space, space-time or, in the most general sense, a metric space in which events occur and can be counted. 
 
-The processes require that the total number of events $N(t)$ has to be greater than zero, the total number of events is an integer,...... In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
+A temporal example would be the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals. 
 
-Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$ (or by space $s$ or by space-time $t\times s$, but we restrict ourselves to time $t$ for now). The differences between stocastic process and point process are not clear, but they are included to define counting process. <!-- Change this last sentence to: A stochastic process and a point process are defined as ...-->
+For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The processes require that the total number of events $N(t)$ to be greater than zero, the total number of events is an integer,...... In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
+
+Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$, space $s$ or space-time $t\times s$, but we restrict ourselves to the time domain (or $\mathbb{R}^1$) again. Definitions of stochastic process and point process are given as follows 
 
 \ 
 \ 
@@ -82,11 +80,9 @@ $$
 $$
 
 \ 
-\
+\ 
 
-<!-- ... explain or give some examples of how these definitions are different. Point process relies the occurrence of an event which occurs at a specific point in time. Stochastic process is more general, it doens't have to be a point (though it could be) and instead could be related to a time interval, or a waiting time, or a "state" (red or blue) that changes over time, etc. -->
-
-Next, we define a function $N(t)$ such that it counts the total number of events up to some time $t$, or in some interval $(t_i, t_j]$ with $i < j$. For example, the total number of event from $t=0$ up to $t=1$ is denoted as $N((0, 1])$, the total number of events from $t=1$ up to $t=2$ is denoted as $N((1, 2])$, the total number of events up to time $t=5$ could be $N((0, 5]) = N(5)$, and so on. 
+Point process relies the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
 
 A counting process is then formally defined as
 
@@ -96,17 +92,16 @@ $$
 \{N(t), t \geq 0\}
 $$
 
+\newpage
+
+Let us look at a more explicit example. Suppose that $N(t)$ counts the numbers of event up to some time $t$ and if event occurs at time $t = 1, 1.5, 3, 5, 8, 9.5, 10$, then $N(4) = 3$ since 3 events occur in the time interval $(0, 4]$. 
+
+![Counting Process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png)
+
 \ 
 \ 
 
-Here, if we let the first occurrence of event occurs at $time = T_1$, the 2nd occurence of event occurs at $time = T_2$, and so on, then with counting process, we again add up the numbers incremently. Thus, $N(0)$ indicates the total number of events from $t=0$ up to $t=1$, which is $0$ since there is no event occur in $(0,1]$, $N(1)$ is the total number of events from $t=1$ up to $t=2$, which is $1$ since there is a total of one event occur in $(1,2]$, and so on. <!-- Be slightly more careful here since it's not clear "why" nothing has occurred in time 0 to 1. -->
-<!-- Idea: Let's give a more explicit example. If N(t) is counting up to some time t, and if we have events occurring at times 1, 1.5, 3, and 5, then N(4) = 3 since 3 events occurred in the time interval (0, 4] -->
-
-**A PICTURE HERE WOULD HELP**
-<!-- simluate some points along the x-axis and then call this axis "t". The y-axis then could be N(t), and then the plot would be a step function which shows the number of points which occur up until some time t. -->
-
-
-Counting processes can also be defined as
+An alternative definition of counting process is
 
 **Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in \mathbf{N}}$ be a point process, a counting process associated with $\{T_i\}_{i \in N}$ is defined as
 
@@ -114,9 +109,12 @@ $$
 N(t) = \sum_{i \in \mathbf{N}} I_{\{T_i \leq t\}}
 $$
 
-<!-- Give a reason why you might prefer this definition if you're interested in point processes. For example, why is this definition more beneficial as we get into Poisson processes, cluster processes, etc? -->
+*Give a reason why you might prefer this definition if you're interested in point processes. For example, why is this definition more beneficial as we get into Poisson processes, cluster processes, etc?*
 
-A useful corollary about counting processes which will be helpful to understand as we move into Poisson processes and then beyond is
+\ 
+\ 
+
+A useful corollary of counting process that would be helpful to understand as we move into Poisson processes and then beyond is
 
 *Corollary* **2.1.1** A counting process satisfies that
 
@@ -124,14 +122,13 @@ A useful corollary about counting processes which will be helpful to understand 
 
 2. $N(t)$ is an integer
 
-3. If $s \leq t$, then $N(s) \leq N(t)$ <!-- Counts don't "disappear", once something happens, we count it and don't forget about it (Counts always increase and never decrease) -->
+3. If $t \leq t+h$, then $N(t) \leq N(t+h)$
 
-4. If $s < t$, then $N(t) - N(s)$ is the number of events occur in the interval (s, t]
+4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
 
-In other words, 1. the total number of events has to $\geq 0$ <!-- something has to occur -->, 2. the total number of events is an integer <!-- Something occurs and we count it, or it doesn't occur and we dont. We don't have instance where something "kind of occurs" which would give decimal vlaues. -->,...... 
+In other words, 1. An event has to occur, 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value, 3. Counts always increase. Events don't disappear. Once we observe an event and count it, it remains in counts, and 4. The number of events in specific time interval can be obtained from subtracting the number of events in previous interval from that in current interval. 
 
-
-Furthermore, counting processes have the following properties.
+Furthermore, counting processes have the following properties. 
 
 **Proposition 2.1.1** A counting process has the following properties
 
@@ -143,23 +140,14 @@ Furthermore, counting processes have the following properties.
 
 In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
 
-\newpage
 
-## A Motivating Example 
-<!-- Consider moving this until after we introduce the different models so that way there's some idea as to what these different pictures are showing -->
+Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time, space, space-time or, in the most general sense, a metric space in which events occur and can be counted. 
 
-![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
-
-Before we delve into various point processes, let us first look at a motivating example. The figure on the left is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$ in $\mathbb{R}^2$. The figure in the middle 1 is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$ in $\mathbb{R}^2$. The figure in the middle 2 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$. The figure on the right is a realization of Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ in $\mathbb{R}^2$. 
-
-We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
-
-\newpage
+A temporal example would be the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals.
 
 ## 2.2 Poisson Process
 
-Homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. For example, if we were to model the numbers of events such as the numbers of bus arrivals at a bus stop, the numbers of car accidents at a site or the requests for documents on a web server, we can use Poisson processes.
-<!-- But Poisson processes, and as we alluded to previously counting processes in general, can also be considered over a space, often taken to be a two-dimentional plane or three dimensional volume (A plane with some extra height or depth dimension). In what follows, we will discuss point processes, and cluster processes in space, rather than time, so that the visualizations are slightly easier to look at and comprehend. -->
+Homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. HPP can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site or the document requests on a web server over time. As we alluded to previously counting process, HPP can also be considered over a space, often taken to be a two-dimentional plane or a three-dimentional volume. 
 
 Like counting process, HPP is also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. The HPP can then be formally defined as
 
@@ -178,41 +166,35 @@ Like counting process, HPP is also independent, stationary, and homogeneous. In 
 
 where $o(h)$ function of little o...... 
 
-In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location. <!-- Another way to think about the HPP, it's a uniformly "random" process, meaning if we were to take a realization of a HPP over some time interval (0, T] and "bin" the number of events occuring in some set of equally intervals, the histogram for such a _thing_ would look like a realization of a uniform distribution over time 0 to T.. -->
+In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
-**Proposition 2.2.1** Homogeneous Poisson Process has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the above definition.
+An alternative way to think of HPP is that it is a uniformly "random" process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occuring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
 
+\newpage
 
+![Homogeneous Poisson process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_HPP.png)
 
-
-**A PICTURE HERE WOULD HELP**
-<!-- (1)Show a realization of a HPP in time, and then show a histogram to show it's "roughly" uniform. -->
+*Show a realization of a HPP in time, and then show a histogram to show it's "roughly" uniform.*
 
 \ 
 \ 
 
-Again, we denote the total number of events as $N(t)$. We also denote the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$.
+Homogeneous Poisson Process has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the above definition. 
 
-We assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. Based on these assumptions, we have the following properties for the HPP.
+Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. We have additional  properties for the HPP such that $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. The additional properties are
 
+1. The number of events in any interval $(t, t+h]$, $N((t, t+h])$, $\sim Pois(\lambda \cdot (t+h - t))$. That is, for all $t, t+h \geq 0$ and $n = 0, 1,...$, 
 
-<!-- Idea we discussed during our meeting: Turn the propositions into paragraphs where you can sort of explain in your words some of these properties. I think this will help make the flow of the document a lot nicer to read. -->
-**Proposition 2.2.2** Poisson process has additional properties
-
-1. The number of events in any interval $(t, t+h]$, $N((t, t+h])$, $\sim Pois(\lambda \cdot (t+h - t))$. That is, for all $s, t \geq 0$
-
-<!-- Check the notation for this part -->
-$$
-P(N(t + s) - N(s) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} \ \ 
-$$
-
-$n = 0, 1,...$. 
-
-
-2. The interarrival times, $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$ 
+*Check the notation for this part*
 
 $$
-P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}
+P(N(t + h) - N(t) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} . \ \ 
+$$
+
+2. The interarrival times, $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
+
+$$
+P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}.
 $$
 
 This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
@@ -224,13 +206,30 @@ $$
 
 
 
+\newpage
+
+## A Motivating Example 
+
+![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
+
+Before we delve further into various point processes, let us first look at a motivating example. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+
+The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
+
+We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
+
+\newpage
+
+
+
+
 ## 2.3 Nonhomogeneous Poisson Process
 
-Assuming that the rate is constant is often not realistic in practice. We may want a model that allows for more flexibility. Indeed, nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
+Assuming that the rate is constant is often not realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPP) is a generalization of homogeneous Poisson processes that allow the rate (or intensity) $\lambda$ to vary with function of time $t$. 
 
-Previously, we assume that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using nonhomogeneous Poisson processes. Back to the supermarket example, if we were to model the number of customers arriving at a supermarket and we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2am, we could model using nonhomogeneous Poisson processes. 
+We assumed previously that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should model using NPP. This would be the case if, as in the supermarket example, we have reasons to believe that the arrivial rate of customers is higher during lunch time as compared to say, 2am, or, as in the trees in a forest example, we speculate that environmental factors such as temperature, rainfall and light affect the spatial distribution of the trees. 
 
-In contrast to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. That is, the intensity now varies with the location of the time interval.
+Contrary to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. That is, the intensity now varies with the location of the time interval. 
 
 \ 
 \ 
@@ -243,25 +242,24 @@ In contrast to HPP, NPP is independent but not stationary nor homogeneous. In ad
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
-4. $P(N(t + h)) - N(t) > 1)) = o(h)$ <!-- Check this: Just verify that there's not some sort of a limit argument here. Specifically, a limit for h as it trends to 0 --> 
-
-
-**Proposition 2.3.1** Nonhomogeneous Poisson process is independent but not stationary nor homogeneous. Homogeneous Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity, nonhomogeneous Poisson process is nonhomogeneous.
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$ *Check this: Just verify that there's not some sort of a limit argument here. Specifically, a limit for h as it trends to 0*
 
 \ 
 \ 
 
-Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, here we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity vary with function of time.
+Nonhomogeneous Poisson process is independent but not stationary nor homogeneous. Homogeneous Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationarity implies homogeneity, nonhomogeneous Poisson process is nonhomogeneous. 
 
-**Proposition 2.3.2** Nonhomogeneous Poisson process has additional properties
+\ 
+\ 
 
-1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$
+Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, here we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity vary with function of time. Nonhomogeneous Poisson process has additional properties
+
+1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
-P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{-\int_{0}^{t} \lambda (s) ds}} {n!} \ \ 
+P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{-\int_{0}^{t} \lambda (s) ds}} {n!}. \ \ 
 $$
 
-$n = 0, 1,...$ 
 
 2. The law of occurance for the next point can be determined by 
 
