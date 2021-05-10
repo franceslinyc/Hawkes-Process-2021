@@ -29,7 +29,7 @@ On the other hand, when dealing with temporal data, (marked) point processes are
 
 Hawkes process is also known as self-exciting point process. More specifically, the original Hawkes processes (e.g. ETAS model) are temporal, whereas the more recently developed self-exciting point processes have been extended from temporal Hawkess processes to account for both the spatial and temporal aspects of the data.
 
-The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. 
+The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. In addition, more recent events exert more influence on the intensity, as compared to older events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. 
 
 
 
@@ -59,7 +59,9 @@ Let us begin with counting process. Counting processes count the occurrences (or
 
 A temporal example would be the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals. 
 
-For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The processes require that the total number of events $N(t)$ to be greater than zero, the total number of events is an integer,...... In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
+For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The processes require that the total number of events $N(t)$ to be greater than zero, the total number of events is an integer, counts always increase, and the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
+
+In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
 
 Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$, space $s$ or space-time $t\times s$, but we restrict ourselves to the time domain (or $\mathbb{R}^1$) again. Definitions of stochastic process and point process are given as follows 
 
@@ -73,10 +75,10 @@ $$
 $$
 
 
-**Definition 2.1.2** (Point Process) Let $\{T_i\}_{i \in N}$ be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in N$, a point process on $R^{+}$ is defined as
+**Definition 2.1.2** (Point Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in \mathbb{N}$, a point process on $R^{+}$ is defined as
 
 $$
-\{T_i\}_{i \in N}
+\{T_i\}_{i \in \mathbb{N}}
 $$
 
 \ 
@@ -94,7 +96,7 @@ $$
 
 \newpage
 
-Let us look at a more explicit example. Suppose that $N(t)$ counts the numbers of event up to some time $t$ and if event occurs at time $t = 1, 1.5, 3, 5, 8, 9.5, 10$, then $N(4) = 3$ since 3 events occur in the time interval $(0, 4]$. 
+Let us look at a more explicit example. Suppose that $N(t)$ counts the numbers of event up to some time $t$ and if event occurs at time $t = 1, 1.5, 3, 5, etc$, then $N(4) = 3$ since 3 events occur in the time interval $(0, 4]$. 
 
 ![Counting Process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png)
 
@@ -103,10 +105,10 @@ Let us look at a more explicit example. Suppose that $N(t)$ counts the numbers o
 
 An alternative definition of counting process is
 
-**Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in \mathbf{N}}$ be a point process, a counting process associated with $\{T_i\}_{i \in N}$ is defined as
+**Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a point process, a counting process associated with $\{T_i\}_{i \in \mathbb{N}}$ is defined as
 
 $$
-N(t) = \sum_{i \in \mathbf{N}} I_{\{T_i \leq t\}}
+N(t) = \sum_{i \in \mathbb{N}} I_{\{T_i \leq t\}}
 $$
 
 *Give a reason why you might prefer this definition if you're interested in point processes. For example, why is this definition more beneficial as we get into Poisson processes, cluster processes, etc?*
@@ -126,7 +128,7 @@ A useful corollary of counting process that would be helpful to understand as we
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
 
-In other words, 1. An event has to occur, 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value, 3. Counts always increase. Events don't disappear. Once we observe an event and count it, it remains in counts, and 4. The number of events in specific time interval can be obtained from subtracting the number of events in previous interval from that in current interval. 
+In other words, 1. An event has to occur. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase. Events don't disappear. Once we observe an event and count it, it remains in counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
 Furthermore, counting processes have the following properties. 
 
@@ -141,9 +143,7 @@ Furthermore, counting processes have the following properties.
 In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
 
 
-Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time, space, space-time or, in the most general sense, a metric space in which events occur and can be counted. 
 
-A temporal example would be the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals.
 
 ## 2.2 Poisson Process
 
@@ -162,9 +162,13 @@ Like counting process, HPP is also independent, stationary, and homogeneous. In 
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
 
-4. $P(N(t + h)) - N(t) \geq 2)) = o(h)$
+4. $P(N(t + h)) - N(t) \geq 2)) \approx 0 = o(h)$
 
-where $o(h)$ function of little o...... 
+where the function of little o $o(h)$ is such that
+
+$$
+\lim_{h\to 0^+} \frac{o(h)} {h} = 0. 
+$$
 
 In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
 
@@ -176,6 +180,8 @@ An alternative way to think of HPP is that it is a uniformly "random" process. I
 
 *Show a realization of a HPP in time, and then show a histogram to show it's "roughly" uniform.*
 
+**The plot in 00_proc_Counting.Rmd doesn't quite appear uniform.**
+
 \ 
 \ 
 
@@ -183,12 +189,12 @@ Homogeneous Poisson Process has similar properties as those of counting process;
 
 Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, while $T_1$ is the time of the first occurence of event and $T_2$ the time of the second occurence of event, the elapsed time between the none and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. We have additional  properties for the HPP such that $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. The additional properties are
 
-1. The number of events in any interval $(t, t+h]$, $N((t, t+h])$, $\sim Pois(\lambda \cdot (t+h - t))$. That is, for all $t, t+h \geq 0$ and $n = 0, 1,...$, 
+1. The number of events in any interval $(t, t+h]$, $N((t, t+h])$, $\sim Pos(\lambda (t+h - t))$. That is, for all $t, t+h \geq 0$ and $n = 0, 1,...$, 
 
 *Check the notation for this part*
 
 $$
-P(N(t + h) - N(t) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} . \ \ 
+P(N(t + h) - N(t) = n) = P(N(h) - N(0)) = P(N(h) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
 $$
 
 2. The interarrival times, $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
@@ -200,7 +206,7 @@ $$
 This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrivial in the interval [0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
 
 $$
-P(W_2 > t | W_1 = s) = P(N(t + s) - N(s) | N(s) - N(s^{-}) = 1) = P(N(t + s) - N(s)) = P(N(t) = 0) = e^{-\lambda t}. 
+P(W_2 > t+h | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t)) = P(N(h) = 0) = e^{-\lambda h}. 
 $$
 
 
@@ -242,7 +248,7 @@ Contrary to HPP, NPP is independent but not stationary nor homogeneous. In addit
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
-4. $P(N(t + h)) - N(t) > 1)) = o(h)$ *Check this: Just verify that there's not some sort of a limit argument here. Specifically, a limit for h as it trends to 0*
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$ 
 
 \ 
 \ 
@@ -254,17 +260,17 @@ Nonhomogeneous Poisson process is independent but not stationary nor homogeneous
 
 Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, here we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity vary with function of time. Nonhomogeneous Poisson process has additional properties
 
-1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (s) ds)$. That is, for all $s, t \geq 0$ and $n = 0, 1,...$, 
+1. The number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
-P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (s) ds)^n e^{-\int_{0}^{t} \lambda (s) ds}} {n!}. \ \ 
+P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (v) dv)^n e^{-\int_{0}^{t} \lambda (v) dv}} {n!}. \ \ 
 $$
 
 
 2. The law of occurance for the next point can be determined by 
 
 $$
-P(N(a,b] = 0) = e^{- \int_{a}^{b} \lambda (s) ds} .
+P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
 $$
 
 
@@ -359,7 +365,7 @@ Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, th
 
 ## 2.5 Hawkes Process 
 
-Hawkes process is also known as a self-exciting point process. Like Cox and cluster process, the model also allows depdence between events. However, their depdence differs. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
+Hawkes process is also known as a self-exciting point process. Like Cox and cluster process, the model also allows dependence between events. However, their dependence differs. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
 
 Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
 
