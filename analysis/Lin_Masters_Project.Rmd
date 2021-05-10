@@ -84,7 +84,7 @@ $$
 \ 
 \ 
 
-Point process relies the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
+Point process relies on the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
 
 A counting process is then formally defined as
 
@@ -130,17 +130,7 @@ A useful corollary of counting process that would be helpful to understand as we
 
 In other words, 1. An event has to occur. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase. Events don't disappear. Once we observe an event and count it, it remains in counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
-Furthermore, counting processes have the following properties. 
-
-**Proposition 2.1.1** A counting process has the following properties
-
-1. Independence
-
-2. Stationarity
-
-3. Homogeneity
-
-In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
+Furthermore, counting processes have the following properties: 1. independence, 2. stationarity, and 3. homogeneity. In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
 
 
 
