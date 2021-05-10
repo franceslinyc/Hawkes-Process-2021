@@ -1,0 +1,56 @@
+---
+title: "00_proc_Counting"
+author: "Frances Lin"
+date: "5/10/2021"
+output: pdf_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+X = c(0, 1, 1.5, 3, 5, 8, 9.5, 10)
+```
+
+```{r}
+df_Counting = tibble(
+  x = X, 
+  y = 0:(length(X) - 1) #1:(length(X)) #
+)
+
+p_Counting <- ggplot(data=df_Counting, mapping=aes(x=x, y=y)) +
+  geom_step() + 
+  labs(title = "Counting Process", 
+       x = "t", 
+       y = "N(t)") +
+  scale_x_continuous(limits = c(0, 10), breaks = df_Counting$x) + 
+  scale_y_continuous(limits = c(0, length(df_Counting$x) - 1), breaks = seq(0, 10, by = 1))
+#p_Counting
+```
+
+```{r}
+# Plot time plot
+df_Counting <- df_Counting %>% add_column(
+  t_fix = c(0, rep(2, length(df_Counting$x) - 1)) # so that no point at t = 0
+  #t_fix = rep(2, length(df_HPP$x))
+) 
+
+p_Counting_time <- ggplot(data=df_Counting, mapping=aes(x=x, y=t_fix)) +
+  geom_point(size=0.5) + 
+  ylim(c(1,3)) +
+  labs(title = "Corresponding Inter-Arrivial Times", 
+       x = "t", 
+       y = "y-axis has no meaning") + 
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 1))
+#p_Counting_time
+```
+
+```{r}
+require(gridExtra)
+grid.arrange(p_Counting, p_Counting_time)
+```
+
+
+
