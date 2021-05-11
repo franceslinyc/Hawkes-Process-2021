@@ -15,19 +15,19 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Real-world data are often spatial, temporal, or spatio-temporal in nature. Spatial data (e.g. soil properties, housing prices) often involves locations such as points and areas. Temporal data (e.g. sensor readings, stock prices) often involves times such as moments and intervals. Spatio-temporal data are data that relates to both locations and times. Examples of spatio-temoral data include forest inventories, remotely sensed images, earthquake epicenters, disease cases, map services and travel times, to name a few. 
 
-There are various models suitable for modelling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. We focus primarily on point process models. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
+There are various models suitable for modelling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. We focus primarily on the point process models. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
 
 
 
 
-Spatial data can be broadly categoried into three types: geostatistical (point process) data, areal data, and point pattern data. We are in the 3rd category in which questions about point pattern data typically are: Is there clustering of events? Can we define a point process that captures the events? Examples of such models include Cox and cluster processes. 
+Spatial data can be broadly categoried into three types: geostatistical (point process) data, areal data, and point pattern data. We are in the 3rd category in which point pattern data are realizations of spatial point processes, and questions about point pattern data typically are: Is there clustering of events? Can we define a point process that captures the events? Examples of such models include Cox and cluster processes. 
 
 On the other hand, when dealing with temporal data, (marked) point processes are sometimes used interchangeable with time series, and vice versa. One major distinction, though, is that in point processes, time intervals are treated as continuous, whereas in time series, they are treated as discrete. Examples of such models include (temporal) Poisson and Hawkes processes. 
 
 
 
 
-Hawkes process is also known as self-exciting point process. More specifically, the original Hawkes processes (e.g. ETAS model) are temporal, whereas the more recently developed self-exciting point processes have been extended from temporal Hawkess processes to account for both the spatial and temporal aspects of the data.
+Hawkes process is also known as self-exciting point process. More specifically, the original Hawkes processes (e.g. the ETAS model) are temporal, whereas the more recently developed self-exciting point processes have been extended from temporal Hawkess processes to account for both the spatial and temporal aspects of the data.
 
 The defining characteristic of Hawkes processes is that it self-excites. In other words, the occurrence of an event increases the occurrence of future events. In addition, more recent events exert more influence on the intensity, as compared to older events. For example, in seismology, an event can be an earthquake occurrence that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. 
 
@@ -46,7 +46,7 @@ Given the flexibility and applicability of Hawkess processes, it is surprising t
 
  
 
-The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting process, (homogeneous and nonhomogeneous) Poisson process, cluster process, Hawkes process, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In *Section 4 and 5*, we discuss recent and future work of Hawkes and self-exciting processes. 
+The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting process, (homogeneous and nonhomogeneous) Poisson process, Cox process, cluster process, Hawkes process, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In *Section 4 and 5*, we discuss recent and future work of Hawkes and self-exciting processes. 
 
 
 
@@ -55,15 +55,15 @@ The objective of this project is to give an overview of various types of point p
 
 ## 2.1 Counting Process
 
-Let us begin with counting process. Counting processes count the occurrences (or numbers) of events over time, space, space-time or, in the most general sense, a metric space in which events occur and can be counted. 
+Let us begin with the counting process. Counting process counts the occurrences (or numbers) of events over time, space, space-time or, in the most general sense, a metric space in which events occur and can be counted. 
 
-A temporal example would be the numbers of events $N(t)$ such as the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals. 
+A temporal example would be the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals. 
 
-For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The processes require that the total number of events $N(t)$ to be greater than zero, the total number of events is an integer, counts always increase, and the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
+For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The process requires that the total number of events $N(t)$ up to some time $t$ to be greater than zero, the total number of events is an integer, counts always increase, and the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
-In addition, counting processes is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
+In addition, counting process is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
 
-Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$, space $s$ or space-time $t\times s$, but we restrict ourselves to the time domain (or $\mathbb{R}^1$) again. Definitions of stochastic process and point process are given as follows 
+Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$, space $s$ or space-time $t\times s$, but we restrict ourselves to the time domain again. Definitions of stochastic process and point process are given as follows 
 
 \ 
 \ 
@@ -85,6 +85,9 @@ $$
 \ 
 
 Point process relies on the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
+
+\ 
+\ 
 
 A counting process is then formally defined as
 
@@ -128,7 +131,7 @@ A useful corollary of counting process that would be helpful to understand as we
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
 
-In other words, 1. An event has to occur. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase. Events don't disappear. Once we observe an event and count it, it remains in counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
+In other words, 1. An event has to occur. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase because events don't disappear. Once we observe an event and count it, it remains in the counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
 Furthermore, counting processes have the following properties: 1. independence, 2. stationarity, and 3. homogeneity. In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
 
@@ -137,9 +140,9 @@ Furthermore, counting processes have the following properties: 1. independence, 
 
 ## 2.2 Poisson Process
 
-Homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. HPP can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site or the document requests on a web server over time. As we alluded to previously counting process, HPP can also be considered over a space, often taken to be a two-dimentional plane or a three-dimentional volume. 
+Homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. HPP can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site, or the document requests on a web server over time. As we alluded to previously counting process, HPP can also be considered over a space which is often taken to be a two-dimentional plane or a three-dimentional volume. 
 
-Like counting process, HPP is also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. The HPP can then be formally defined as
+Like counting process, HPP is also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events $W$ are exponentially distributed. HPP can then be formally defined as
 
 \ 
 \ 
@@ -152,7 +155,7 @@ Like counting process, HPP is also independent, stationary, and homogeneous. In 
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
 
-4. $P(N(t + h)) - N(t) \geq 2)) \approx 0 = o(h)$
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$
 
 where the function of little o $o(h)$ is such that
 
@@ -160,7 +163,7 @@ $$
 \lim_{h\to 0^+} \frac{o(h)} {h} = 0. 
 $$
 
-In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no 2 or more events can occur at the same location.
+In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 3. $\lambda$ is the rate (or intensity), and 4. no more than 1 event can occur at the same location.
 
 An alternative way to think of HPP is that it is a uniformly "random" process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occuring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
 
@@ -272,13 +275,15 @@ Even more flexible models than NPP are Cox and cluster processes that allow depe
 
 Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
 
-We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. **ELABORATE MORE**. In addition, the differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random field, whereas points in cluster process cluster in some bounded region. 
+We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable or random field. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process. The second level is to generate counts, which is non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parents' point and corresponding count. Only the 'offspring' points are observed. 
 
-In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. Other examples of Cox processes include mixed Poisson process, log Gaussian Cox process, and shot noise Cox process. 
+In addition, the differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random field, whereas points in cluster process cluster in some bounded region. 
 
-In cluster processes, the randomness also arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives to 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
+In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. For example, in mixed Poisson process,...... Other examples of Cox processes include log Gaussian Cox process and shot noise Cox process. 
 
-Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process.
+In cluster processes, the randomness also arises from two steps: First, 'parent' points **Y** is generated. Then, each 'parent' point $y_i \in$ **Y** gives rise to a random number of 'offspring' points $z_{ij}$. All the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
+
+Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
 
 \ 
 \ 
@@ -406,7 +411,7 @@ where
 
 3. $P(N(t + h)) - N(t) = 1) | \mathcal{H}_{t}^{N}) = \lambda(t) h + o(h)$
 
-4. $P(N(t + h)) - N(t) \geq 2) | \mathcal{H}_{t}^{N}) = o(h)$
+4. $P(N(t + h)) - N(t) > 1) | \mathcal{H}_{t}^{N}) = o(h)$
 
 
 
