@@ -59,9 +59,9 @@ Let us begin with the counting process. Counting process counts the occurrences 
 
 A temporal example would be the numbers of customers arriving at a supermarket up to some time $t$. A spatial example would be trees in different regions of a forest. A space-time example would be the numbers of earthquakes occuring in some places and during some time intervals. 
 
-For simplicity purposes, let us restrict ourselves to the temporal sphere (or $\mathbb{R}^1$). The process requires that the total number of events $N(t)$ up to some time $t$ to be greater than zero, the total number of events is an integer, counts always increase, and the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
+Let us restrict ourselves to the temporal domain so that interpretations are easier to follow. The process requires that the total number of events $N(t)$ up to some time $t$ to be greater than zero, the total number of events is an integer, counts always increase, and the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
-In addition, counting process is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
+In addition, counting process is independent, stationary, and homogeneous. In other words, the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, the distribution of the numbers of events depends only on the length of the interval $t$, and the transition probability between any two states at two times depends only on the difference between the states. 
 
 Before formally define counting process, first we need to define stochastic process and point process. Stochastic process is a collection of random variables indexed by time $t$, space $s$ or space-time $t\times s$, but we restrict ourselves to the time domain again. Definitions of stochastic process and point process are given as follows 
 
@@ -71,20 +71,20 @@ Before formally define counting process, first we need to define stochastic proc
 **Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 
 $$
-\{X_t\}_{t \in T}
+\{X_t\}_{t \in T} .
 $$
 
 
 **Definition 2.1.2** (Point Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in \mathbb{N}$, a point process on $R^{+}$ is defined as
 
 $$
-\{T_i\}_{i \in \mathbb{N}}
+\{T_i\}_{i \in \mathbb{N}} .
 $$
 
 \ 
 \ 
 
-Point process relies on the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
+Point process relies on the occurence of an event occuring at a specific point in time. Stocastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc.
 
 \ 
 \ 
@@ -94,7 +94,7 @@ A counting process is then formally defined as
 **Definition 2.1.3** (Counting Process) Let $N(t)$ be the total number of events up to some time $t$ such that the values are nonnegative, integer and nondecreasing, a stocastic process is said to be a counting process and is defined as 
 
 $$
-\{N(t), t \geq 0\}
+\{N(t), t \geq 0\} .
 $$
 
 \newpage
@@ -115,6 +115,8 @@ N(t) = \sum_{i \in \mathbb{N}} I_{\{T_i \leq t\}}
 $$
 
 *Give a reason why you might prefer this definition if you're interested in point processes. For example, why is this definition more beneficial as we get into Poisson processes, cluster processes, etc?*
+
+This definition is more beneficial as we get into Poisson, cluster, etc processes later on because...... 
 
 \ 
 \ 
@@ -279,9 +281,9 @@ The differences between Cox process and cluster process are such that points in 
 
 We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable or random field. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. 
 
-In Cox processes (or doubly stochastic Poisson process), the randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. For example, in mixed Poisson process,...... Other examples of Cox processes include log Gaussian Cox process and shot noise Cox process. 
+In Cox processes (or doubly stochastic Poisson processes), randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. For example, in mixed Poisson process,...... Other examples of Cox processes include log Gaussian Cox process and shot noise Cox process. 
 
-In cluster processes, the randomness arises from three parts: First, 'parent' points **Y** is generated. Next, each 'parent' point $y_i \in$ **Y** gives rise to a random number of 'offspring' points $z_{ij}$. Then, all the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
+In cluster processes, randomness arises from three parts: First, 'parent' points **Y** is generated. Next, each 'parent' point $y_i \in$ **Y** gives rise to a random number of 'offspring' points $z_{ij}$. Then, all the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
 
 Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
 
@@ -310,6 +312,8 @@ Note. $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable 
 
 Note. $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally intergrable with probabiliy 1. 
 
+\ 
+\ 
 
 Cox processes have the following propertities
 
@@ -343,7 +347,7 @@ In addition, condition on..., the cluster process has the intensity function...
 
 Cluster processes have the following model assumptions 1. Poisson parents, 2. Independent clusters, 3. Identically distributed clusters, 4. Offsprings independent within a cluster, 5. Poisson number of offsprings, and 6. Isotropic clusters.
 
-In other words, 1. 'parent' points follow a Poisson distribution, 2. clusters are independent of each other, 3. clusters, when shifted, have the same distributions, 4. the locations of 'offspring' points of each parent point are independently and identically distributed, 5. the numbers of 'offspring' points of each parent point follow a Poisson distribution, and 6. the distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
+In other words, 1. 'Parent' points follow a Poisson distribution. 2. Clusters are independent of each other. 3. Clusters, when shifted, have the same distributions. 4. The locations of 'offspring' points of each parent point are independently and identically distributed. 5. The numbers of 'offspring' points of each parent point follow a Poisson distribution. 6. The distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
 
 Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, it can be a Matern cluster process or a Thomas cluster process. 
 
