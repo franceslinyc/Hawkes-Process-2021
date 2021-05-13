@@ -64,8 +64,8 @@ p_HPP_time <- ggplot(data=df_HPP, mapping=aes(x=x, y=t_fix)) +
 
 ```{r}
 p_HPP_hist <- ggplot(data=df_HPP, mapping=aes(x=x)) + 
-  geom_histogram() + 
-  ylim(0, 10) +
+  geom_histogram(bins = 11, color = "white") + 
+
   labs(x = "t", 
        y = "lambda")
 p_HPP_hist 

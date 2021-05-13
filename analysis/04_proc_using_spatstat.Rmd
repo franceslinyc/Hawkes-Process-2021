@@ -68,7 +68,11 @@ df2 <- tibble(x = tmp2$x, y = tmp2$y)
 df3 <- tibble(x = tmp3$x, y = tmp3$y)
 df4 <- tibble(x = tmp4$x, y = tmp4$y)
 
-n <- 0.5 # set size for geom_point
+# Save output and adjust size
+png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png', 
+    width = 450*2, height = 450*0.8)
+
+n <- 1 # set size for geom_point
 
 p1 <- ggplot(df1, aes(x=x, y=y)) + geom_point(size=n) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
@@ -93,11 +97,12 @@ p4 <- ggplot(df4, aes(x=x, y=y)) + geom_point(size=n) +
         axis.text.y=element_blank(), axis.ticks.y=element_blank(),
         axis.title=element_blank()) +
   labs(title="Matern Process")
+
+# Combine plots
+p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)
 ```
 
 ```{r}
-# Combine plots
-p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)
 ```
 
 
