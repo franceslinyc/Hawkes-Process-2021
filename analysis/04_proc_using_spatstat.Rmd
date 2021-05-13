@@ -10,6 +10,8 @@ library(spatstat)
 library(tidyverse)
 library(here)
 library(mvtnorm)
+library(ggplot2)
+library(patchwork)
 ```
 
 ```{r}
@@ -49,6 +51,55 @@ plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern Process") #plot_2D_
 #Cox (intensity = exp(n = 1, rate = 1/100))
 #Matern (kappa = 20, r = 0.05, mu = 5)
 ```
+
+```{r}
+# Cuz I like ggplot better
+set.seed(1234) 
+
+# Extract x & y from ppp object (lists)
+tmp1 <- rpoispp(lambda = 100, win=square(1))
+tmp2 <- rpoispp(lambda = function(x, y) 400*x*y)
+tmp3 <- rpoispp(lambda = rexp(n = 1, rate = 1/100))
+tmp4 <- rMatClust(kappa = 20, r = 0.05, mu = 5)
+
+# Create dataframes
+df1 <- tibble(x = tmp1$x, y = tmp1$y)
+df2 <- tibble(x = tmp2$x, y = tmp2$y)
+df3 <- tibble(x = tmp3$x, y = tmp3$y)
+df4 <- tibble(x = tmp4$x, y = tmp4$y)
+
+n <- 0.5 # set size for geom_point
+
+p1 <- ggplot(df1, aes(x=x, y=y)) + geom_point(size=n) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        axis.title=element_blank()) +
+  labs(title="HPP (rate = 100)")
+
+p2 <- ggplot(df2, aes(x=x, y=y)) + geom_point(size=n) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        axis.title=element_blank()) +
+  labs(title="NPP")
+
+p3 <- ggplot(df3, aes(x=x, y=y)) + geom_point(size=n) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        axis.title=element_blank()) +
+  labs(title="Cox Process")
+
+p4 <- ggplot(df4, aes(x=x, y=y)) + geom_point(size=n) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
+        axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        axis.title=element_blank()) +
+  labs(title="Matern Process")
+```
+
+```{r}
+# Combine plots
+p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)
+```
+
 
 ```{r}
 # Check to see how to use the function 
