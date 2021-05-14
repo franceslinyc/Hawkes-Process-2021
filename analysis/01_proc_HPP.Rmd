@@ -39,7 +39,7 @@ length(X)
 # Create dataframe
 df_HPP = tibble(
   x = X, 
-  y = 0:(length(X) - 1)
+  y = 1:(length(X)) #0:(length(X) - 1) 
 )
 
 # Plot HPP 
