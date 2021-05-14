@@ -70,7 +70,7 @@ $$
 
 \newpage
 
-Let us look at a more explicit example. Suppose that $N(t)$ counts the numbers of event up to some time $t$ and if event occurs at time $t = 1, 1.5, 3, 5, etc$, then $N(4) = 3$ since 3 events occur in the time interval $(0, 4]$. 
+Let us look at a more explicit example (Figure 1). Suppose that $N(t)$ counts the numbers of event up to some time $t$ and if event occurs at time $t = 1, 1.5, 3, 5, etc$, then $N(4) = 3$ since 3 events occur in the time interval $(0, 4]$. 
 
 ![Counting Process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png)
 
@@ -133,11 +133,9 @@ An alternative way to think of HPP is that it is a uniformly "random" process. I
 
 \newpage
 
+Let us look at a realization of a HPP in time (Figure 2). In addition, we can see that the histogram of rate appears roughly uniform. In other words, the rates are roughly constant at $\lambda = 10$.  
+
 ![Homogeneous Poisson process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_HPP.png)
-
-*Show a realization of a HPP in time, and then show a histogram to show it's "roughly" uniform.*
-
-**The plot in 00_proc_Counting.Rmd doesn't quite appear uniform.**
 
 Homogeneous Poisson Process has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the above definition. 
 
