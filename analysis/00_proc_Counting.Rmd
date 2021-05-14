@@ -8,18 +8,30 @@ output: pdf_document
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 library(ggplot2)
+library(patchwork)
 ```
 
 ```{r}
+# Create data
 X = c(0, 1, 1.5, 3, 5, 8, 9.5, 10)
 ```
 
 ```{r}
+# Create dataframes
 df_Counting = tibble(
   x = X, 
   y = 0:(length(X) - 1) #1:(length(X)) #
 )
 
+# # Can probably delete
+# df_Counting <- df_Counting %>% add_column(
+#   t_fix = c(0, rep(2, length(df_Counting$x) - 1)) # so that no point at t = 0
+#   #t_fix = rep(2, length(df_HPP$x))
+# ) 
+```
+
+```{r}
+# Plot Counting Process
 p_Counting <- ggplot(data=df_Counting, mapping=aes(x=x, y=y)) +
   geom_step() + 
   labs(title = "Counting Process", 
@@ -31,25 +43,29 @@ p_Counting <- ggplot(data=df_Counting, mapping=aes(x=x, y=y)) +
 ```
 
 ```{r}
-# Plot time plot
-df_Counting <- df_Counting %>% add_column(
-  t_fix = c(0, rep(2, length(df_Counting$x) - 1)) # so that no point at t = 0
-  #t_fix = rep(2, length(df_HPP$x))
-) 
-
-p_Counting_time <- ggplot(data=df_Counting, mapping=aes(x=x, y=t_fix)) +
-  geom_point(size=0.5) + 
-  ylim(c(1,3)) +
+# Plot Corresponding Arrivial Times
+p_Counting_time <- ggplot(data=df_Counting, mapping=aes(x=x, ymin = -0.5, ymax = 0.5)) +
+  geom_linerange() + 
+  geom_hline(aes(yintercept = 0), linetype = "dashed") + 
   labs(title = "Corresponding Arrivial Times", 
        x = "t", 
-       y = "y-axis has no meaning") + 
-  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 1))
+       y = "") + 
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 1)) + 
+  theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 #p_Counting_time
 ```
 
 ```{r}
-require(gridExtra)
-grid.arrange(p_Counting, p_Counting_time)
+# Combine plots
+# require(gridExtra)
+# grid.arrange(p_Counting, p_Counting_time)
+p_Counting / p_Counting_time + plot_layout(heights = c(0.9, 0.1))
+```
+
+```{r}
+# Save output and adjust size
+png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png', width = 450*2, height = 450*0.8)
+p_Counting / p_Counting_time + plot_layout(heights = c(0.9, 0.1))
 ```
 
 

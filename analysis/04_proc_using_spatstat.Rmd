@@ -15,45 +15,7 @@ library(patchwork)
 ```
 
 ```{r}
-# Cox?
-#rmvnorm(1, c(0.5, 0.5))
-```
-
-```{r}
-# Cox?
-#plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "") #plot_2D_NPP
-```
-
-```{r}
-# Cox?
-#fun <- function (x, y) x*y + rbeta(1, 1/5, 1/5)*400
-plot(rpoispp(lambda = rbeta(1, 1/5, 1/5)*150, win = square(1)), main = "")
-```
-
-```{r}
-# Cox?
-plot(rpoispp(lambda = rnorm(n = 1, 50, 0.05)), main = "") #plot_2D_Cox
-```
-
-```{r}
-set.seed(1234) 
-par(mfrow=c(1, 4), mai = c(0.1, 0.1, 0.1, 0.1))
-
-plot(rpoispp(lambda = 100, win=square(1)), main = "HPP (rate = 100)") #plot_2D_HPP
-plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "NPP (intensity = 400*x*y)") #plot_2D_NPP
-plot(rpoispp(lambda = rexp(n = 1, rate = 1/100)), main = "Cox Process") #plot_2D_Cox
-plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern Process") #plot_2D_Matern
-
-#HPP (rate = 100)
-#NPP (intensity = 400*x*y)
-#Cox Process
-#Matern Process
-#Cox (intensity = exp(n = 1, rate = 1/100))
-#Matern (kappa = 20, r = 0.05, mu = 5)
-```
-
-```{r}
-# Cuz I like ggplot better
+# Because I like ggplot better
 set.seed(1234) 
 
 # Extract x & y from ppp object (lists)
@@ -67,10 +29,6 @@ df1 <- tibble(x = tmp1$x, y = tmp1$y)
 df2 <- tibble(x = tmp2$x, y = tmp2$y)
 df3 <- tibble(x = tmp3$x, y = tmp3$y)
 df4 <- tibble(x = tmp4$x, y = tmp4$y)
-
-# Save output and adjust size
-png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png', 
-    width = 450*2, height = 450*0.8)
 
 n <- 1 # set size for geom_point
 
@@ -103,8 +61,52 @@ p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)
 ```
 
 ```{r}
+# Save output and adjust size
+png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png', width = 450*2, height = 450*0.8)
+p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)
 ```
 
+
+
+
+```{r}
+# Cox?
+#rmvnorm(1, c(0.5, 0.5))
+```
+
+```{r}
+# Cox?
+#plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "") #plot_2D_NPP
+```
+
+```{r}
+# Cox?
+#fun <- function (x, y) x*y + rbeta(1, 1/5, 1/5)*400
+plot(rpoispp(lambda = rbeta(1, 1/5, 1/5)*150, win = square(1)), main = "")
+```
+
+```{r}
+# Cox?
+plot(rpoispp(lambda = rnorm(n = 1, 50, 0.05)), main = "") #plot_2D_Cox
+```
+
+```{r}
+# Plot HPP, NPP, Cox and Matern Processes 
+set.seed(1234) 
+par(mfrow=c(1, 4), mai = c(0.1, 0.1, 0.1, 0.1))
+
+plot(rpoispp(lambda = 100, win=square(1)), main = "HPP (rate = 100)") #plot_2D_HPP
+plot(rpoispp(lambda = function(x, y) 400*x*y, win = square(1)), main = "NPP (intensity = 400*x*y)") #plot_2D_NPP
+plot(rpoispp(lambda = rexp(n = 1, rate = 1/100)), main = "Cox Process") #plot_2D_Cox
+plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern Process") #plot_2D_Matern
+
+#HPP (rate = 100)
+#NPP (intensity = 400*x*y)
+#Cox Process
+#Matern Process
+#Cox (intensity = exp(n = 1, rate = 1/100))
+#Matern (kappa = 20, r = 0.05, mu = 5)
+```
 
 ```{r}
 # Check to see how to use the function 
@@ -147,7 +149,6 @@ lmbda <- rexp(n = 1, rate = 1/100)
 X <- rpoispp(lmbda)
 plot(X, main = "Cox (intensity = exp(n = 1, rate = 1/100))")
 ```
-
 
 ```{r}
 ?rMatClust
