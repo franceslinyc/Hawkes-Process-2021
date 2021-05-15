@@ -279,7 +279,7 @@ Note. $N_x$ can be thought of as 'offspring'??
 In addition, condition on..., the cluster process has the intensity function...
 
 
-Cluster processes have the following model assumptions 1. Poisson parents, 2. Independent clusters, 3. Identically distributed clusters, 4. Offsprings independent within a cluster, 5. Poisson number of offsprings, and 6. Isotropic clusters.
+Cluster processes have the following model assumptions 1. Poisson parents, 2. independent clusters, 3. identically distributed clusters, 4. offsprings independent within a cluster, 5. Poisson number of offsprings, and 6. isotropic clusters. 
 
 In other words, 1. 'Parent' points follow a Poisson distribution. 2. Clusters are independent of each other. 3. Clusters, when shifted, have the same distributions. 4. The locations of 'offspring' points of each parent point are independently and identically distributed. 5. The numbers of 'offspring' points of each parent point follow a Poisson distribution. 6. The distribution of 'offspring' points for each parent point depends only on the distance between the 'parent' and the 'offspring'. 
 
@@ -306,7 +306,7 @@ Conditional intensity function can be thought as the instantaneous rate of event
 **Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
 
 $$
-\lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
+\lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h} 
 $$
 
 where $\mathcal{H}_t$ is the history prior to time $t$ here in the case of a Hawkes process.
@@ -354,7 +354,7 @@ $$
 $$
 
 $$
-\phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}
+\phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
 $$
 
 
@@ -380,20 +380,20 @@ Alternatively, Hawkes process can also be defined through marked Poisson cluster
 Spatio-temporal Hawkes processes is an extention of temporal Hawkes processes. Recall that temporal Hawkes processes take the form of 
 
 $$
-\lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i)
+\lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i) .
 $$
 
 Spatio-temporal Hawkes processes take the form of 
 
 $$
-\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i)
+\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i) .
 $$
 
 where 
 
 - ${s_i, i = 1,2,...}$ are the sequence of locations of events  
 
-- ${t_i, i = 1,2,...}$ are the times of events 
+- ${t_i, i = 1,2,...}$ are the times of events. 
 
 
 

@@ -116,7 +116,10 @@ p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, ymin = -0.5, ymax = 0.5
 ```{r}
 # Plot lambda_star vs t
 p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda)) + # y is not right 
-  geom_point() 
+  geom_point() +
+  labs(title = "Intensity Function",
+       x = "t", 
+       y = "lambda(t)") 
 p_Hawkes_Int
 ```
 
