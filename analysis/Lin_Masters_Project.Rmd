@@ -1,10 +1,10 @@
 ---
 title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations'
 author: "Frances Lin"
-header-includes:
-    - \usepackage{setspace}\doublespacing
 date: "June 2021"
 output: pdf_document
+header-includes:
+    - \usepackage{setspace}\doublespacing
 ---
 
 Major Professor: James Molyneux
@@ -18,9 +18,6 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 Real-world data are often spatial, temporal, or spatio-temporal in nature. Spatial data (e.g. soil properties, housing prices) often involves locations such as points and areas. Temporal data (e.g. sensor readings, stock prices) often involves times such as moments and intervals. Spatio-temporal data are data that relates to both locations and times. Examples of spatio-temoral data include forest inventories, remotely sensed images, earthquake epicenters, disease cases, map services and travel times, to name a few. 
 
 There are various models suitable for modelling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. We focus primarily on the point process models. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
-
-
-
 
 Spatial data can be broadly categoried into three types: geostatistical (point process) data, areal data, and point pattern data. We are in the 3rd category in which point pattern data are realizations of spatial point processes, and questions about point pattern data typically are: Is there clustering of events? Can we define a point process that captures the events? Examples of such models include Cox and cluster processes. On the other hand, when dealing with temporal data, (marked) point processes are sometimes used interchangeable with time series, and vice versa. One major distinction, though, is that in point processes, time intervals are treated as continuous, whereas in time series, they are treated as discrete. Examples of such models include (temporal) Poisson and Hawkes processes. 
 
@@ -313,6 +310,10 @@ $$
 $$
 
 where $\mathcal{H}_t$ is the history prior to time $t$ here in the case of a Hawkes process.
+
+\newpage
+
+![Hawkes Process](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png)
 
 **Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 

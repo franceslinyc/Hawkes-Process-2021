@@ -8,14 +8,15 @@ output: pdf_document
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 library(ggplot2)
+library(patchwork)
 ```
 
 ```{r}
-# Simuluate HPP 
+# Simuluate HPP
 set.seed(1) # for reproducibility
 
-t_max <- 10 
-t <- 0 
+t_max <- 10
+t <- 0
 
 lmbda <- 10
 
@@ -25,20 +26,21 @@ while(t <= t_max){
   u       <- runif(1)
   t       <-  t - log(u)/lmbda                # t ~ exp(1/lambda)
   if(t < t_max) {
-    t_vec <- c(t_vec,t)                       
+    t_vec <- c(t_vec,t)
   }
 }
 ```
 
 ```{r}
-# Create lambda(t) function
+# Writing the thinning algorithm using James's way 
 
-# Initialize 
+# Initialize
 # Note that mu > 0 and 0 < alpha < beta ??
 mu = 0.5
 alpha = 0.7
 beta = 0.5
 
+# Create lambda(t) function
 lmbda_fun <- function(time){
   diff = time - t_vec
   diff = diff[diff > 0]
@@ -46,47 +48,48 @@ lmbda_fun <- function(time){
   out = mu + a
   return(out)
 }
-```
 
-```{r}
+# Apply the lmbda_fun function
 lmbda_star <- sapply(X = t_vec, FUN = lmbda_fun)
-lmbda_star
+length(lmbda_star)
 ```
 
 ```{r}
-# Plot lmbda_star 
-# Not thinned yet
-x_max = length(lmbda_star) - 1
-plot(x = 0:x_max, y = lmbda_star)
+# lmbda_star #114
 ```
 
 ```{r}
-# while(t <= t_max){
-#   if(runif(1) < min(lmbda/lmbda_star, 1)){
-#     X_keep <- c(X, t)
-#   }
-#   return(X_keep)
-# }
+# t_vec # 114
+```
+
+
+```{r}
+# t_vec[runif(length(prob_keep)) < min(prob_keep, 1)] #75 
 ```
 
 ```{r}
-# length(X_keep)
+# lmbda_star[runif(length(prob_keep)) < min(prob_keep, 1)] #75 
 ```
 
 ```{r}
-# Try James's way 
+set.seed(1)
 lmbda <- 10
-p_keep <- lmbda / lmbda_star
-t_keep <- t_vec[runif(length(p_keep)) < min(p_keep, 1)]
-t_keep
+prob_keep <- lmbda / lmbda_star
+#t_keep <- t_vec[runif(length(prob_keep)) < min(prob_keep, 1)]
+check <- runif(length(prob_keep)) < min(prob_keep, 1)
+lmdba_keep <- lmbda_star[check]
+t_keep <- t_vec[check]
+length(lmdba_keep)
+length(t_keep)
 ```
 
 ```{r}
-# Plot using ggplot2
+# Plot Hawkes
 # Create a df
 df_Hawkes = tibble(
   x = t_keep, 
-  y = 0:(length(t_keep) - 1)
+  y = 1:(length(t_keep)), #0:(length(X) - 1)
+  lmbda = lmdba_keep
 )
 
 p_Hawkes <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=y)) +
@@ -99,30 +102,79 @@ p_Hawkes <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=y)) +
 
 ```{r}
 # Plot time plot
-df_Hawkes <- df_Hawkes %>% add_column(
-  t_fix = rep(2, length(df_Hawkes$x))
-) 
-
-p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=t_fix)) +
-  geom_point(size=0.5) + 
-  ylim(c(1,3)) +
+p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, ymin = -0.5, ymax = 0.5)) +
+  geom_linerange() + 
+  geom_hline(aes(yintercept = 0), linetype = "dashed") + 
   labs(title = "Corresponding Inter-Arrivial Times", 
        x = "t", 
-       y = "y-axis has no meaning")
+       y = "") +
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 1)) + 
+  theme(axis.text.y=element_blank(), axis.ticks.y=element_blank())
 #p_Hawkes_time
 ```
 
 ```{r}
-require(gridExtra)
-grid.arrange(p_Hawkes, p_Hawkes_time)
+# Plot lambda_star vs t
+p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda)) + # y is not right 
+  geom_point() 
+p_Hawkes_Int
 ```
 
-
-
-
-Plot lambda_star vs t next
 
 ```{r}
-# Plot lambda_star vs t
+# Plot lambda (rate)
+p_Hawkes_hist <- ggplot(data=df_Hawkes, mapping=aes(x=x)) + 
+  geom_histogram(bins = 11, color = "white") + 
+  labs(title = "Intensity Function",
+       x = "t", 
+       y = "lambda(t)") + 
+  xlim(0, 10) # so that scale lines up
+p_Hawkes_hist
 ```
+
+```{r}
+# # Combine plots
+# require(gridExtra)
+# grid.arrange(p_Hawkes, p_Hawkes_time)
+p_Hawkes / p_Hawkes_time / p_Hawkes_Int + plot_layout(heights = c(0.7, 0.1, 0.2))
+```
+
+```{r}
+# Save output and adjust size
+png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png', width = 450*2, height = 450*0.8)
+p_Hawkes / p_Hawkes_time / p_Hawkes_Int + plot_layout(heights = c(0.7, 0.1, 0.2))
+```
+
+
+
+
+
+
+```{r}
+# while(t <= t_max){
+#   if(runif(1) < min(lmbda/lmbda_star, 1)){
+#     X_keep <- c(X, t)
+#   }
+#   return(X_keep)
+# }
+```
+
+```{r}
+# Plot lmbda_star
+# Not thinned yet
+length(lmbda_star) #114
+x_max = length(lmbda_star) - 1
+plot(x = 0:x_max, y = lmbda_star)
+lmbda_star
+```
+
+```{r}
+# Plot lmbda_star
+# Not thinned yet
+length(t_keep) # 75
+x_max = length(t_keep) - 1
+plot(x = 0:x_max, y = t_keep)
+```
+
+
 
