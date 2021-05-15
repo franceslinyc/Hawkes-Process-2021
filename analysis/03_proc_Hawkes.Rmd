@@ -44,8 +44,8 @@ beta = 0.5
 lmbda_fun <- function(time){
   diff = time - t_vec
   diff = diff[diff > 0]
-  a = sum(alpha * exp(-beta * diff))
-  out = mu + a
+  a = sum(alpha * exp(-beta * diff)) 
+  out = mu + a 
   return(out)
 }
 
