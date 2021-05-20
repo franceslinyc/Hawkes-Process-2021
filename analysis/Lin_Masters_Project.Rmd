@@ -194,6 +194,26 @@ $$
 
 *Here would be a good place for a plot where you compare the spatial occurrence of HPP and NPPs. You can then end this section with a brief explanation of the plots.* 
 
+For HPP in space, it follows that for $u \in S \subseteq R^d$ and $d = 2$, 
+
+$$
+P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!} .
+$$
+
+where $|u|$ denotes the area of $U$. 
+
+For NPP in space, if we let 
+
+$$
+\lambda(x, y) = e^{- (x^2 + y^2)}
+$$
+
+then the intensity function becomes 
+
+$$
+\Lambda(u) = \int_u \lambda (x) dxdy.
+$$
+
 
 
 
