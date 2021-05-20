@@ -134,34 +134,36 @@ Additionally, let us denote the total number of events as $N(t)$ and the interar
 
 **Check reference > Chen, 2016 > p3, 4, 5 but check other sources too!** 
 
-For an HPP, the number of events in any time interval, $N(t)$, are Poisson distributed. More formally, we can say that the number of events in any time interval $(h, t+h]$, $N((h, t+h])$ $\sim Pos(\lambda t)$. That is, for all $h, t \geq 0$ and $n = 0, 1,...$, 
+For an HPP, the number of events in any time interval $N(t)$ are Poisson distributed. More formally, we can say that the number of events in any time interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\lambda t+h - t)$. That is, for all $t, h \geq 0$ and $n = 0, 1,...$, 
 
 *Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
 
 $$
-P(N(h + t) - N(h) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} . \ \ 
+P(N(t+h) - N(t) = n) = P(N(h) - N(0)) = P(N(h) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
 $$
 
-The interarrival times, $W$, are exponentially distributed. More formally, the interarrival times $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
+The interarrival times $W$ are exponentially distributed. More formally, the interarrival times $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
 
 $$
-P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}.
+P(W_1 > h) = P(N(t) = 0) = e^{-\lambda h}.
 $$
 
 This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrival in the interval (0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
 
 $$
-P(W_2 > t | W_1 = h) = P(N(t + h) - N(h) | N(h) - N(h^{-}) = 1) = P(N(t + h) - N(h)) = P(N(t) = 0) = e^{-\lambda t}. 
+P(W_2 > t | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t)) = P(N(h) = 0) = e^{-\lambda h}. 
 $$
 
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Assuming that the rate in which points occur is constant is often not realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPP) are a generalization of homogeneous Poisson processes that allow for the rate (or intensity) $\lambda$ to vary as function of time $t$ or space $s$. 
+Assuming that the rate in which points occur is constant is often not realistic in practice. We may want a model that allows for more flexibility. Nonhomogeneous Poisson processes (NPPs) are a generalization of homogeneous Poisson processes that allow for the rate (or intensity) $\lambda$ to vary as function of time $t$ or space $s$. 
 
 We assumed previously that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should use a NPP instead. This would be the case if, as in the supermarket example, we have reasons to believe that the arrival rate of customers is higher during lunch time as compared to say, 2am, or, as in the trees in a forest example, we speculate that environmental factors such as temperature, rainfall and light affect the spatial distribution of the trees. 
 
-Contrary to HPP, NPP is independent but not stationary nor homogeneous. In addition, for NPP, we assume that $N(t)$ follows a Poisson distribution with an intensity function $\lambda(t)$. That is, the intensity now varies as a function of time. This then leads to the following definiton of a NPP:
+Contrary to HPP, NPP is independent but not stationary nor homogeneous. HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, NPP does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous. 
+
+Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP:
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -173,30 +175,28 @@ Contrary to HPP, NPP is independent but not stationary nor homogeneous. In addit
 
 4. $P(N(t + h)) - N(t) > 1)) = o(h)$ 
 
-<!-- Nonhomogeneous Poisson processes are independent but not stationary nor homogeneous.  -->
-<!-- This line above is just a repeat of what came before the definition so I'll comment it out. -->
-Homogeneous Poisson process has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, nonhomogeneous Poisson process does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, nonhomogeneous Poisson process is nonhomogeneous. 
-<!-- Great explanation here! -->
-
-Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, here we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity vary with function of time. 
-<!-- These lines above are also restatements of things you've already said. Consider combining the two sentences or just dropping the lines above. -->
-
 Nonhomogeneous Poisson process has additional properties such as if the number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
 P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (v) dv)^n e^{-\int_{0}^{t} \lambda (v) dv}} {n!}. \ \ 
 $$
+
 Further, the law of occurrence for the next point can be determined by 
 
 $$
 P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
 $$
-<!-- Here would be a good place for a plot where you compare the spatial occurrence of HPP and NPPs. You can then end this section with a brief explanation of the plots -->
+
+*It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
+
+*Here would be a good place for a plot where you compare the spatial occurrence of HPP and NPPs. You can then end this section with a brief explanation of the plots.* 
+
+
 
 
 ## A Motivating Example 
 
-Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 4. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
