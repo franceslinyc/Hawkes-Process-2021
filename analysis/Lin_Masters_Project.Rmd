@@ -162,7 +162,7 @@ We assumed previously that the intensity $\lambda$ is constant. If we have reaso
 
 Contrary to HPP, NPP is independent but not stationary nor homogeneous. HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, NPP does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous. 
 
-Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP:
+Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -187,7 +187,7 @@ P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
 $$
 
 
-## 2.4.0 HPP and NPP in Space
+## HPP and NPP in Space
 
 
 *It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
@@ -199,13 +199,13 @@ $$
 
 ## A Motivating Example 
 
-Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 4. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
 The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
 
-We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
+We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. As a preview, both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 *It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
 
