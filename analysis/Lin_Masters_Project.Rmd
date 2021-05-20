@@ -73,10 +73,6 @@ Let us look at a more explicit example, which we show in Figure 1. Suppose that 
 
 ![Counting Process](../results/plot_1D_Counting.png)
 
-<!-- I often find that working in an Rstudio project is helpful for file paths like the one above. For instance, I opened up your project in "/Users/james/Documents/Hawkes-Process-2021". So if I wanted to show the picture, I'd have to update the file path. In an Rstudio project though, the working directory will be the same for all users, meaning you can just use the file path relative to the project's working directory (i.e. "../results/plot_1D_Counting.png") -->
-
-<!-- ![Counting Process](../results/plot_1D_Counting.png) -->
-
 An alternative definition of a counting process is
 
 **Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a point process, a counting process associated with $\{T_i\}_{i \in \mathbb{N}}$ is defined as
@@ -85,14 +81,9 @@ $$
 N(t) = \sum_{i \in \mathbb{N}} I_{\{T_i \leq t\}}
 $$
 
-*Give a reason why you might prefer this definition if you're interested in point processes. For example, why is this definition more beneficial as we get into Poisson processes, cluster processes, etc?*
+This equivalent definition may be more beneficial as we get into Poisson, cluster, etc processes in later sections because it is easier to see that for $i \in \mathbb{N}$, if $T_i \leq t$, the indication function $I_{\{T_i \leq t\}}$ is equal to $1$. Then, we sum up all the $1$s for events which have occurred. 
 
-This definition is more beneficial as we get into Poisson, cluster, etc processes later on because...... 
-
-<!-- I'm not sure there's any real reason to prefer this definition besides liking how it's written better than the previous definition. For me, I prefer this definition because it's a lot easier for me to see that for any i in N, I_{T_i \leq t} = 1 if T_i is leq t. And so I'm just summing up all the "ones" for events which have occurred. Might be worth highlighting this aspect of the definition but you can also just choose one definition or the other and present it as "the" definition. THey're both good! -->
-
-A useful corollary of counting process that would be helpful to understand as we move into Poisson processes and then beyond is
-<!-- Here too, this formally defines a few of the properties you listed above. So we can say, "A useful corollary of counting process, which describes more formally some of the properties we stated above and will be helpful to understand as we move into Poisson processes and then beyond is" -->
+A useful corollary of counting process, which describes more formally some of the properties we stated above and will be helpful to understand as we move into Poisson processes and then beyond is
 
 *Corollary* **2.1.1** A counting process satisfies that
 
@@ -105,9 +96,6 @@ A useful corollary of counting process that would be helpful to understand as we
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
 
 In other words, 1. An event has to occur for it to be "counted". 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase because events don't disappear. Once we observe an event and count it, it remains in the counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
-
-Furthermore, counting processes have the following properties: 1. independence, 2. stationarity, and 3. homogeneity. In other words, 1. the numbers of events $N(t)$ occur in disjoint interval $t$ are independent, 2. the distribution of the numbers of events $N(t)$ depends only on the length of the interval $t$, and 3. the transition probability between any two states at two times depends only on the difference between the states. 
-<!-- I think we mention this above already, so we can remove this paragraph so that we don't end up repeating ourselves. -->
 
 
 
