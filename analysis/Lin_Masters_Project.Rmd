@@ -138,7 +138,7 @@ For an HPP, the number of events in any time interval $N(t)$ are Poisson distrib
 *Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
 
 $$
-P(N(t+h) - N(t) = n) = P(N(h) - N(0) = n) = P(N(h) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
+P(N(t+h) - N(t) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
 $$
 
 The interarrival times $W$ are exponentially distributed. More formally, the interarrival times $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
@@ -174,10 +174,12 @@ Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poiss
 
 4. $P(N(t + h)) - N(t) > 1)) = o(h)$ 
 
-Nonhomogeneous Poisson process has additional properties such as if the number of events in any interval $t$, $N(t)$, $\sim Pos(\Lambda (t) = \int_{0}^{t} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
+
+
+Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, $N((t, t+h])$, $N(t)$ $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
-P(N(t)= n) = \frac{(\int_{0}^{t} \lambda (v) dv)^n e^{-\int_{0}^{t} \lambda (v) dv}} {n!}. \ \ 
+P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!}. \ \ 
 $$
 
 Further, the law of occurrence for the next point can be determined by 
