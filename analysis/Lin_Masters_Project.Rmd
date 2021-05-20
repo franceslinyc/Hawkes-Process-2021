@@ -102,7 +102,7 @@ In other words, 1. An event has to occur for it to be "counted". 2. We either co
 
 The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes. **CITATIONS: Baddeley? ** HPPs can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site, or the document requests on a web server over time. As we alluded to previously with counting processes, HPPs can also be considered over a space which is often taken to be a two-dimensional plane or a three-dimensional volume. 
 
-Like counting process, HPPs are also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate, $\lambda$, and the interarrival times between events, $W$, are exponentially distributed. HPPs can then be formally defined as
+Like counting processes, HPPs are also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate, $\lambda$, and the interarrival times between events, $W$, are exponentially distributed. HPPs can then be formally defined as 
 
 **Definition 2.2.1** (Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$ 
 
@@ -114,30 +114,27 @@ Like counting process, HPPs are also independent, stationary, and homogeneous. I
 
 4. $P(N(t + h)) - N(t) > 1)) = o(h)$
 
-where the function of little o $o(h)$ is such that
+where the function of little o $o(h)$ is given as 
 
 $$
 \lim_{h\to 0^+} \frac{o(h)} {h} = 0. 
 $$
 
-In other words, 1. the process starts at $t = 0$, 2. the increments are independent, 
-<!-- What does independent increments mean for us in practice? -->
-3. $\lambda$ is the constant rate (or intensity) at which points occur, and 4. no more than 1 event can occur at the same location.
-<!-- We often call points that do not allow for multiple points to occur at the same time, "simple". This is more of an FYI though so don't worry about including it in your writing. -->
+In other words, 1. An event has to occur for it to be "counted". 2. The increments are independent, which means that the occurance of an event does not affect the probability of the occurance of another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location. 
 
 An alternative way to think of HPP is that it is a uniformly "random" process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
 
-Let us look at a realization of a HPP in time, which we show in Figure 2. First, we note that cumulative number of points is growing at a constant linear rate. In addition, we can see that the histogram of rate appears roughly uniform. In other words, the rates are roughly constant at $\lambda = 10$. Algorithm for simulating this HPP can be found in the Appendix section. 
+Let us look at a realization of a HPP in time, which we show in Figure 2. First, we note that the cumulative number of points is growing at a constant linear rate. In addition, we can see that the histogram of rate appears roughly uniform; the rates are roughly constant at $\lambda = 10$. Algorithm for simulating this HPP can be found in the Appendix section. 
 
 ![Homogeneous Poisson process](../results/plot_1D_HPP.png)
 
-Homogeneous Poisson Process has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the above definition. 
+HPP has similar properties as those of counting process; it is independent, stationary, and homogeneous. These properties follow nicely from the above definition. 
 
 Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, let $T_0$ denote the starting time of the process while $T_1$ is the time of the first occurrence of event and $T_2$ is the time of the second occurrence of event. The elapsed time between the start of the process and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. 
 
 For an HPP, the number of events, $N(t)$, are exponentially distributed. More formally, we can say that the number of events in any interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\lambda (t+h - t))$. That is, for all $t, t+h \geq 0$ and $n = 0, 1,...$, 
 
-<!-- Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0. -->
+*Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
 
 $$
 P(N(t + h) - N(t) = n) = P(N(h) - N(0)) = P(N(h) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
@@ -154,26 +151,6 @@ This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no 
 $$
 P(W_2 > t+h | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t)) = P(N(h) = 0) = e^{-\lambda h}. 
 $$
-
-
-## A Motivating Example 
-
-<!-- ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png) -->
-![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
-<!-- Move the figure above to occur (in the code at least) after the first paragraph where you reference the plot. You can also refer to this plot as "Figure 3" since RMarkdown/latex is adding figure numbers for you (which is convenient if I may so so myself). -->
-
-Before we delve further into various point processes, let us first look at a motivating example. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
-
-The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
-
-We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
-<!-- For this section, I think we might be giving the committee "too much too quickly". And what I mean by that is, we've spent loads of time talking about HPPs but haven't mentioned the other examples at all. It might make sense then to save this graphic until later, after the different point processes are introduced, so that we can compare the differences between them in a more meaningful way.  -->
-<!-- It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes. -->
-
-
-<!-- \newpage -->
-<!-- Commenting out the newpage command -->
-
 
 
 ## 2.3 Nonhomogeneous Poisson Process
@@ -214,6 +191,18 @@ P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
 $$
 <!-- Here would be a good place for a plot where you compare the spatial occurrence of HPP and NPPs. You can then end this section with a brief explanation of the plots -->
 
+
+## A Motivating Example 
+
+Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+
+![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
+
+The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
+
+We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details each type of point process in the following sections. 
+
+*It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
 
 
 ## 2.4 Cox and Cluster Process
