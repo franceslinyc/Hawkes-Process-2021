@@ -120,7 +120,7 @@ $$
 \lim_{h\to 0^+} \frac{o(h)} {h} = 0. 
 $$
 
-In other words, 1. An event has to occur for it to be "counted". 2. The increments are independent, which means that the occurance of an event does not affect the probability of the occurance of another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location. 
+In other words, 1. An event has to occur for it to be "counted". 2. The occurance of an event in disjoint time intervals does not affect the probability of the occurance of another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location. 
 
 An alternative way to think of HPP is that it is a uniformly "random" process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
 
@@ -132,12 +132,14 @@ HPP has similar properties as those of counting process; it is independent, stat
 
 Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, let $T_0$ denote the starting time of the process while $T_1$ is the time of the first occurrence of event and $T_2$ is the time of the second occurrence of event. The elapsed time between the start of the process and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. 
 
-For an HPP, the number of events, $N(t)$, are exponentially distributed. More formally, we can say that the number of events in any interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\lambda (t+h - t))$. That is, for all $t, t+h \geq 0$ and $n = 0, 1,...$, 
+**Check reference > Chen, 2016 > p3, 4, 5 but check other sources too!** 
+
+For an HPP, the number of events in any time interval, $N(t)$, are Poisson distributed. More formally, we can say that the number of events in any time interval $(h, t+h]$, $N((h, t+h])$ $\sim Pos(\lambda t)$. That is, for all $h, t \geq 0$ and $n = 0, 1,...$, 
 
 *Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
 
 $$
-P(N(t + h) - N(t) = n) = P(N(h) - N(0)) = P(N(h) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
+P(N(h + t) - N(h) = n) = P(N(t) - N(0)) = P(N(t) = n) = \frac{(\lambda t)^n e^{-\lambda t}} {n!} . \ \ 
 $$
 
 The interarrival times, $W$, are exponentially distributed. More formally, the interarrival times $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
@@ -146,10 +148,10 @@ $$
 P(W_1 > t) = P(N(t) = 0) = e^{-\lambda t}.
 $$
 
-This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrival in the interval [0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
+This is because p($1^{st}$ arrivial arrives after time $t$) is the same as p(no arrival in the interval (0,$t$]). Similarly, $W_2$ also $\sim exp(\frac{1} {\lambda})$ since
 
 $$
-P(W_2 > t+h | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t)) = P(N(h) = 0) = e^{-\lambda h}. 
+P(W_2 > t | W_1 = h) = P(N(t + h) - N(h) | N(h) - N(h^{-}) = 1) = P(N(t + h) - N(h)) = P(N(t) = 0) = e^{-\lambda t}. 
 $$
 
 
