@@ -176,7 +176,7 @@ Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poiss
 
 
 
-Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, $N((t, t+h])$, $N(t)$ $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
+Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
 P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!}. \ \ 
