@@ -193,21 +193,19 @@ $$
 
 Before we delve further into other point processes, let us look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
-Let us first turn to HPP and NPP in space. HPP in space is also called complete spatial randomness (CSR). **CITATION** For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
+Let us turn to HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR). **CITATION** For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
 
 $$
 P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!}
 $$
 
-where $|u|$ denotes the area of $U$. As we show in the left figure of Figure 3, HPP points are uniformly distributed in $U$. 
+where $|u|$ denotes the area of $U$. The figure on the left of Figure 3 is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $U$. 
 
-For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. As we show in the middle 1 figure of Figure 3, NPP points are not uniformly distributed. They are distributed according to the intensity function of the process. 
+For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. The figure in the middle 1 is a realization of NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
 
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
-The figure on the left and middle 1 is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$. We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. 
-
-As a preview, the figure on the middle 2 and right is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
+As a preview, the figure in the middle 2 and on the right is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 ## 2.4 Cox and Cluster Process
 
@@ -341,7 +339,7 @@ where
 
 
 
-**2.5.1** Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
+Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
 
 $$
 \phi(x) = \alpha e^ {-\beta x} 
@@ -354,15 +352,13 @@ $$
 
 
 
-**2.5.2** There are two ways to view Hawkes processes
+There are two ways to view Hawkes processes
 
 1. Intensity-based Hawkes Process
 
 Here, Hawkes process is defined through conditional intensity process. 
 
 In **Section 3.5**, we discuss algorithm for simulating intensity-based Hawkes process in details.
-
-
 
 2. Cluster-based Hawkes Process
 
