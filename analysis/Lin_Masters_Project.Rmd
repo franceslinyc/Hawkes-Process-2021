@@ -1,5 +1,6 @@
 ---
-title: "Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations"
+title: | 
+  | \vspace{0.5cm} \LARGE Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations 
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
