@@ -27,7 +27,7 @@ The defining characteristic of Hawkes processes is that it self-excites. In othe
 
 In addition to modeling earthquake epicenters in seismology and crime patterns in criminology, Hawkes processes have also been used in modeling events such as forest wildfires, insurance claims, financial transcations, social network events, neuron activities, and disease spread or transmission. **CITATIONS** Thus, it can be found in a wide variety of fields such as emergency and disaster management, insurance, finance, social network, neuroscience, and epidemiology. Recent work has extended the use of self-exciting point processes to novel applications such as mass shootings and...... **CITATIONS**. However, there is still much work to be done, which include computational advances to ease the burden of applying such models to bigger data sets, residual and model diagnostics, and methods that make the models more flexible and applicable. **CITATIONS: Souchard, Mohler's COVID-19, and Park's gang violence papers** 
 
-Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gained much attention from the machine learning communities, which would find their predictive capabilities beneficial. In addition, understanding Hawkes processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting processes, homogeneous and nonhomogeneous Poisson processes, Cox processes, cluster processes, Hawkes processes, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In *Section 4 and 5*, we discuss recent and future work of Hawkes and self-exciting processes. 
+Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gained much attention from the machine learning communities, which would find their predictive capabilities beneficial. In addition, understanding Hawkes processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting processes, homogeneous and nonhomogeneous Poisson processes, Cox processes, cluster processes, Hawkes processes, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In *Section 4*, we discuss recent and future work of Hawkes and self-exciting processes. 
 
 
 # 2 Introductions, Definitions and Properties
@@ -193,29 +193,23 @@ $$
 
 Before we delve further into other point processes, let us look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
-Let us look at HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR). **CITATION** For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
+Let us look at HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR). **CITATION** For HPP in space, the number of events in $u$, denoted as $N(u)$, in area $|u|$, $\sim Pos(\lambda |u|)$. The left figure of Figure 3 is a realization of HPP with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $u$. 
 
-$$
-P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!}
-$$
-
-where $|u|$ denotes the area of $u$. The left figure of Figure 3 is a realization of HPP with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $u$. 
-
-For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. The middle 1 figure is a realization of NPP with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
+For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int_{u}^{} \lambda (v) dv)$. The middle 1 figure is a realization of NPP with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
 
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
-As a preview, the middle 2 and right figure is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
+As a preview, the middle 2 and the right figure is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 ## 2.4 Cox and Cluster Process
 
 Even more flexible models than NPP are Cox and cluster processes that allow dependence between events. Previously, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. HPP) or depend on an intensity function $\lambda (t)$ (e.g. NPP), they occur independently. Here, we discuss models that allow dependence between events. 
 
-Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. In these examples, the patterns appear to be clustered. 
+Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees. **CITATION** In these examples, the patterns appear to be clustered. 
 
 The differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random variable, whereas points in cluster process cluster in some bounded region. 
 
-We can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. 
+We can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. **CITATION** 
 
 In Cox processes (or doubly stochastic Poisson processes), randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. As a result, the intensity function $\Lambda (u)$ is treated as random. Mixed Poisson process, for one example, involves...... 
 
@@ -385,56 +379,16 @@ where
 - ${t_i, i = 1,2,...}$ are the times of events. 
 
 
-
-Next, we simulate some of the aforementioned point processes in 1D ($\mathbb{R}^1$) through algorithms and the processes in 2D ($\mathbb{R}^2$) using `R` packages.  
-
 # 3 Algorithms and Simulations
 
-## 3.1 Poisson Process
-
-See the Appendix section for Algorithm 1: HPP. 
-
-## 3.2 Nonhomogeneous Poisson Process
-
-Algorithm 2: NPP is omitted. Instead, we discuss the thinning algorithm in details and show Algorithm 3 in the next section. 
-
-## 3.3 Hawkes Process 
-
-In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate a (temporal) Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. 
-
-Broadly put, thinning algorithm involves randomly deleting points from a point pattern. **ELABORATE MORE**. 
-
-## Algorithm 3
+Please refer to the **Appendix** section for algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
 
 
-Figure 4 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
-
-
-
-
-## 3.6 Simulations in 2D using the **spatstat** package in `R`
-
-All of the corresponding plots can be found in the Appendix section and all of the plots in this section are created using the **spatstat** package in `R`. 
-
-**HPP**
-
-**NPP**
-
-**Cox Process**
-
-**Matern Cluster Process**
-
-Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
 
 
 
 
 # 4 Conclusions and Discussion
-
-
-
-
-# 5 Recent Advancement
 
 
 
@@ -482,4 +436,40 @@ Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encycloped
 ## Algorithm 2: NPP
 
 ## Algorithm 3: Hawkes
+
+## 3.1 Poisson Process
+
+See the Appendix section for Algorithm 1: HPP. 
+
+## 3.2 Nonhomogeneous Poisson Process
+
+Algorithm 2: NPP is omitted. Instead, we discuss the thinning algorithm in details and show Algorithm 3 in the next section. 
+
+## 3.3 Hawkes Process 
+
+In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate a (temporal) Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. 
+
+Broadly put, thinning algorithm involves randomly deleting points from a point pattern. **ELABORATE MORE**. 
+
+## Algorithm 3
+
+
+Figure 4 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
+
+
+
+
+## 3.6 Simulations in 2D using the **spatstat** package in `R`
+
+All of the corresponding plots can be found in the Appendix section and all of the plots in this section are created using the **spatstat** package in `R`. 
+
+**HPP**
+
+**NPP**
+
+**Cox Process**
+
+**Matern Cluster Process**
+
+Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
 
