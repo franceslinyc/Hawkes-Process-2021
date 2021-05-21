@@ -19,7 +19,7 @@ Real-world data are often spatial, temporal, or spatio-temporal in nature. Spati
 
 There are various statistical models and methods suitable for modeling spatial, temporal, or spatio-temporal data, and which models to use depend on questions of interest. For this project, we focus primarily on the point process models. Point process models are useful for describing phenomena that occurs at random locations, times, or locations and times, and the questions of interests typically are: Does the rate for the occurrence of events vary with locations, times, or locations and times? Do events appear clustered? Do events trigger subsequent events? 
 
-Spatial data can be broadly categoried into three types: geostatistical (point process) data, areal data, and point pattern data. **CITATIONS** We focus on the third category in which point pattern data are realizations of spatial point processes, and questions about point pattern data typically are: Is there clustering of events? Can we define a point process that captures the events? **CITATIONS** Examples of such models include Cox and cluster processes. On the other hand, when dealing with temporal data, (marked) point processes are sometimes used interchangeable with time series, and vice versa. One major distinction, though, is that in point processes, time intervals are treated as continuous, whereas in time series, they are treated as discrete. Examples of such models include (temporal) Poisson and Hawkes processes. 
+Spatial data can be broadly categoried into three types: geostatistical (point process) data, areal data, and point pattern data. **CITATIONS** We focus on the third category in which point pattern data are realizations of spatial point processes, and questions about point pattern data typically are: Is there clustering of events? Can we define a point process that captures the events? **CITATIONS** Examples of such models include Cox and cluster processes. On the other hand, when dealing with temporal data, (marked) point processes are sometimes used interchangeable with time series, and vice versa. **CITATIONS** One major distinction, though, is that in point processes, time intervals are treated as continuous, whereas in time series, they are treated as discrete. Examples of such models include (temporal) Poisson and Hawkes processes. 
 
 Hawkes processes are also known as self-exciting point process. More specifically, the original Hawkes processes are temporal, whereas the more recently developed self-exciting point processes have been extended from temporal Hawkes processes to account for both the spatial and temporal aspects of the data. 
 
@@ -93,7 +93,7 @@ A useful corollary of counting process, which describes more formally some of th
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
 
-In other words, 1. An event has to occur for it to be "counted". 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase because events don't disappear. Once we observe an event and count it, it remains in the counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
+In other words, 1. An event has to occur for it to be counted. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase because events don't disappear. Once we observe an event and count it, it remains in the counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval. 
 
 
 
@@ -120,9 +120,9 @@ $$
 \lim_{h\to 0^+} \frac{o(h)} {h} = 0. 
 $$
 
-In other words, 1. An event has to occur for it to be "counted". 2. For any disjoint time intervals, the occurance of an event does not affect the probability of the occurance of one another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location. 
+In other words, 1. An event has to occur for it to be counted. 2. For any disjoint time intervals, the occurance of an event does not affect the probability of the occurance of one another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location. 
 
-An alternative way to think of HPP is that it is a uniformly "random" process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
+An alternative way to think of HPP is that it is a uniformly random process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T. 
 
 Let us look at a realization of a HPP in time, which we show in Figure 2. First, we note that the cumulative number of points is growing at a constant linear rate. In addition, we can see that the histogram of rate appears roughly uniform; the rates are roughly constant at $\lambda = 10$. Algorithm for simulating this HPP can be found in the Appendix section. 
 
@@ -132,9 +132,7 @@ HPP has similar properties as those of counting process; it is independent, stat
 
 Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, let $T_0$ denote the starting time of the process while $T_1$ is the time of the first occurrence of event and $T_2$ is the time of the second occurrence of event. The elapsed time between the start of the process and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. 
 
-**Check reference > Chen, 2016 > p3, 4, 5 but check other sources too!** 
-
-For an HPP, the number of events in any time interval $N(t)$ are Poisson distributed. More formally, we can say that the number of events in any time interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\lambda \cdot h)$. That is, for all $t, h \geq 0$ and $n = 0, 1,...$, 
+For an HPP, the number of events in any time interval $N(t)$ are Poisson distributed. More formally, we can say that the number of events in any time interval $(t, t+h]$, $N((t, t+h])$, $\sim Pos(\lambda \cdot h)$. That is, for all $t, h \geq 0$ and $n = 0, 1,...$, 
 
 *Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
 
@@ -163,7 +161,7 @@ We assumed previously that the intensity $\lambda$ is constant. If we have reaso
 
 Contrary to HPP, NPP is independent but not stationary nor homogeneous. HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, NPP does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous. 
 
-Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP
+Recall that for HPP, we assume that the numbers of events in any time interval $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -177,7 +175,7 @@ Recall that for HPP, we assume that the numbers of events $N(t)$ follows a Poiss
 
 
 
-Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, $N((t, t+h])$ $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
+Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, denoted as $N((t, t+h])$, $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
 P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!}. \ \ 
@@ -381,7 +379,7 @@ where
 
 # 3 Algorithms and Simulations
 
-Please refer to the **Appendix** section for algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
+Please refer to the **Appendix** section for the algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
 
 
 
@@ -433,35 +431,25 @@ Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encycloped
 
 ## Algorithm 1: HPP
 
+## Algorithm 1
+
 ## Algorithm 2: NPP
+
+Algorithm 2: NPP is omitted. Instead, we discuss the thinning algorithm (or acceptance-rejection method) in details and show Algorithm 3 next. 
 
 ## Algorithm 3: Hawkes
 
-## 3.1 Poisson Process
-
-See the Appendix section for Algorithm 1: HPP. 
-
-## 3.2 Nonhomogeneous Poisson Process
-
-Algorithm 2: NPP is omitted. Instead, we discuss the thinning algorithm in details and show Algorithm 3 in the next section. 
-
-## 3.3 Hawkes Process 
-
-In this example, we use the thinning algorithm (or acceptance-rejection method) to simulate a (temporal) Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. 
+In this example, we use the thinning algorithm  to simulate a (temporal) Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. 
 
 Broadly put, thinning algorithm involves randomly deleting points from a point pattern. **ELABORATE MORE**. 
 
 ## Algorithm 3
 
-
 Figure 4 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
 
+## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package in `R` 
 
-
-
-## 3.6 Simulations in 2D using the **spatstat** package in `R`
-
-All of the corresponding plots can be found in the Appendix section and all of the plots in this section are created using the **spatstat** package in `R`. 
+All of the corresponding plots in 2D are created using the **spatstat** package in `R`. 
 
 **HPP**
 
@@ -471,5 +459,5 @@ All of the corresponding plots can be found in the Appendix section and all of t
 
 **Matern Cluster Process**
 
-Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
+Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
 
