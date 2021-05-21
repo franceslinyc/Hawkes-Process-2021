@@ -379,7 +379,7 @@ where
 
 # 3 Algorithms and Simulations
 
-Please refer to the **Appendix** section for the algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
+Please refer to the Appendix section for the algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
 
 
 
