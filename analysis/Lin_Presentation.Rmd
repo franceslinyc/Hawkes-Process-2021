@@ -18,29 +18,40 @@ library(here)
 
 ## Background and Objectives
 
-## Definitions, Properties, and Graphs
+## Introductions, Definitions, Properties, and Graphs
 
-## HPP vs. NPP vs. Matern
+1. Counting process
+2. HPP
+3. NPP
+4. Cox and Cluster processes 
+5. Hawkes process 
+6. Spatio-temporal self-exciting point process
 
-```{r}
-par(mfrow=c(1, 3))
-plot(rpoispp(lambda = 100, win=square(1)),main = "HPP (rate = 100)") #plot_2D_HPP
-plot(rpoispp(lambda = function(x, y) 400*x*y, win=square(1)), main = "NPP (intensity = 400*x*y)") #plot_2D_NPP
-plot(rMatClust(kappa = 20, r = 0.05, mu = 5), main = "Matern (kappa = 20, r = 0.05, mu = 5)") #plot_2D_Matern
-```
+## Counting Process
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png)
 
 ## HPP
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_HPP.png)
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_HPP.png)
 
+## HPP vs. NPP vs. Cox vs. Matern in 2D
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
 
 ## NPP
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_NPP.png)
+## Cox and Cluter Processes 
 
-## Matern
+## Hawkes Process
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_Matern.png)
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png)
+
+## Spatio-temporal Self-exciting Point Process
+
+
+
+## Acknowledgments
 
 
 
