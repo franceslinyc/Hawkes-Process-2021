@@ -47,14 +47,14 @@ Before formally defining a counting process, first we need to define stochastic 
 **Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 
 $$
-\{X_t\}_{t \in T} .
+\{X_t\}_{t \in T}
 $$
 
 
 **Definition 2.1.2** (Point Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in \mathbb{N}$, a point process on $R^{+}$ is defined as
 
 $$
-\{T_i\}_{i \in \mathbb{N}} .
+\{T_i\}_{i \in \mathbb{N}}
 $$
 
 A point process relies on the occurrence of an event occurring at a specific point in time. Stochastic process, on the other hand, is more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc.
@@ -189,29 +189,25 @@ $$
 P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
 $$
 
-
-## HPP and NPP in Space
-
-HPP in space is also called complete spatial randomness (CSR). **CITATION** As we show in the left figure of Figure 3, HPP points are uniformly distributed in $U$. For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
-
-$$
-P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!} .
-$$
-
-where $|u|$ denotes the area of $U$. 
-
-As we show in the middle 1 figure of Figure 3, NPP points are not uniformly distributed. They are distributed according to the intensity function of the process. For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. 
-
-
 ## A Motivating Example 
 
-Before we delve further into various point processes, let us first look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+Before we delve further into other point processes, let us look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
+
+Let us first turn to HPP and NPP in space. HPP in space is also called complete spatial randomness (CSR). **CITATION** For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
+
+$$
+P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!}
+$$
+
+where $|u|$ denotes the area of $U$. As we show in the left figure of Figure 3, HPP points are uniformly distributed in $U$. 
+
+For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. As we show in the middle 1 figure of Figure 3, NPP points are not uniformly distributed. They are distributed according to the intensity function of the process. 
 
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
-The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
+The figure on the left and middle 1 is a realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$. We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. 
 
-We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. As a preview, both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
+As a preview, the figure on the middle 2 and right is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 ## 2.4 Cox and Cluster Process
 
@@ -223,11 +219,11 @@ The differences between Cox process and cluster process are such that points in 
 
 We can think of Cox process as a hierarchical model with two levels and cluster process such as Neyman-Scott process a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable or random field. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. 
 
-In Cox processes (or doubly stochastic Poisson processes), randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. **PICK ONE TO PLOT THEN TALK IN DETAILS**. For example, in mixed Poisson process,...... Other examples of Cox processes include log Gaussian Cox process and shot noise Cox process. 
+In Cox processes (or doubly stochastic Poisson processes), randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. In other words, the intensity function $\Lambda (u)$ is also treated as random. Mixed Poisson process is one example of Cox processes. Mixed Poisson process involves...... 
 
 In cluster processes, randomness arises from three parts: First, 'parent' points **Y** is generated. Next, each 'parent' point $y_i \in$ **Y** gives rise to a random number of 'offspring' points $z_{ij}$. Then, all the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
 
-Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
+Specific models of cluster processes depend on the choices of assumptions. Matern cluster process is one example of cluster processes. Matern cluster process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
 
 **Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that $\Lambda (u)$ is a locally integrable function. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is, 
 
