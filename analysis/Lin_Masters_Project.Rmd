@@ -142,7 +142,7 @@ $$
 P(N(t+h) - N(t) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
 $$
 
-The interarrival times $W$ are exponentially distributed. More formally, the interarrival times $W$, $\overset{iid}{\sim} exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
+The interarrival times $W$ are exponentially distributed. More formally, the interarrival times $W$, $\sim exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,  
 
 $$
 P(W_1 > h) = P(N(h) = 0) = e^{-\lambda h}.
@@ -192,12 +192,7 @@ $$
 
 ## HPP and NPP in Space
 
-
-*It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
-
-*Here would be a good place for a plot where you compare the spatial occurrence of HPP and NPPs. You can then end this section with a brief explanation of the plots.* 
-
-For HPP in space, it follows that for $u \in S \subseteq R^d$ and $d = 2$, 
+HPP in space is also called complete spatial randomness (CSR). **CITATION** As we show in the left figure of Figure 3, HPP points are uniformly distributed in $U$. For HPP in space, the number of events $N(u) \sim Pos(\lambda |u|)$. That is, for $u \in S \subseteq R^2$, 
 
 $$
 P(N(u) = n) = \frac{(\lambda |u|)^n e^{-\lambda |u|}} {n!} .
@@ -205,19 +200,7 @@ $$
 
 where $|u|$ denotes the area of $U$. 
 
-For NPP in space, if we let 
-
-$$
-\lambda(x, y) = e^{- (x^2 + y^2)}
-$$
-
-then the intensity function becomes 
-
-$$
-\Lambda(u) = \int_u \lambda (x) dxdy.
-$$
-
-
+As we show in the middle 1 figure of Figure 3, NPP points are not uniformly distributed. They are distributed according to the intensity function of the process. For NPP in space, the number of events $N(u) \sim Pos(\int_{u}^{} \lambda (v) dv)$. 
 
 
 ## A Motivating Example 
@@ -229,9 +212,6 @@ Before we delve further into various point processes, let us first look at a mot
 The figure on the left, middle 1, middle 2 and right is realization of HPP (homogeneous Poisson process) with constant $rate = 100$, NPP (nonhomogeneous Poisson process) with $intensity \ function = 400xy$, Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$ respectively. 
 
 We can see that while HPP points appear randomly spaced, NPP points seem to concentrate at the upper-right corner. As a preview, both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
-
-*It might make sense though, for the next section, to introduce at least the HPP and NPP spatial proceses so that we can emphasize the differences between those particular point processes.*
-
 
 ## 2.4 Cox and Cluster Process
 
