@@ -173,20 +173,22 @@ $$
 
 ## A Motivating Example 
 
-**For this example, let's focus solely on HPP and NPP. So in the plot, just include those two panes and we'll save the panes for the Cox and Cluster processes for those sections.** 
-
 Before we delve further into other point processes, let us look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
 Let us look at HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR) (Baddeley et al., 2015). For HPP in space, the number of events in $u$ with area $|u|$, denoted as $N(u)$, $\sim Pos(\lambda |u|)$. The left figure of Figure 3 is a realization of HPP with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $u$. 
 
-For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int_{u}^{} \lambda (v) dv)$. The middle 1 figure is a realization of NPP with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
+For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int_{u}^{} \lambda (v) dv)$. The right figure of Figure 3 is a realization of NPP with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
 
-![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
+![Left: HPP (rate = 100) Right: NPP (intensity = 400*x*y)](../results/plot_2D_All.png)
+
+
 
 
 **If you opt to use my idea of focusing on just HPP and NPP, we can move the paragraph below until later.**  
 
-As a preview, the middle 2 and the right figure is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
+![Left: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All_2.png)
+
+The left and the right figure of Figure 4 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 ## 2.4 Cox and Cluster Process
 
