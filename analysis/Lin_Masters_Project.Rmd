@@ -206,13 +206,13 @@ Examples that can be modelled using Cox and cluster processes include seedlings 
 
 The differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random variable, whereas points in cluster process cluster in some bounded region. 
 
-We can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels. In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count (Geyer, 2020). 
+We can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels (Geyer, 2020). In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. 
 
 In Cox processes (or doubly stochastic Poisson processes), randomness arises from two parts. Not only the randomness occurs at different location of the time interval as in the case of a NPP, but instead of governing by a determinist function $\lambda(t)$ also as in the case of a NPP, the governing function $\Lambda (u)$ is also random. As a result, the intensity function $\Lambda (u)$ is treated as random. Mixed Poisson process, for one example, involves...... 
 
 In cluster processes, randomness arises from three parts: First, 'parent' points **Y** is generated. Next, each 'parent' point $y_i \in$ **Y** gives rise to a random number of 'offspring' points $z_{ij}$. Then, all the 'offspring' points $Z_{ij}$ form a cluster process **X** and only **X** is observed. 
 
-Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for one example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent. Other examples of cluster processes include Neyman-Scott process and Thomas cluster process. 
+Specific models of cluster processes depend on the choices of assumptions. Matern cluster process, for one example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformmly distributed in a disc of radius $r$ centered around the parent.
 
 We follow with...... to define a Cox process and a cluster process 
 
@@ -278,7 +278,6 @@ Hawkes process is also known as a self-exciting point process. Like Cox and clus
 Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
 
 Because the intensity is now as a function of past history, a defining characteristic of Hawkes processes is that it self-excites. **WHY?** Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. **HOW?** These characteristics are captured by the triggering part $\phi(\cdot)$ of the intensity function $\lambda(t | \mathcal{H}_t)$. 
-
 
 We can think of Hawkes process as a model that incorporates cluster process and conditional intensity function. 
 
