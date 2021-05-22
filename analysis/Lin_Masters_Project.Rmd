@@ -134,8 +134,6 @@ Additionally, let us denote the total number of events as $N(t)$ and the interar
 
 For an HPP, the number of events in any time interval $N(t)$ are Poisson distributed. More formally, we can say that the number of events in any time interval $(t, t+h]$, $N((t, t+h])$, $\sim Pos(\lambda \cdot h)$. That is, for all $t, h \geq 0$ and $n = 0, 1,...$, 
 
-*Definitely check the notation, both above and below this line. For the notation below, it's not clear to me why P(N(t+h) - N(t) = n) is equal to P(N(h) - N(0)) and further why this is equal to P(N(h) = n). It seems that if n events occur after time t but before time t+h, that it wouldn't necessarily be equal to the probability that N(h) = n since N(h) starts from time t = 0.*
-
 $$
 P(N(t+h) - N(t) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
 $$
