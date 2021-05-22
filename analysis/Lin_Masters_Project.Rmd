@@ -181,11 +181,6 @@ For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int
 
 ![Left: HPP (rate = 100) Right: NPP (intensity = 400*x*y)](../results/plot_2D_All.png){height=50%, width=50%}
 
-**If you opt to use my idea of focusing on just HPP and NPP, we can move the paragraph below until later.**  
-
-![Left: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All_2.png){height=50%, width=50%}
-
-The left and the right figure of Figure 4 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
 ## 2.4 Cox and Cluster Process
 
@@ -255,7 +250,9 @@ We follow with Baddeley et al. (2015) to state the following model assumptions f
 
 Under assumption 1 - 4, it is a Neyman-Scott process. Under assumption 1 - 5, the cluster process is a Cox process. Under assumption 1 - 6, it can be a Matern cluster process or a Thomas cluster process. 
 
+![Left: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All_2.png){height=50%, width=50%}
 
+The left and the right figure of Figure 4 is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. 
 
 
 ## 2.5 Hawkes Process 
