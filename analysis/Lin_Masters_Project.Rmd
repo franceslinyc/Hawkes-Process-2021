@@ -27,7 +27,7 @@ The defining characteristic of Hawkes processes is that it self-excites. In othe
 
 In addition to modeling earthquake epicenters in seismology and crime patterns in criminology, Hawkes processes have also been used in modeling events such as forest wildfires, insurance claims, financial transcations, social network events, neuron activities, and disease spread or transmission. **CITATIONS** Thus, it can be found in a wide variety of fields such as emergency and disaster management, insurance, finance, social network, neuroscience, and epidemiology. Recent work has extended the use of self-exciting point processes to novel applications such as mass shootings and...... **CITATIONS**. However, there is still much work to be done, which include computational advances to ease the burden of applying such models to bigger data sets, residual and model diagnostics, and methods that make the models more flexible and applicable. **CITATIONS: Souchard, Mohler's COVID-19, and Park's gang violence papers** 
 
-Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gained much attention from the machine learning communities, which would find their predictive capabilities beneficial. In addition, understanding Hawkes processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting processes, homogeneous and nonhomogeneous Poisson processes, Cox processes, cluster processes, Hawkes processes, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and simulate selected processes in 1D and 2D. In *Section 4*, we discuss recent and future work of Hawkes and self-exciting processes. 
+Given the flexibility and applicability of Hawkess processes, it is surprising to see that Hawkess processes have not gained much attention from the machine learning communities, which would find their predictive capabilities beneficial. In addition, understanding Hawkes processes would benefit from knowing some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses. The objective of this project is to give an overview of various types of point processes so that readers of interest have the necessary background knowledge to understand Hawkes and self-exciting processes. The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties of counting processes, homogeneous and nonhomogeneous Poisson processes, Cox processes, cluster processes, Hawkes processes, and spatio-temporal self-exciting process. In *Section 3*, we discuss in particular the thinning algorithms (acceptance-rejection method) and the **spatstat** package of `R` that are used to simulate selected processes in 1D and 2D, respectively. In *Section 4*, we discuss recent and future work of Hawkes and self-exciting processes. 
 
 
 # 2 Introductions, Definitions and Properties
@@ -173,15 +173,13 @@ Recall that for HPP, we assume that the numbers of events in any time interval $
 
 4. $P(N(t + h)) - N(t) > 1)) = o(h)$ 
 
-
-
 Nonhomogeneous Poisson process has additional properties such as if the number of events in any time interval $(t, t+h]$, denoted as $N((t, t+h])$, $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t \geq 0$ and $n = 0, 1,...$, 
 
 $$
 P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!}. \ \ 
 $$
 
-Further, the law of occurrence for the next point can be determined by 
+Further, occurrence for the next point can be determined by 
 
 $$
 P(N(t,t+h] = 0) = e^{- \int_{t}^{t+h} \lambda (v) dv} .
