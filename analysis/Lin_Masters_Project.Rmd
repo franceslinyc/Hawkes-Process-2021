@@ -45,13 +45,12 @@ Before formally defining a counting process, first we need to define stochastic 
 
 **Definition 2.1.1** (Stochastic Process) A stochastic process is a family of random variables indexed by time $t$ and is defined as
 $$
-\{X_t\}_{t \in T}
+\{X_t\}_{t \in T.}
 $$
-
 
 **Definition 2.1.2** (Point Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a sequence of non-negative random variables such that $T_i < T_{i+1}$ $\forall i \in \mathbb{N}$, a point process on $R^{+}$ is defined as
 $$
-\{T_i\}_{i \in \mathbb{N}}
+\{T_i\}_{i \in \mathbb{N.}}
 $$
 
 A point process relies on the occurrence of an event occurring at a specific point in time. Stochastic processes, on the other hand, are more general. It can be related to a time interval, a waiting time, a state (e.g. blue or red) that changes over time, etc. 
@@ -162,9 +161,9 @@ For HPP, we assume that the numbers of events in any time interval $N(t)$ follow
 
 Nonhomogeneous Poisson processes have additional properties such as if the number of events in any time interval $(t, t+h]$, denoted as $N((t, t+h])$, $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t, h \geq 0$ and $n = 0, 1,...$, 
 $$
-P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!}. \ \ 
+P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!} \ \ 
 $$
-where again, $\lambda(v)$ denotes a non-constant rate function.
+where again, $\lambda(v)$ denotes a non-constant rate function. 
 
 Further, occurrence for the next point can be determined by utilizing the exponential distribution with 
 $$
@@ -199,7 +198,6 @@ Specific models of cluster processes depend on the choices of assumptions. Mater
 We follow with...... to define a Cox process and a cluster process 
 
 **Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that the values of $\Lambda (u)$ is nonnegative and $\Lambda (u)$ is a locally integrable function. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is, 
-
 $$
 P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!} = 
 $$
@@ -225,8 +223,7 @@ Cox processes have the following propertities
 
 1. Propertities of Cox process X follow immediately from the properties of Poisson process X | $\Lambda$. For example, if $\Lambda$ is stationary, then X is stationary. 
 
-2. For bounded $B \subseteq S$, the void probabilities are given by
-
+2. For bounded $B \subseteq S$, the void probabilities are given by 
 $$
 \nu (B) = E(P(N(B) = 0) | \Lambda) = E(exp (- \int_B Z(u) du)). 
 $$
@@ -235,7 +232,6 @@ Note. The void (or avoidance) probability $\nu$ is defined as the probability th
 
 
 **Definition 2.4.2** (Cluster Process) Let $x$ be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$, then the union of all the clusters forms a cluster process $N_c$. That is, 
-
 $$
 N_c = \bigcup_{x \in N} N_x
 $$
@@ -270,21 +266,17 @@ First we want to define conditional intensity function since it is through which
 Conditional intensity function can be thought as the instantaneous rate of events per unit time, space or space-time. Restricting ourselves to the time domain again, for example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history. 
 
 **Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
-
 $$
 \lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h} 
 $$
-
 where $\mathcal{H}_t$ is the history prior to time $t$ here in the case of a Hawkes process.
 
 ![Hawkes Process](../results/plot_1D_Hawkes.png)
 
 **Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
-
 $$
 \lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
 $$
-
 where
 
 - $\lambda_0(t)$ is the base intensity function (or $\mu$ the constant background rate)
@@ -309,19 +301,13 @@ where
 4. $P(N(t + h)) - N(t) > 1) | \mathcal{H}_{t}^{N}) = o(h)$
 
 
-
-
 Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
-
 $$
 \phi(x) = \alpha e^ {-\beta x} 
 $$
-
 $$
 \phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
 $$
-
-
 
 
 There are two ways to view Hawkes processes
