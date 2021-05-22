@@ -160,9 +160,9 @@ Assuming that the rate in which points occur is constant is often not realistic 
 
 We assumed previously that the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, we should use a NPP instead. This would be the case if, as in the supermarket example, we have reasons to believe that the arrival rate of customers is higher during lunch time as compared to say, 2am, or, as in the trees in a forest example, we speculate that environmental factors such as temperature, rainfall and light affect the spatial distribution of the trees. 
 
-Contrary to HPP, NPP is independent but not stationary nor homogeneous. HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$. In contrast, NPP does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous. 
+Contrary to HPP, NPP is independent but not stationary nor homogeneous. HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time depends only on the length of the interval ($h$) but not the location of the interval ($t$). In contrast, NPP does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous. 
 
-Recall that for HPP, we assume that the numbers of events in any time interval $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$, for NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP (Obral, 2016; Chen, 2016) 
+For HPP, we assume that the numbers of events in any time interval $N(t)$ follows a Poisson distribution with a constant intensity $\lambda$. For NPP, we assume that $N(t)$ follows a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time. This then leads to the following definiton of a NPP (Obral, 2016; Chen, 2016) 
 
 **Definition 2.3.1** (Nonhomogeneous Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a nonhomogeneous Poisson Process with intensity function of time $\lambda(t), t > 0$
 
@@ -190,7 +190,7 @@ $$
 
 Before we delve further into other point processes, let us look at a motivating example, which we show in Figure 3. We demonstrate the processes in space so that visualizations are easier to look at and comprehend. 
 
-Let us look at HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR) (Baddeley et al., 2015). For HPP in space, the number of events in $u$, denoted as $N(u)$, in area $|u|$, $\sim Pos(\lambda |u|)$. The left figure of Figure 3 is a realization of HPP with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $u$. 
+Let us look at HPP and NPP in space first. HPP in space is also called complete spatial randomness (CSR) (Baddeley et al., 2015). For HPP in space, the number of events in $u$ with area $|u|$, denoted as $N(u)$, $\sim Pos(\lambda |u|)$. The left figure of Figure 3 is a realization of HPP with constant $rate = 100$. We can see that HPP points appear uniformly distributed in $u$. 
 
 For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int_{u}^{} \lambda (v) dv)$. The middle 1 figure is a realization of NPP with $intensity \ function = 400xy$. NPP points are not uniformly distributed; they are distributed according to the intensity function of the process. In this example, the points appear to concentrate at the upper-right corner. 
 
@@ -203,8 +203,6 @@ As a preview, the middle 2 and the right figure is a realization of Cox process 
 Even more flexible models than NPP are Cox and cluster processes that allow dependence between events. Previously, we assume independence between events. That is, whether events occur at a constant rate $\lambda$ (e.g. HPP) or depend on an intensity function $\lambda (t)$ (e.g. NPP), they occur independently. Here, we discuss models that allow dependence between events. 
 
 Examples that can be modelled using Cox and cluster processes include seedlings and saplings of California redwood, locations of emergent plants, and locations of trees (Baddeley, 2015). In these examples, the patterns appear to be clustered. 
-
-The differences between Cox process and cluster process are such that points in Cox process cluster accordingly to some specified random variable, whereas points in cluster process cluster in some bounded region. 
 
 We can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels (Geyer, 2020). In Cox process, the first level is a Poisson process and the second level can be a non-negative random variable. In cluster process, the first level is to generate 'parent' (or 'center') points, which can be a Poisson process or any other process. The second level is to generate counts, which is a non-negative interger-valued random variable, and the third level is to generate 'offspring' points for each 'parent' point and the corresponding count. 
 
