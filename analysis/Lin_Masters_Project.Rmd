@@ -184,7 +184,7 @@ For NPP in space, the number of events in $u$, denoted as $N(u)$, $\sim Pos(\int
 ![Left: HPP (rate = 100) Middle 1: NPP (intensity = 400*x*y) Middle 2: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All.png)
 
 
-**If you opt to use my idea of focusing on just HPP and NPP, we can move the paragraph below until later.** 
+**If you opt to use my idea of focusing on just HPP and NPP, we can move the paragraph below until later.**  
 
 As a preview, the middle 2 and the right figure is a realization of Cox process with $intensity \ function = exp(1, 1/100)$ and Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution, whereas points in cluster process cluster in some defined area. We elaborate more and discuss in details Cox and cluster process in the next section. 
 
