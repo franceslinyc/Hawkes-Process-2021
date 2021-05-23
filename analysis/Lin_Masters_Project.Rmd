@@ -219,6 +219,8 @@ Matern cluster processes, for one example, involves generating homogeneous Poiss
 Other examples of cluster processes include Neyman-Scott process and Thomas cluster process.
 <!-- ZZQ: Consider enumerating explaining how these other cluster processes differ from the Matern cluster process. I imagine Baddeley has a fairly nice description of them in Chapter 12 section 3 (Check out page 463 for the Thomas cluster process). Also, consider changing the Neyman-Scott process to the Cauchy cluster process since Thomas and Cauchy are sort of similar with the difference being that the Cauchy cluster process has heavier tails and so points in the clusters can "sneak away" from the location of the parent more easily. -->
 
+<!-- ZZQ: Include a graphical example of Cox and cluster processes here and then briefly describe how the similarity/differences in the plot highlight some of the differences between the two processes. -->
+
 Having given some background on both the Cox and cluster processes, we follow now with their more formal definitions.
 
 **Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that $\Lambda (u)$ is a locally integrable function. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is, 
@@ -283,124 +285,125 @@ Under assumption 1 - 4, we have a Neyman-Scott process. Under assumption 1 - 5, 
 
 ## 2.5 Hawkes Process 
 
-Hawkes process is also known as a self-exciting point process. Like Cox and cluster process, the model also allows dependence between events. However, their dependence differs. In Hawkes process, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. Neither Cox nor cluster process captures the past history of events. 
+The final class of point process models we present are the Hawkes processes, also commonly known as self-exciting point processes. Like Cox and cluster process, the Hawkes process model allows for dependence between events; however, their dependence differs. In Hawkes processes, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. This is the distinguishing feature of the Hawkes process as neither Cox nor cluster processes depends on the past history of events. It can be noted, however, that we can think of the Hawkes process as a model that incorporates the cluster process but through a  and conditional intensity function. 
 
-Examples that can be modelled using Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a disease. In these examples, the occurrence of an event increases the occurrence of subsequent events. 
+As previously mentioned, examples of applications for Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a communicable disease. The major commonality in each of these examples is the fact that an occurrence of an event leads to an increase in the occurrence of subsequent events. 
+<!-- ZZQ: Include a brief description as to _why_ the history of events matters for these examples. In seismology, an earthquake is often followed by aftershock. In gang crimes, one act of violence often features an act of retaliatory violence. In communicable diseases, one patient may infect others. -->
+<!-- ZZQ: Also, I was just thinking, in the Cox/cluster process section, do we ever state that most often, Cox and cluster processes deal with spatial processes? -->
 
-Because the intensity is now as a function of past history, a defining characteristic of Hawkes processes is that it self-excites. **WHY?** Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. **HOW?** These characteristics are captured by the triggering part $\phi(\cdot)$ of the intensity function $\lambda(t | \mathcal{H}_t)$. 
+Since the intensity, or the expected rate in which points occur, of the process is now as a function of past history, we refer to the expected rate as a conditional intensity. And a defining characteristic of Hawkes processes is that it self-excites because of its conditional intensity. 
+<!-- **WHY?**  -->
+<!-- ZZQ: The reason for this is because we postulate that, "conditioning on the past set of events", the expected rates at which points occur is expected to be higher when points have occurred in nearby time and space and then gradually decline as the events get further and further away in time and space. That is, an earthquake today leads us to believe that there might be a higher chance of a an earthquake tomorrow. But an earthquake which has occurred a year or more ago doesn't make us think that there's much higher probability that one will occur tomorrow. -->
+<!-- ZZQ: For the sentence below, I would just allude to this idea when you're explaining the "self-exciting" nature of the Hawkes process above. -->
+Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. **HOW?** These characteristics are captured by the triggering part $\phi(\cdot)$ of the intensity function $\lambda(t | \mathcal{H}_t)$. 
 
+<!-- ZZQ: Making some edits to the "run-up" to defining the conditional intensity. -->
+<!-- First we want to define conditional intensity function since it is through which a point process is fully characterized. -->
+A Hawkes process can be uniquely identified through its conditional intensity function (**Citation** Daley and VereJones), the definition of which we give below:
 
-We can think of Hawkes process as a model that incorporates cluster process and conditional intensity function. 
+<!-- ZZQ: Careful below (I commented the section out). Conditional intensity is really only applicable to the Hawkes process since it's the only process so far that's conditioning on the history of how events have occurred in the past. The HPP has an "intensity" but not a "conditional intensity" as lambda is just a constant and doesn't depend on the past (Independent increments, remember!). The NPP also doesn't have a "conditional intensity" since there's a function which governs lambda (the rate at which points appear) and again, it's not conditioned on the past. The Cox and cluster processes are "spatial" point processes and we don't have a "time" dimension for them. So again, they have a "random" or "Papangelou" intensity but not a conditional intensity. -->
+<!-- Conditional intensity function can be thought as the instantaneous rate of events per unit time, space or space-time. Restricting ourselves to the time domain again, for example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history.  -->
 
-First we want to define conditional intensity function since it is through which a point process is fully characterized.
-
-Conditional intensity function can be thought as the instantaneous rate of events per unit time, space or space-time. Restricting ourselves to the time domain again, for example, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda$, for HPP, $\lambda(t | \mathcal{H}_t)$ = $\lambda(t)$, for Cox process, $\lambda(t | \mathcal{H}_t)$ is a Papangelou conditional intensity function. For Hawkes process, $\lambda(t | \mathcal{H}_t)$ is a function of past history. 
-
-**Definition 2.5.0** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to $\mathcal{H}_t$ is defined as 
-
+**Definition 2.5.1** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to the history of the process up to time $t$, $\mathcal{H}_t$, is defined as 
 $$
 \lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {P(N(t, t+h] > 0 | \mathcal{H}_t)} {h}= \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h} 
 $$
 
-where $\mathcal{H}_t$ is the history prior to time $t$ here in the case of a Hawkes process.
+Having defined the conditional intensity function, we next more formally define the Hawkes process:
 
-![Hawkes Process](../results/plot_1D_Hawkes.png)
-
-**Definition 2.5.1** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
-
+**Definition 2.5.2** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form 
 $$
 \lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
 $$
-
 where
 
 - $\lambda_0(t)$ is the base intensity function (or $\mu$ the constant background rate)
 
 - $T_i < t$ are the events time occur before current time $t$ 
 
-- $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which intensity function depends on past events 
+<!-- - $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which intensity function depends on past events  -->
+- $\phi(\cdot)$ is the triggering function) through which which describes the amount of extra intensity caused by events occurring prior to time $t$ 
 
 - $\mathcal{H}_{t}^{N}$ is the natural filtration (or simply $\mathcal{H}_{t}^{}$ the past history) which represents the internal history of N up to time $t$
 
 
 
 
-*Corollary* **2.5.1** Hawkes process satisfies that
+<!-- ZZQ: Here again, I think this corollary (while useful) is "taking up" too much room on the page. I'm going to comment it out so we keep room to talk about spatio-temporal self-exciting point processes and a nice conclusion. -->
+<!-- *Corollary* **2.5.1** Hawkes process satisfies that -->
 
-1. $N(t) = 0$
+<!-- 1. $N(t) = 0$ -->
 
-2. $\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \int_{-\infty}^{t} \phi( t - T_i)dN(s) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)$
+<!-- 2. $\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \int_{-\infty}^{t} \phi( t - T_i)dN(s) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)$ -->
 
-3. $P(N(t + h)) - N(t) = 1) | \mathcal{H}_{t}^{N}) = \lambda(t) h + o(h)$
+<!-- 3. $P(N(t + h)) - N(t) = 1) | \mathcal{H}_{t}^{N}) = \lambda(t) h + o(h)$ -->
 
-4. $P(N(t + h)) - N(t) > 1) | \mathcal{H}_{t}^{N}) = o(h)$
-
-
+<!-- 4. $P(N(t + h)) - N(t) > 1) | \mathcal{H}_{t}^{N}) = o(h)$ -->
 
 
-Choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the form of 
 
+
+The inclusion of the triggering function is what makes the Hawkes process "self-exciting" as well as a "cluster" process as it allows for additional points to occur in nearby time and space before ultimately decaying back to the background rate. Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel, and they take the forms of 
 $$
 \phi(x) = \alpha e^ {-\beta x} 
 $$
-
 $$
 \phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
 $$
 
+Finally, we illustrate how Hawkes processes differ from previous point processes, at least in time for this example, by examining a simulated Hawkes process in Figure 4. 
+ZZQ: Finish up this paragraph by describing the interesting features of the Hawkes process. Note things like how the "flat" portions of N(t) correspond to gaps in the inter-arrival times and further how these gaps in the inter-arrival times result in the conditional intensity function decreasing slightly. You might also point out how the conditional intensity for this realization is tending to increase over time as the points of the simulation are occurring fairly regularly.
+
+![Hawkes Process](../results/plot_1D_Hawkes.png)
+
+<!-- ZZQ: Let's leave this out for now and focus on the spatio-temporal Hawkes process. -->
+<!-- There are two ways to view Hawkes processes -->
+
+<!-- 1. Intensity-based Hawkes Process -->
+
+<!-- Here, Hawkes process is defined through conditional intensity process.  -->
+
+<!-- In **Section 3.5**, we discuss algorithm for simulating intensity-based Hawkes process in details. -->
+
+<!-- 2. Cluster-based Hawkes Process -->
+
+<!-- Alternatively, Hawkes process can also be defined through marked Poisson cluster process.  -->
 
 
+### 2.6.1 Spatio-Temporal Hawkes Process 
 
-There are two ways to view Hawkes processes
-
-1. Intensity-based Hawkes Process
-
-Here, Hawkes process is defined through conditional intensity process. 
-
-In **Section 3.5**, we discuss algorithm for simulating intensity-based Hawkes process in details.
-
-2. Cluster-based Hawkes Process
-
-Alternatively, Hawkes process can also be defined through marked Poisson cluster process. 
+The Hawkes process is unique among the point processes examined herein in that, while Poisson processes occur in time _or_ space and Cox/cluster processes are usually observed in _just_ space, the Hawkes process has extensions into both time _and_ space. Much of the foundational work on the spatio-temporal extension was done by **CITATIN - Yoshi Ogata, 1998**, which extended a "marked" version of the temporal Hawkes process to space and time for use in modeling earthquakes. 
+<!-- ZZQ: Maybe include a footnote after this sentence to explain that "marks" in point processes are additional covariate information which is included in the conditional intensity function. We can further add that these marks in seismology are often taken to be the magnitude of an earthquake as the size of an earthquake has a non-trivial effect on the number of offspring produced by earthquakes. Finally, we can mention that for brevity, we are avoiding a longer discussion on marked Hawkes processes due to the limit of the report length. -->
 
 
-## 2.6 Spatio-Temporal Hawkes Process 
+<!-- ZZQ: Since we defined and elaborated, at length, on temporal Hawkes processes in the previous section, let's just introduce the spatio-temporal extension. -->
+<!-- Recall that temporal Hawkes processes take the form of  -->
+<!-- $$ -->
+<!-- \lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i) . -->
+<!-- $$ -->
 
-Spatio-temporal Hawkes processes is an extention of temporal Hawkes processes. Recall that temporal Hawkes processes take the form of 
-
-$$
-\lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i) .
-$$
-
-Spatio-temporal Hawkes processes take the form of 
-
+The conditional intensity function for spatio-temporal Hawkes processes take the form of 
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i) .
 $$
 
-where 
-
-- ${s_i, i = 1,2,...}$ are the sequence of locations of events  
-
-- ${t_i, i = 1,2,...}$ are the times of events. 
+where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. 
+<!-- ZZQ: Note here that the "background rate" can be taken to be a function of space (Often a NPP) or as a constant. Further, note here that the triggering function is now a function of space and time. So events which are "closer" to a given spatial and temporal "location" are more heavily influenced by the points which occur nearby in both time _and_ space. -->
 
 
-# 3 Algorithms and Simulations
+<!-- ZZQ: We're leaving this to an addendum so we can comment this out. -->
+<!-- # 3 Algorithms and Simulations -->
 
-Please refer to the Appendix section for the algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D. 
+<!-- Please refer to the Appendix section for the algorithms that are used to simulate some of the aforementioned point processes in 1D and the **spatstat** package of `R` that are used to simulate the processes in 2D.  -->
 
+# 3 Conclusions and Discussion
 
-
-
-
-
-# 4 Conclusions and Discussion
+<!-- ZZQ: Alright, you're almost done! Summarize the report overall (i.e. what is it that you've demonstrated in your report) and also consider including some personal "takeaways". That is, What motivated you to write this report and what did you learn?  -->
 
 
 
-
-\newpage
-
+<!-- ZZQ: dropping the next page thing for now. Make sure in your acknowledgements to give a shout-out to all of your friends in the department who helped keep you motivated over the past two years! -->
+<!-- \newpage -->
 # Acknowledgments
 
 
