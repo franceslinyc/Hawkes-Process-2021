@@ -413,30 +413,69 @@ where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i 
 
 # Reference
 
+Bacry, E., Mastromatteo, I., & Muzy, J. F. (2015). Hawkes processes in finance. Market Microstructure and Liquidity, 1(01), 1550005.
+
+Baddeley, A., Rubak, E., & Turner, R. (2015). Spatial point patterns: methodology and applications with R. CRC press.
+
+Bauwens, L., & Hautsch, N. (2009). Modelling financial high frequency data using point processes. In Handbook of financial time series (pp. 953-979). Springer, Berlin, Heidelberg. 
+
+Boyd, P., & Molyneux, J. (2021). Assessing the contagiousness of mass shootings with nonparametric Hawkes processes. PLoS one, 16(3), e0248437.
+
 Chen, Y. (2016). Thinning algorithms for simulating point processes. Florida State University, Tallahassee, FL.
 
-Obral, K. (2016). Simulation, estimation and applications of hawkes processes. (Master's thesis, University of Minnesota, Twin Cities, United States). 
+Cressie, N. (2015). Statistics for spatial data. John Wiley & Sons.
+
+Chiang, W. H., Liu, X., & Mohler, G. (2020). Hawkes process modeling of COVID-19 with mobility leading indicators and spatial covariates. medRxiv.
+
+Daley, D. J., & Vere-Jones, D. (2003). An introduction to the theory of point processes: volume I: elementary theory and methods. Springer New York.
+
+Embrechts, P., Liniger, T., & Lin, L. (2011). Multivariate Hawkes processes: an application to financial data. Journal of Applied Probability, 48(A), 367-378.
+
+Gerhard, F., Deger, M., & Truccolo, W. (2017). On the stability and dynamics of stochastic spiking neuron models: Nonlinear Hawkes process and point process GLMs. PLoS computational biology, 13(2), e1005390.
+
+Geyer, C. (2020). Spatial Point Processes. Retrieved from https://www.stat.umn.edu/geyer/8501/ 
+
+Holbrook, A. J., Loeffler, C. E., Flaxman, S. R., & Suchard, M. A. (2021). Scalable Bayesian inference for self-excitatory stochastic processes applied to big American gunfire data. Statistics and Computing, 31(1), 1-15.
+
+Johnson, D. H. (1996). Point process models of single-neuron discharges. Journal of computational neuroscience, 3(4), 275-299. 
+
+Krishna, R. (2015). Simulation of Non-Homogeneous Poisson Processes. Retrieved from https://radhakrishna.typepad.com/simulating-nonhomogeneous-poisson-process.pdf 
+
+Meyer, S., Elias, J., & Höhle, M. (2012). A space–time conditional intensity model for invasive meningococcal disease occurrence. Biometrics, 68(2), 607-616.
+
+Meyer, S., & Held, L. (2014). Power-law models for infectious disease spread. Annals of Applied Statistics, 8(3), 1612-1639.
+
+Mohler, G. O., Short, M. B., Brantingham, P. J., Schoenberg, F. P., & Tita, G. E. (2011). Self-exciting point process modeling of crime. Journal of the American Statistical Association, 106(493), 100-108.
+
+Obral, K. (2016). Simulation, estimation and applications of hawkes processes. (Master's thesis, University of Minnesota). 
+
+Ogata, Y. (1988). Statistical models for earthquake occurrences and residual analysis for point processes. Journal of the American Statistical association, 83(401), 9-27.
+
+Ogata, Y. (1998). Space-time point-process models for earthquake occurrences. Annals of the Institute of Statistical Mathematics, 50(2), 379-402.
+
+Park, J., Schoenberg, F. P., Bertozzi, A. L., & Brantingham, P. J. (2021). Investigating Clustering and Violence Interruption in Gang-Related Violent Crime Data Using Spatial–Temporal Point Processes With Covariates. Journal of the American Statistical Association, 1-14. 
+
+Peng, R. D., Schoenberg, F. P., & Woods, J. A. (2005). A space–time conditional intensity model for evaluating a wildfire hazard index. Journal of the American Statistical Association, 100(469), 26-35. 
+
+Reinhart, A. (2018). A review of self-exciting spatio-temporal point processes and their applications. Statistical Science, 33(3), 299-318. 
+
+Reinhart, A., & Greenhouse, J. (2018). Self-exciting point processes with spatial covariates: modeling the dynamics of crime. arXiv preprint arXiv:1708.03579. 
+
+Rizoiu, M. A., Lee, Y., Mishra, S., & Xie, L. (2017). A tutorial on hawkes processes for events in social media. arXiv preprint arXiv:1708.06401.
+
+Rubak, E. (2011a). Spatial point processes: Theory and practice illustrated with R. Retrieved from https://www-ljk.imag.fr/membres/Jean-Francois.Coeurjolly/documents/lecture1.pdf 
+
+Rubak, E. (2011b). Spatial point processes: Theory and practice illustrated with R. Retrieved from https://www-ljk.imag.fr/membres/Jean-Francois.Coeurjolly/documents/lecture2.pdf 
+
+Rubak, E. (2011c). Spatial point processes: Theory and practice illustrated with R. Retrieved from https://www-ljk.imag.fr/membres/Jean-Francois.Coeurjolly/documents/lecture3.pdf 
 
 Rizoiu, M. A., Lee, Y., Mishra, S., & Xie, L. (2017). A tutorial on hawkes processes for events in social media. arXiv preprint arXiv:1708.06401. 
 
-Krishna, R. (2015). Simulation of Non-Homogeneous Poisson Processes. 
-
 Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encyclopedia of operations research and management science. 
 
+Stabile, G., & Torrisi, G. L. (2010). Risk processes with non-stationary Hawkes claims arrivals. Methodology and Computing in Applied Probability, 12(3), 415-429.
 
-<!-- ZZQ: You can drop this if you'd like to "save" page space. -->
-# Terminology
-
-[Stochastic Process](https://www.probabilitycourse.com/chapter10/10_1_0_basic_concepts.php)
-
-[Counting Processes](https://www.probabilitycourse.com/chapter11/11_1_1_counting_processes.php)
-
-[Poisson Process](https://www.probabilitycourse.com/chapter11/11_1_2_basic_concepts_of_the_poisson_process.php)
-
-[Nonhomogeneous Poisson Process](https://www.probabilitycourse.com/chapter11/11_1_4_nonhomogeneous_poisson_processes.php)
-
-[Cox Process](https://en.wikipedia.org/wiki/Point_process#Cox_point_process)
-
+Zhao, Q., Erdogdu, M. A., He, H. Y., Rajaraman, A., & Leskovec, J. (2015, August). Seismic: A self-exciting point process model for predicting tweet popularity. In Proceedings of the 21th ACM SIGKDD international conference on knowledge discovery and data mining (pp. 1513-1522).
 
 \newpage 
 
@@ -458,7 +497,7 @@ Broadly put, thinning algorithm involves randomly deleting points from a point p
 
 ## Algorithm 3
 
-Figure 4 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
+Figure 5 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
 
 ## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package in `R` 
 
@@ -473,4 +512,5 @@ All of the corresponding plots in 2D are created using the **spatstat** package 
 **Matern Cluster Process**
 
 Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. 
+
 
