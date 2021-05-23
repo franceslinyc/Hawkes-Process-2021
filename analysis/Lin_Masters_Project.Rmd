@@ -423,6 +423,8 @@ Krishna, R. (2015). Simulation of Non-Homogeneous Poisson Processes.
 
 Pasupathy, R. (2010). Generating homogeneous poisson processes. Wiley encyclopedia of operations research and management science. 
 
+
+<!-- ZZQ: You can drop this if you'd like to "save" page space. -->
 # Terminology
 
 [Stochastic Process](https://www.probabilitycourse.com/chapter10/10_1_0_basic_concepts.php)
