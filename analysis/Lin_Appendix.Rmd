@@ -27,7 +27,7 @@ Figure 5 as shown previously is a realization of a Hawkes process with the expon
 
 ## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package in `R`
 
-All of the corresponding plots in 2D are created using the **spatstat** package in `R`.
+All of the corresponding plots in 2D are created using the **spatstat** package of `R`.
 
 **HPP**
 
