@@ -25,7 +25,7 @@ Broadly put, thinning algorithm involves randomly deleting points from a point p
 
 Figure 5 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$).
 
-## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package in `R`
+## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package of `R`
 
 All of the corresponding plots in 2D are created using the **spatstat** package of `R`.
 
