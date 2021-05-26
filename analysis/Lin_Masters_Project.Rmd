@@ -211,12 +211,10 @@ $$
 
 **How to get here? Excellent question! Here, Lambda is a random probability density (Basically, a set of random variables are determining the combining together to generate an intensity based on the "random field"). So if we then want to compute E(Lambda(u)), we need to figure out the expected value of this "random" thing at some point "u". BUT! For continuous random variables, there is zero probability at a single "point"! So how do we get around this? We get around this by thinking about the integral of an area that is infintisimly small (but is an "area" and not a "point" all the same). This idea of an area which is infintisimly small (but again, not a point) is why we write F_u(dx). So basically then, Lambda(y) is very much like a Poisson distribution (In terms of how points are occurring BUT there's some idea of randomness captured in the super tiny "area" which is described by F_u(dx)). This is likely sort of "bizarre" ... and is something you'll likely get a very good grasp of once you take the measure theory probability course! Oh look! A useful bit of "theory" to help us understand point processes? I love it!**
 
-**Definition 2.4.2** (Cluster Process) Let $x$ be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$, then the union of all the clusters forms a cluster process $N_c$. That is,
+**Definition 2.4.2** (Cluster Process) Let $x$ ('parent' points) be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$ ('offspring' point) centered at $x$ and assume also that each $N_x$ is independent of one another, then the union of all the clusters forms a cluster process $N_c$. That is,
 $$
 N_c = \bigcup_{x \in N} N_x
 $$
-
-Note. Each $N_x$ ('offspring' point) is a finite point process centered at $x$ ('parent' points), and it is assumed that each $N_x$ is independent of one another.
 
 Next, we follow with Baddeley et al. (2015) to state the following model assumptions for cluster processes 
 
