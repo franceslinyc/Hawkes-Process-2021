@@ -36,13 +36,13 @@ while(t <= t_max){
 
 # Initialize
 # Note that mu > 0 and 0 < alpha < beta ??
-mu = 0.5
-alpha = 0.7
-beta = 0.5
+mu = 0.025
+alpha = 0.5
+beta = 0.7
 
 # Create lambda(t) function
-lmbda_fun <- function(time){
-  diff = time - t_vec
+lmbda_fun <- function(time, obs){
+  diff = time - obs
   diff = diff[diff > 0]
   a = sum(alpha * exp(-beta * diff)) 
   out = mu + a 
@@ -50,7 +50,7 @@ lmbda_fun <- function(time){
 }
 
 # Apply the lmbda_fun function
-lmbda_star <- sapply(X = t_vec, FUN = lmbda_fun)
+lmbda_star <- sapply(X = t_vec, FUN = lmbda_fun, obs = t_vec)
 length(lmbda_star)
 ```
 
@@ -73,7 +73,7 @@ length(lmbda_star)
 
 ```{r}
 set.seed(1)
-lmbda <- 10
+lmbda <- median(lmbda_star) #10
 prob_keep <- lmbda / lmbda_star
 #t_keep <- t_vec[runif(length(prob_keep)) < min(prob_keep, 1)]
 check <- runif(length(prob_keep)) < min(prob_keep, 1)
@@ -81,6 +81,10 @@ lmdba_keep <- lmbda_star[check]
 t_keep <- t_vec[check]
 length(lmdba_keep)
 length(t_keep)
+length(t_vec)
+#prob_keep
+#lmbda_star
+
 ```
 
 ```{r}
@@ -89,8 +93,15 @@ length(t_keep)
 df_Hawkes = tibble(
   x = t_keep, 
   y = 1:(length(t_keep)), #0:(length(X) - 1)
-  lmbda = lmdba_keep
+  lmbda = lmdba_keep, 
+  lmbda2 = sapply(X = t_keep, FUN = lmbda_fun, obs = t_keep)
 )
+
+df_Hawkes2 = tibble(
+  x = seq(0, 10, length.out = 1001), 
+  y = sapply(X = x, FUN = lmbda_fun, obs = t_keep)
+)
+
 
 p_Hawkes <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=y)) +
   geom_step() + 
@@ -115,14 +126,21 @@ p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, ymin = -0.5, ymax = 0.5
 
 ```{r}
 # Plot lambda_star vs t
-p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda)) + # y is not right 
-  geom_point() +
+p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda2)) + # y is not right 
+  geom_line() +
   labs(title = "Intensity Function",
        x = "t", 
        y = "lambda(t)") 
 p_Hawkes_Int
-```
 
+p_Hawkes_Int2 <- ggplot(df_Hawkes2, aes(x=x, y=y)) + # y is not right 
+  geom_line() + 
+  geom_point(aes(x=x, y=lmbda2), data = df_Hawkes) +
+  labs(title = "Intensity Function",
+       x = "t", 
+       y = "lambda(t)") 
+p_Hawkes_Int2
+```
 
 ```{r}
 # Plot lambda (rate)
@@ -139,14 +157,16 @@ p_Hawkes_hist
 # # Combine plots
 # require(gridExtra)
 # grid.arrange(p_Hawkes, p_Hawkes_time)
-p_Hawkes / p_Hawkes_time / p_Hawkes_Int + plot_layout(heights = c(0.7, 0.1, 0.2))
+p_Hawkes_Int2 / p_Hawkes_time + plot_layout(heights = c(0.9, 0.1))
 ```
 
 ```{r}
 # Save output and adjust size
 png(file = '/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png', width = 450*2, height = 450*0.8)
-p_Hawkes / p_Hawkes_time / p_Hawkes_Int + plot_layout(heights = c(0.7, 0.1, 0.2))
+p_Hawkes_Int2 / p_Hawkes_time + plot_layout(heights = c(0.9, 0.1))
 ```
+
+
 
 
 

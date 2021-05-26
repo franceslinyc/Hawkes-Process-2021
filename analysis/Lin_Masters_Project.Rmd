@@ -198,7 +198,14 @@ The left and right figure of Figure 4 is a realization of a mixed Poisson proces
 
 Having given some background on both the Cox and cluster processes, we follow with Coeurjolly (2015) and **CITATION** now with their more formal definitions
 
-**Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that the values of $\Lambda (u)$ is nonnegative and $\Lambda (u)$ is a locally integrable function, where $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable $\forall u \in S$ and $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally integrable with probability 1. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$.
+**Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that the values of $\Lambda (u)$ is nonnegative and $\Lambda (u)$ is a locally integrable function, where $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable $\forall u \in S$ and $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally integrable with probability 1. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is,
+$$
+P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!}
+$$
+where
+$$
+\Lambda (u) \overset{a.s.} =  \int_u \lambda (x) dx = \int_{0}^{\infty} \frac{x^n e^{-x} F_u(dx)} {n!} .
+$$
 
 **Definition 2.4.2** (Cluster Process) Let $x$ ('parent' points) be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$ ('offspring' point) centered at $x$ and assume also that each $N_x$ is independent of one another, then the union of all the clusters forms a cluster process $N_c$. That is,
 $$
@@ -227,7 +234,7 @@ The final class of point process models we present are the Hawkes processes; the
 
 As previously mentioned, examples of applications for Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a communicable disease **CITATIONS**. The major sharing feature in each of these examples is that an occurrence of an event leads to an increase in the occurrence of subsequent events (i.e. self-exciting). In seismology, for example, a main quake is often followed by aftershocks. In gang crimes, one act of violence often features an act of retaliatory violence. In communicable diseases, one patient may infect others.
 
-Since the intensity, or the expected rate in which points occur over some time and space, of the process is now as a function of past history, we refer to the expected rate as a conditional intensity function. Hawkes processes self-excites because of this conditional intensity function since conditioning on the past set of events, the expected rates at which points occur are expected to be higher when points have occurred in nearby time and space and then they gradually decline as the events get further away in time and space.
+Since the intensity, or the expected rate in which points occur over some time and space, of the process is now as a function of past history, we refer to the expected rate as a conditional intensity function. Hawkes processes self-excites because of this conditional intensity function since conditioning on the past set of events, the expected rates at which points occur are expected to be higher when points have occurred in nearby time and space and then they gradually decline as the events get further away in time and space. This characteristic is captured by the summing part of the conditional intensity function.
 
 Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. This characteristic is captured by the triggering part of the conditional intensity function. For example, an earthquake happens today may lead us believe that there is a higher probability of another earthquake that will occur tomorrow. However, an earthquake happened more than a year ago does not make us believe that there is a higher probability of of another earthquake that will occur tomorrow.
 
@@ -247,7 +254,7 @@ $$
 $$
 where $\lambda_0(t)$ is the base intensity function (or $\mu$ the constant background rate), $T_i < t$ are the events time occur before current time $t$, $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which intensity function depends on past events, and $\mathcal{H}_{t}^{N}$ is the natural filtration (or simply $\mathcal{H}_{t}^{}$ the past history) which represents the internal history of N up to time $t$.
 
-The triggering function is what makes the Hawkes process self-exciting as well as a cluster process as it allows for additional points to occur in nearby time or space before ultimately decaying back to the background rate. Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel (Rizoiu, 2017), and they take the forms of
+The triggering function is what makes the Hawkes process a self-exciting as well as cluster process as it allows for additional points to occur in nearby time or space before ultimately decaying back to the background rate. Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel (Rizoiu, 2017), and they take the forms of
 $$
 \phi(x) = \alpha e^ {-\beta x}
 $$
@@ -273,7 +280,7 @@ $$
 
 the conditional intensity function for spatio-temporal Hawkes processes take the form of
 $$
-\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i) ,
+\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i)
 $$
 where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, the triggering function is defined to be separable in space and time.
 
