@@ -51,24 +51,6 @@ lmbda_fun <- function(time, obs){
 
 # Apply the lmbda_fun function
 lmbda_star <- sapply(X = t_vec, FUN = lmbda_fun, obs = t_vec)
-length(lmbda_star)
-```
-
-```{r}
-# lmbda_star #114
-```
-
-```{r}
-# t_vec # 114
-```
-
-
-```{r}
-# t_vec[runif(length(prob_keep)) < min(prob_keep, 1)] #75 
-```
-
-```{r}
-# lmbda_star[runif(length(prob_keep)) < min(prob_keep, 1)] #75 
 ```
 
 ```{r}
@@ -79,12 +61,10 @@ prob_keep <- lmbda / lmbda_star
 check <- runif(length(prob_keep)) < min(prob_keep, 1)
 lmdba_keep <- lmbda_star[check]
 t_keep <- t_vec[check]
-length(lmdba_keep)
-length(t_keep)
-length(t_vec)
-#prob_keep
-#lmbda_star
-
+# length(lmbda_star) #114
+# length(lmdba_keep) #87
+# length(t_vec) #114
+# length(t_keep) #87
 ```
 
 ```{r}
@@ -101,7 +81,6 @@ df_Hawkes2 = tibble(
   x = seq(0, 10, length.out = 1001), 
   y = sapply(X = x, FUN = lmbda_fun, obs = t_keep)
 )
-
 
 p_Hawkes <- ggplot(data=df_Hawkes, mapping=aes(x=x, y=y)) +
   geom_step() + 
@@ -126,14 +105,14 @@ p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, ymin = -0.5, ymax = 0.5
 
 ```{r}
 # Plot lambda_star vs t
-p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda2)) + # y is not right 
-  geom_line() +
-  labs(title = "Intensity Function",
-       x = "t", 
-       y = "lambda(t)") 
-p_Hawkes_Int
+# p_Hawkes_Int <- ggplot(df_Hawkes, aes(x=x, y=lmbda2)) + 
+#   geom_line() +
+#   labs(title = "Intensity Function",
+#        x = "t", 
+#        y = "lambda(t)") 
+# p_Hawkes_Int
 
-p_Hawkes_Int2 <- ggplot(df_Hawkes2, aes(x=x, y=y)) + # y is not right 
+p_Hawkes_Int2 <- ggplot(df_Hawkes2, aes(x=x, y=y)) + 
   geom_line() + 
   geom_point(aes(x=x, y=lmbda2), data = df_Hawkes) +
   labs(title = "Intensity Function",
@@ -143,14 +122,14 @@ p_Hawkes_Int2
 ```
 
 ```{r}
-# Plot lambda (rate)
-p_Hawkes_hist <- ggplot(data=df_Hawkes, mapping=aes(x=x)) + 
-  geom_histogram(bins = 11, color = "white") + 
-  labs(title = "Intensity Function",
-       x = "t", 
-       y = "lambda(t)") + 
-  xlim(0, 10) # so that scale lines up
-p_Hawkes_hist
+# # Plot lambda (rate)
+# p_Hawkes_hist <- ggplot(data=df_Hawkes, mapping=aes(x=x)) + 
+#   geom_histogram(bins = 11, color = "white") + 
+#   labs(title = "Intensity Function",
+#        x = "t", 
+#        y = "lambda(t)") + 
+#   xlim(0, 10) # so that scale lines up
+# p_Hawkes_hist
 ```
 
 ```{r}
@@ -169,10 +148,6 @@ p_Hawkes_Int2 / p_Hawkes_time + plot_layout(heights = c(0.9, 0.1))
 
 
 
-
-
-
-
 ```{r}
 # while(t <= t_max){
 #   if(runif(1) < min(lmbda/lmbda_star, 1)){
@@ -183,20 +158,20 @@ p_Hawkes_Int2 / p_Hawkes_time + plot_layout(heights = c(0.9, 0.1))
 ```
 
 ```{r}
-# Plot lmbda_star
-# Not thinned yet
-length(lmbda_star) #114
-x_max = length(lmbda_star) - 1
-plot(x = 0:x_max, y = lmbda_star)
-lmbda_star
+# # Plot lmbda_star
+# # Not thinned yet
+# length(lmbda_star) #114
+# x_max = length(lmbda_star) - 1
+# plot(x = 0:x_max, y = lmbda_star)
+# lmbda_star
 ```
 
 ```{r}
-# Plot lmbda_star
-# Not thinned yet
-length(t_keep) # 75
-x_max = length(t_keep) - 1
-plot(x = 0:x_max, y = t_keep)
+# # Plot lmbda_star
+# # Not thinned yet
+# length(t_keep) # 75
+# x_max = length(t_keep) - 1
+# plot(x = 0:x_max, y = t_keep)
 ```
 
 

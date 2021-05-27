@@ -1,6 +1,5 @@
 ---
-title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point
-  Processes and Some Simulations'
+title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations'
 author: "Frances Lin"
 date: " June 2021"
 output: beamer_presentation
@@ -21,27 +20,37 @@ library(here)
 ## Introductions, Definitions, Properties, and Graphs
 
 1. Counting process
-2. HPP
-3. NPP
+2. HPP (Homogeneous Poisson Process)
+3. NPP (Nonhomogeneous Poisson Process)
 4. Cox and Cluster processes 
 5. Hawkes process 
 6. Spatio-temporal self-exciting point process
 
 ## Counting Process
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Counting.png)
+## Counting Process
+
+![](../results/plot_1D_Counting.png)
+
+## HPP (Homogeneous Poisson Process)
 
 ## HPP
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_HPP.png)
+![](../results/plot_1D_HPP.png)
 
-## HPP vs. NPP vs. Cox vs. Matern in 2D
+## NPP (Nonhomogeneous Poisson Process)
 
-![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_2D_All.png)
+## HPP vs. NPP in 2D
 
-## NPP
+![](../results/plot_2D_All.png)
 
-## Cox and Cluter Processes 
+## Cox and Cluter Processes
+
+## Cox vs. Matern Cluter in 2D
+
+![](../results/plot_2D_All2.png)
+
+## (Temporal) Hawkes Process
 
 ## Hawkes Process
 
@@ -53,5 +62,19 @@ library(here)
 
 ## Acknowledgments
 
+I want to thank 
 
+- James Molyneux for his constant support and encouragement while advising this Master's project, 
+
+- Lisa Madsen & Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, 
+
+- Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, 
+
+- my cohort for summer comp (comprehensive exam) studies, theories HW and various other group projects, 
+
+- our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, 
+
+- my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumor since last year. 
+
+- But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
 

@@ -72,7 +72,7 @@ An alternative definition of a counting process is
 
 **Definition 2.1.4** (Counting Process) Let $\{T_i\}_{i \in \mathbb{N}}$ be a point process, a counting process associated with $\{T_i\}_{i \in \mathbb{N}}$ is defined as
 $$
-N(t) = \sum_{i \in \mathbb{N}} I_{\{T_i \leq t\}}
+N(t) = \sum_{i \in \mathbb{N}} I_{\{T_i \leq t\}} {}_{.}
 $$
 
 This equivalent definition may be more beneficial as we get into Poisson, cluster, etc. processes in later sections because it is easier to see that for $i \in \mathbb{N}$, if $T_i \leq t$, the indicator function $I_{\{T_i \leq t\}}$ is equal to $1$. Then, we sum up all the $1$s for events which have occurred.
@@ -87,7 +87,7 @@ A useful corollary of counting process, which describes more formally some of th
 
 3. If $t \leq t+h$, then $N(t) \leq N(t+h)$
 
-4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$
+4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$.
 
 In other words, 1. An event has to occur for it to be counted. 2. We either count an event or we don't. There is no event that sort of occurs that results in decimal value. 3. Counts always increase because events don't disappear. Once we observe an event and count it, it remains in the counts. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in the current interval.
 
@@ -95,9 +95,7 @@ In other words, 1. An event has to occur for it to be counted. 2. We either coun
 
 The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes (Baddeley et al., 2015). HPPs can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site, or the document requests on a web server over time. As we alluded to previously with counting processes, HPPs can also be considered over a space which is often taken to be a two-dimensional plane, such as the surface of Earth, or a three-dimensional volume, such as the interior of Earth.
 
-Like counting processes, HPPs are also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate, $\lambda$, and the interarrival times between events, $W$, are exponentially distributed. HPPs can then be formally defined as
-
-We follow with Obral (2016) and Chen (2016) to define a Poisson process
+Like counting processes, HPPs are also independent, stationary, and homogeneous. In addition, we assume that the numbers of events $N(t)$ follows a Poisson distribution with a constant rate, $\lambda$, and the interarrival times between events, $W$, are exponentially distributed. We follow with Obral (2016) and Chen (2016) to formally define a Poisson process
 
 **Definition 2.2.1** (Poisson Process) If the following conditions hold, a counting process $\{N(t), t \geq 0\}$ is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$
 
@@ -107,7 +105,7 @@ We follow with Obral (2016) and Chen (2016) to define a Poisson process
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
 
-4. $P(N(t + h)) - N(t) > 1)) = o(h)$
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$, 
 
 where the function of little o $o(h)$ is given as
 $$
@@ -116,25 +114,25 @@ $$
 
 In other words, 1. An event has to occur for it to be counted. 2. For any disjoint time intervals, the occurrence of an event does not affect the probability of the occurrence of one another event. 3. $\lambda$ is the rate (events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location.
 
-An alternative way to think of HPP is that it is a uniformly random process. If we were to take a realization of a HPP over some time interval $(0, T]$ and "bin" the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T.
+An alternative way to think of HPP is that it is a uniformly random process. If we were to take a realization of a HPP over some time interval $(0, T]$ and 'bin' the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T.
 
 Let us look at a realization of a HPP in time, which we show in Figure 2. First, we note that the cumulative number of points is growing at a constant linear rate. In addition, we can see that the histogram of rate appears roughly uniform; the rates are roughly constant at $\lambda = 10$. The algorithm used for simulating this HPP can be found in the Appendix section.
 
-![Homogeneous Poisson process](../results/plot_1D_HPP.png)
+![Homogeneous Poisson process (rate = 10)](../results/plot_1D_HPP.png)
 
 For an HPP, the number of events in any time interval $N(t)$ are Poisson distributed. More formally, we can say that the number of events in any time interval $(t, t+h]$, $N((t, t+h])$, $\sim Pos(\lambda \cdot h)$. That is, for all $t, h \geq 0$ and $n = 0, 1,...$,
 $$
-P(N(t+h) - N(t) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} . \ \ 
+P(N(t+h) - N(t) = n) = \frac{(\lambda h)^n e^{-\lambda h}} {n!} .
 $$
 
 Additionally, let us denote the total number of events as $N(t)$ and the interarrival times between events as $W$. For example, let $T_0$ denote the starting time of the process while $T_1$ is the time of the first occurrence of event and $T_2$ is the time of the second occurrence of event. The elapsed time between the start of the process and first event is $W_1$ and the elapsed time between the first event and second event is $W_2$. The interarrival times $W$ are exponentially distributed. More formally, the interarrival times $W$, $\sim exp(\frac{1} {\lambda})$. That is, for rate $\lambda > 0$, the interarrival time $W_i$ $i=1,2,...$,
 $$
-P(W_1 > h) = P(N(h) = 0) = e^{-\lambda h}.
+P(W_1 > h) = P(N(h) = 0) = e^{-\lambda h} .
 $$
 
 This is because the probabiilty of the first point arriving after time $h$ can be thought of as the probability that the first point does *not* arrive in the time interval $(0, h]$. Similarly, $W_2$ is also $\sim exp(\frac{1} {\lambda})$ since
 $$
-P(W_2 > h | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t) = 0) = P(N(h) = 0) = e^{-\lambda h}. 
+P(W_2 > h | W_1 = t) = P(N(t + h) - N(t) | N(t) - N(t^{-}) = 1) = P(N(t + h) - N(t) = 0) = P(N(h) = 0) = e^{-\lambda h} . 
 $$
 
 ## 2.3 Nonhomogeneous Poisson Process
@@ -155,11 +153,11 @@ For HPP, we assume that the numbers of events in any time interval $N(t)$ follow
 
 3. $P(N(t + h)) - N(t) = 1)) = \lambda(t) h + o(h)$
 
-4. $P(N(t + h)) - N(t) > 1)) = o(h)$
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$.
 
 Nonhomogeneous Poisson processes have additional properties such as if the number of events in any time interval $(t, t+h]$, denoted as $N((t, t+h])$, $\sim Pos(\Lambda (t) = \int_{t}^{t+h} \lambda (v) dv)$. That is, for all $v, t, h \geq 0$ and $n = 0, 1,...$,
 $$
-P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!} \ \
+P(N(t+h) - N(t) = n) = \frac{(\int_{t}^{t+h} \lambda (v) dv)^n e^{-\int_{t}^{t+h} \lambda (v) dv}} {n!} , \ \
 $$
 where $\lambda(v)$ again denotes a non-constant rate function.
 
@@ -192,24 +190,24 @@ Alternatively, we can think of Cox process as a hierarchical model with two leve
 
 It is also not hard to notice significant overlap of or confuse Cox processes with cluster processes since these processes tend to share a considerabe amount of information in their constructions. Indeed, bramble canes can be modelled as cluster processes as well. The distinguishing feature for the cluster process, however, is a set of unobserved 'parent' points that proceed with the observed 'offspring' points. Within the general class of cluster processes, there are also numerous specific models which can be utilized depending on the choice of assumptions. Matern cluster processes, for one example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent.
 
-![Left: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All_2.png){height=50%, width=50%}
+![Left: Cox (intensity = exp(n = 1, rate = 1/100)) Right: Matern (kappa = 20, r = 0.05, mu = 5)](../results/plot_2D_All2.png){height=50%, width=50%}
 
 The left and right figure of Figure 4 is a realization of a mixed Poisson process with $intensity \ function = exp(1, 1/100)$ and a Matern cluster process with $kappa = 20, r = 0.05, mu = 5$, respectively. Both Cox process and Matern cluster process points appear clustered, but the way the points cluster differ. Points in Cox process cluster accordingly to some specified distribution (i.e. a exponential distribution), whereas points in cluster process cluster in some defined area (i.e. a disc). The **spatstat** package of `R` used for simulating this HPP can be found in the Appendix section **CITATION**.
 
 Having given some background on both the Cox and cluster processes, we follow with Coeurjolly (2015) and **CITATION** now with their more formal definitions
 
-**Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that the values of $\Lambda (u)$ is nonnegative and $\Lambda (u)$ is a locally integrable function, where $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable $\forall u \in S$ and $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally integrable with probability 1. If X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is,
+**Definition 2.4.1** (Cox Process) Let $\Lambda = (\Lambda (u))_{u \in S \subseteq R^d}$ be a non-negative random field such that the values of $\Lambda (u)$ is nonnegative and $\Lambda (u)$ is a locally integrable function, where $\Lambda$ is a random field means that $\Lambda (u)$ is a random variable $\forall u \in S$ and $\Lambda (u)$ is a locally integrable function means that $E(\Lambda (u))$ exists and is locally integrable with probability 1, if X | $\Lambda$ $\sim Pos (\Lambda)$, then X is said to be a Cox process driven by $\Lambda$ with intensity function $\lambda (u) = E(\Lambda (u))$. That is,
 $$
-P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!}
+P(N(u) = n) = \frac{(\lambda (u))^n e^{-\lambda (u)}} {n!} = \frac{(E(\Lambda (u)))^n e^{-E(\Lambda (u))}} {n!} , 
 $$
 where
 $$
-\Lambda (u) \overset{a.s.} =  \int_u \lambda (x) dx = \int_{0}^{\infty} \frac{x^n e^{-x} F_u(dx)} {n!} .
+\Lambda (u) \overset{a.s.} =  \int_u \lambda (x) dx = \int_{0}^{\infty} \frac{x^n e^{-x} F_u(dx)} {n!}. 
 $$
 
 **Definition 2.4.2** (Cluster Process) Let $x$ ('parent' points) be points in a point process $N$ and replacing every $x$ with a cluster of points $N_x$ ('offspring' point) centered at $x$ and assume also that each $N_x$ is independent of one another, then the union of all the clusters forms a cluster process $N_c$. That is,
 $$
-N_c = \bigcup_{x \in N} N_x
+N_c = \bigcup_{x \in N} N_x {}_{.}
 $$
 
 Next, we follow with Baddeley et al. (2015) to state the following model assumptions for cluster processes 
@@ -230,19 +228,19 @@ Under assumption 1 - 4, we have a Neyman-Scott process. Under assumption 1 - 5, 
 
 ## 2.5 Hawkes Process
 
-The final class of point process models we present are the Hawkes processes; they are also commonly known as self-exciting point processes **CITATION**. Like Cox and cluster process, the Hawkes process model allows for dependence between events; however, their dependence differs. In Hawkes processes, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. This is the distinguishing feature of the Hawkes process as neither Cox nor cluster processes depends on the past history of events. It can be noted, however, that we can think of the Hawkes process as a model that incorporates the cluster process but through a conditional intensity function (Reinhart, 2018).
+The final class of point process models we present are the Hawkes processes; they are also commonly known as self-exciting point processes **CITATION**. Like Cox and cluster process, the Hawkes process model allows for dependence between events; however, their dependence differs. In Hawkes processes, the occurrence rate of the events depends not only on time $t$ but also past events $\mathcal{H}_{t}^{N}$ up to some time $t$. This is the distinguishing feature of the Hawkes process as neither Cox nor cluster processes depends on the past history of events. It can be noted that we can also think of the Hawkes process as a model that incorporates the cluster process but through a conditional intensity function (Reinhart, 2018).
 
-As previously mentioned, examples of applications for Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a communicable disease **CITATIONS**. The major sharing feature in each of these examples is that an occurrence of an event leads to an increase in the occurrence of subsequent events (i.e. self-exciting). In seismology, for example, a main quake is often followed by aftershocks. In gang crimes, one act of violence often features an act of retaliatory violence. In communicable diseases, one patient may infect others.
+As previously mentioned, examples of applications for Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a communicable disease. The major sharing feature in each of these examples is that an occurrence of an event leads to an increase in the occurrence of subsequent events (i.e. 'self-exciting'). In seismology, for example, a main quake is often followed by aftershocks. In gang crimes, one act of violence often features an act of retaliatory violence. In communicable diseases, one patient may infect others.
 
-Since the intensity, or the expected rate in which points occur over some time and space, of the process is now as a function of past history, we refer to the expected rate as a conditional intensity function. Hawkes processes self-excites because of this conditional intensity function since conditioning on the past set of events, the expected rates at which points occur are expected to be higher when points have occurred in nearby time and space and then they gradually decline as the events get further away in time and space. This characteristic is captured by the summing part of the conditional intensity function.
+Since the intensity, or the expected rate in which points occur over some time or space, of the process is now as a function of past history, we refer to the expected rate as a conditional intensity function. Hawkes processes self-excite because of this conditional intensity function since conditioning on the past set of events, the expected rates at which points occur are expected to be higher when points have occurred in nearby time or space and then they gradually decline as the events get further away in time or space. This 'self-exciting' characteristic is captured by the summing part of the conditional intensity function, which we show in Definition 2.5.2.
 
-Another characteristic is that more recent events exert more influence on the intensity, as compared to older events. This characteristic is captured by the triggering part of the conditional intensity function. For example, an earthquake happens today may lead us believe that there is a higher probability of another earthquake that will occur tomorrow. However, an earthquake happened more than a year ago does not make us believe that there is a higher probability of of another earthquake that will occur tomorrow.
+Another characteristic is that more recent events exert more influence on the intensity but the intensity will fade out or decay. This 'decaying' characteristic is captured by the triggering part of the conditional intensity function, which again we show in Definition 2.5.2. The triggering function is also what makes the Hawkes process a self-exciting as well as cluster process as it allows for additional points to occur in nearby time or space before ultimately decaying back to the background rate. For example, an earthquake happens today may lead us believe that there is a higher chance of another earthquake that will occur tomorrow. However, an earthquake happened more than a year ago does not make us believe that there is a higher probability of of another earthquake that will occur tomorrow.
 
 A Hawkes process can be uniquely identified through its conditional intensity function **CITATION: Daley and VereJones**, the formal definition of which we give below 
 
 **Definition 2.5.1** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to the history of the process up to time $t$, $\mathcal{H}_t$, is defined as
 $$
-\lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h}
+\lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h} , 
 $$
 where $\mathcal{H}_t$ is the history prior to time $t$.
 
@@ -250,11 +248,11 @@ Having defined the conditional intensity function, we next more formally define 
 
 **Definition 2.5.2** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{N}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{N}), t > 0$ and takes the form
 $$
-\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i)
+\lambda(t | \mathcal{H}_{t}^{N}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i) , 
 $$
 where $\lambda_0(t)$ is the base intensity function (or $\mu$ the constant background rate), $T_i < t$ are the events time occur before current time $t$, $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which intensity function depends on past events, and $\mathcal{H}_{t}^{N}$ is the natural filtration (or simply $\mathcal{H}_{t}^{}$ the past history) which represents the internal history of N up to time $t$.
 
-The triggering function is what makes the Hawkes process a self-exciting as well as cluster process as it allows for additional points to occur in nearby time or space before ultimately decaying back to the background rate. Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel (Rizoiu, 2017), and they take the forms of
+Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel (Rizoiu, 2017), and they take the forms of
 $$
 \phi(x) = \alpha e^ {-\beta x}
 $$
@@ -265,11 +263,11 @@ $$
 
 **TALK MORE HERE**
 
-Figure 5 is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). 
+Figure 5 is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). We can see that...... 
+
+**ZZQ: Finish up this paragraph by describing the interesting features of the Hawkes process. Note things like how the "flat" portions of N(t) correspond to gaps in the inter-arrival times and further how these gaps in the inter-arrival times result in the conditional intensity function decreasing slightly. You might also point out how the conditional intensity for this realization is tending to increase over time as the points of the simulation are occurring fairly regularly.** The algorithm used for simulating this Hawkes process can be found in the Appendix section.
 
 ![Hawkes Process](../results/plot_1D_Hawkes.png)
-
-**ZZQ: Finish up this paragraph by describing the interesting features of the Hawkes process. Note things like how the "flat" portions of N(t) correspond to gaps in the inter-arrival times and further how these gaps in the inter-arrival times result in the conditional intensity function decreasing slightly. You might also point out how the conditional intensity for this realization is tending to increase over time as the points of the simulation are occurring fairly regularly.** The algorithm used for simulating this Hawkes process can be found in the Appendix section. **HELP! Plot of intensity function looks correct? How to emphasize the decay?**
 
 ## 2.6 Spatio-Temporal Self-Exciting Process
 
@@ -280,7 +278,7 @@ $$
 
 the conditional intensity function for spatio-temporal Hawkes processes take the form of
 $$
-\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i)
+\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i), 
 $$
 where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, the triggering function is defined to be separable in space and time.
 
@@ -292,7 +290,7 @@ where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i 
 
 # Acknowledgments
 
-I want to thank James Molyneux for his constant support and encouragement while advising this Master's project, thank Lisa Madsen & Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, thank Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here at OSU, thank my cohort for summer comp (comprehensive exam) studies, theories HW and various other group projects, thank our previous cohort and other PhD students in the department for reassuring us that we will make it too despite the ongoing challenges, thank my family and friends for keeping me sane while being remote, and thank my 92-year-old grandma for hanging in there while battling brain tumor. But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
+I want to thank James Molyneux for his constant support and encouragement while advising this Master's project, Lisa Madsen & Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here at OSU, my cohort for summer comp (comprehensive exam) studies, theories HW and various other group projects, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumor since last year. But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
 
 \newpage
 
