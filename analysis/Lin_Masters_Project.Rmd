@@ -267,7 +267,7 @@ $$
 
 **TALK MORE HERE** 
 
-Next, in Figure 5 we  show a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). We can see that each time the event arrives, the intensity (conditional intensity function) increases and then it declines back to the background rate. When the next event arrives, the intensity jumps again and then declines. The intensity for this realization gradually increases over time too since the points of this simulation occur fairly regularly. The algorithm used for simulating this Hawkes process can be found in the Appendix section.
+In Figure 5, we show a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). We can see that each time the event arrives, the intensity (conditional intensity function) increases and then it declines back to the background rate. When the next event arrives, the intensity jumps again and then declines. The intensity for this realization gradually increases over time too since the points of this simulation occur fairly regularly. The algorithm used for simulating this Hawkes process can be found in the Appendix section.
 
 ![Hawkes Process](../results/plot_1D_Hawkes.png)
 
@@ -282,9 +282,7 @@ the conditional intensity function for spatio-temporal Hawkes processes take the
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i), 
 $$
-where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, the triggering function is defined to be separable in space and time.
-
-**ZZQ: Note here that the "background rate" can be taken to be a function of space (Often a NPP) or as a constant. Further, note here that the triggering function is now a function of space and time. So events which are "closer" to a given spatial and temporal "location" are more heavily influenced by the points which occur nearby in both time _and_ space.**
+where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, the triggering function is defined to be separable in space and time. In addition, the background rate here can be taken to be a function of space, which is often a NPP or constant. Further, the triggering function here is now a function of space and time. As a result, events that are closer to some given spatial and temporal location are more heavily influenced by the points that occur nearby in both time and space.
 
 # 3 Conclusions and Discussion
 
