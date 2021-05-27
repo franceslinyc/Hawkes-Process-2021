@@ -14,7 +14,7 @@ Main report can be found [here: Lin_Masters_Project](https://github.com/francesl
 
 Presentation slides can be found [here: Lin_Presentation](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf).
 
-...... can be found [here: Lin_Appendix](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf).
+...... can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf). (Lin_Appendix)
 
 Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
