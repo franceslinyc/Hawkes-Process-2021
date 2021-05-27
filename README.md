@@ -10,7 +10,11 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Description:
 
-Main report can be found in [Lin_Masters_Project](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf). 
+Main report can be found [here: Lin_Masters_Project](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf)
+
+Presentation slides can be found [here: Lin_Presentation](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf).
+
+...... can be found [here: Lin_Appendix](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf).
 
 Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
@@ -20,3 +24,6 @@ Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Proce
 
 04_proc_using_spatstat.Rmd simulates HPP, NPP, Cox and cluster processes in 2D using the spatstat package of R
 
+Lin_Appendix.Rmd
+
+Lin_Presentation.Rmd contains codes that produce slides for the presentation
