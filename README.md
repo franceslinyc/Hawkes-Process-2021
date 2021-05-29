@@ -10,7 +10,7 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Description:
 
-Main report can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf) (Lin_Masters_Project), presentation slides can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf) (Lin_Presentation), and...... can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf) (Lin_Appendix).
+Main report can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf), presentation slides can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf), and the algorithm  in particular the thinning algorithm and **spatstat** package of `R` used for simulating some of the processes in 1D or 2D can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf).
 
 Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
