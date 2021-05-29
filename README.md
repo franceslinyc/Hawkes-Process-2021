@@ -2,6 +2,8 @@
 
 Master’s project for MS in statistics at OSU
 
+Prequel to Hawkes Processes: An Overview of Spatial, Temporal and Spatio-Temporal Point Processes and Some Simulations
+
 Frances Lin
 
 Major Professor: James Molyneux
