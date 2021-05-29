@@ -1,6 +1,6 @@
 ---
 title: | 
-  | \vspace{0.5cm} \LARGE Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations 
+  | \vspace{0.5cm} \LARGE Prequel to Hawkes Processes: An Overview of Spatial, Temporal and Spatio-Temporal Point Processes and Some Simulations 
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
@@ -18,6 +18,8 @@ Major Professor: James Molyneux
 Committee Members: Lisa Madsen & Charlotte Wickham
 
 # Abstract
+
+Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior. Hawkes (or self-exciting) processes are models suitable for capturing events with such behavior, having the potential to become a powerful predictive tool for a wide variety of other applications. In this project, we give brief introductions, review definitions, discuss properties and applications of selected spatial and temporal point processes leading up to spatio-temporal self-exciting processes, and simulate some of the aforementioned processes in 1D or 2D in hope of interested readers have the background knowledge to read and comprehend existing literature as well as explore the field further.
 
 # 1 Introduction
 
@@ -286,7 +288,7 @@ where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i 
 
 # 3 Conclusions and Discussion
 
-In this project, we first introduce the counting process, which can be used to count the number of events over space, time, etc. Next, we introduce HPP, which is one of the simplest yet most widely used point processes for modeling the occurrence of events with constant arrival rate. Then, we relax the stationarity and homogeneity assumption of HPP to move on to NPP, which allows the intensity to vary with space or time. This allows the model to be more realistic in practice. We follow up with HPP and NPP in space for the purpose of visualization. Then, we further relax the independence assumption and introduce the Cox and cluster processes. Allowing the events to be dependent makes the models even more flexible, as a lot of these environmental and ecological applications rely on the dependence on covariates and/or external factors. Finally, we get to the Hawkes and self-exciting processes. With the intensity now depending on past history, the models become a suitable choice for capturing events that exhibit both the triggering and clustering behavior. Such models also have the potential to become a powerful predictive tool for a wide variety of applications. At this point, interested readers should have the background knowledge to comprehend Hawkes and self-exciting processes through additional, past and recent literature and ponder upon and explore areas for future work. Personally, I really enjoy the month-long journey of learning the various point processes as well as witnessing their many practical and important uses for real-world data.
+In this project, we first introduce the counting process, which can be used to count the number of events over space, time, etc. Next, we introduce HPP, which is one of the simplest yet most widely used point processes for modeling the occurrence of events with constant arrival rate. Then, we relax the stationarity and homogeneity assumption of HPP to move on to NPP, which allows the intensity to vary with space or time. This allows the model to be more realistic in practice. We follow up with HPP and NPP in space for the purpose of visualization. Then, we further relax the independence assumption and introduce the Cox and cluster processes. Allowing the events to be dependent makes the models even more flexible, as a lot of these environmental and ecological applications rely on the dependence on covariates and/or external factors. Finally, we get to the Hawkes and self-exciting processes. With the intensity now depending on past history, the models become a suitable choice for capturing events that exhibit both triggering and clustering behavior. Such models also have the potential to become a powerful predictive tool for a wide variety of applications. At this point, interested readers should have the background knowledge to comprehend Hawkes and self-exciting processes through additional, past and recent literature and ponder upon and explore areas for future work. Personally, I really enjoy the month-long journey of learning the various point processes as well as witnessing their many practical and important uses for real-world data.
 
 # Acknowledgments
 
