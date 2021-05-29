@@ -20,6 +20,6 @@ Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Proce
 
 04_proc_using_spatstat.Rmd simulates HPP, NPP, Cox and cluster processes in 2D using the spatstat package of R
 
-Lin_Appendix.Rmd
+Lin_Appendix.Rmd contains the algorithm  in particular the thinning algorithm and **spatstat** package of `R` used for simulating some of the processes in 1D or 2D
 
 Lin_Presentation.Rmd contains codes that produce slides for the presentation
