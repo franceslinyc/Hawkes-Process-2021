@@ -1,0 +1,154 @@
+---
+title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations'
+author: "Frances Lin"
+date: " June 2021"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r warning=FALSE, message=FALSE}
+library(spatstat)
+library(tidyverse)
+library(here)
+```
+
+## Background: Hawkes Process 
+
+Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior.
+
+Hawkes process are also known as self-exciting point processes (SEPP). The original Hawkes processes are temporal, whereas the more recently developed SEPP have been extended to account for both the spatial and temporal aspects of the data.
+
+## Background: Characteristics
+
+The defining characteristic of SEPP is that it 'self-excites', i.e., the occurrence of an event increases the occurrence of future events nearby in space and/or time, although the events don't self-excite in perpetuity.
+
+In seismology, an event can be an earthquake that causes aftershocks. In criminology, an event can be a gang rivalry that triggers retaliations following the gang crime. In both cases, the initial event can continue to spawn 'offspring' events and the 'offspring' events can spawn 'offspring' events of their own, but the spawns fade out eventually.
+
+## Background: Applications
+
+The ability to capture events with such behavior gives SEPP the potential to become a powerful predictive tool for a wide variety of applications. To date, the models have been used to model 
+
+- earthquake epicenters (Ogata, 1988, 1998)
+
+- crime patterns (Mohler et al., 2011; Reinhart & Greenhouse, 2018), 
+
+- forest wildfires (Peng, et al., 2005), 
+
+- insurance claims (Stabile et al., 2010), 
+
+- financial transcations (Bauwens and Hautsch, 2009; Embrechts et al., 2011; Bacry et al., 2015), 
+
+- social network events (Zhao et al., 2015; Rizoiu et al., 2017), 
+
+- neuron activities (Johnson, 1996; Gerhard et al., 2017), and 
+
+- disease spread or transmission (Meyer et al., 2012; Meyer & Held, 2014)
+
+## Background and Objectives
+
+It is surprising that SEPP have not gained enough attention from the machine learning communities, which would find their predictive capabilities beneficial. Some of the relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes), which are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
+
+The objective of this project is then to give an overview of various types of point processes so that readers of interest have the background knowledge to understand to read and comprehend existing SEPP literature as well as explore the field further.
+
+## Introductions, Definitions, Properties, and Applications
+
+1. Counting Process
+2. HPP (Homogeneous Poisson Process)
+3. NPP (Nonhomogeneous Poisson Process)
+4. Cox and Cluster Processes 
+5. Hawkes Process 
+6. Spatio-Temporal SEPP (Self-Exciting Point Process) 
+
+## Counting Process
+
+## Counting Process
+
+![](../results/plot_1D_Counting.png)
+
+## HPP (Homogeneous Poisson Process)
+
+## HPP
+
+![](../results/plot_1D_HPP.png)
+
+## NPP (Nonhomogeneous Poisson Process)
+
+## HPP vs. NPP in 2D
+
+![](../results/plot_2D_All.png){height=50%, width=50%}
+
+## Cox and Cluter Processes
+
+## Cox vs. Matern Cluter in 2D
+
+![](../results/plot_2D_All2.png){height=50%, width=50%}
+
+## (Temporal) Hawkes Process
+
+## Hawkes Process
+
+![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png)
+
+## Thinning Algorithm
+
+Thinning algorithm is also called acceptance-rejection method. 
+
+## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
+
+\ \ Imput $\mu$, $\alpha$, $\beta$, $\lambda$, $t_{max}$
+
+1. Simulate a HPP using Algorithm 1
+
+2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} \alpha e^ {-\beta x}$
+
+3. Set $\lambda^*$ = apply the $\lambda(t)$ function to the HPP
+
+4. Generate $u \sim U(0,1)$
+
+5. **if** ($u < min( \frac{\lambda^*} {\lambda}, 1)$) where the accepting probability $= min( {\lambda^*} / {\lambda}, 1)$
+
+6. \ | Keep the points
+
+7. **else**
+
+8. \ | "Thin" or reject the points and **return** $\{t_{k}\}_{k = 0, 1,... }$
+
+
+
+## Spatio-temporal SEPP (Self-Exciting Point Process)
+
+
+
+## Recent Advancement and Future Work of SEPP
+
+Recent work has extended the use of SEPP to novel applications such as 
+
+- mass shootings (Boyd & Molyneux, 2021), 
+
+- COVID-19 transmission (Chiang et al., 2020), and 
+
+- gang violence (Park et al., 2021). 
+
+However, there is still much work to be done which include computational advances to ease the burden of applying the models to bigger data sets (Holbrook et al., 2021), residual and model diagnostics, methods that make the models more flexible and applicable, etc.
+
+## Thank you!
+
+Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations
+
+Frances Lin
+
+MS student, Dept. of Statistics, Oregon State University
+
+Report, code, etc. are available at 
+
+GitHub: franceslinyc, [Hawkes-Process-2021](https://github.com/franceslinyc/Hawkes-Process-2021)
+
+## Acknowledgments
+
+I want to thank Dr. James Molyneux for his constant support and encouragement while advising this Master's project, Dr. Lisa Madsen & Dr. Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, Dr. Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, my cohort for summer comp (comprehensive exam) studies, theories HW and group projects, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumor since last year. But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
+
+
+
