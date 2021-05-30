@@ -5,7 +5,7 @@ date: "June 2021"
 output: pdf_document
 ---
 
-## Algorithm 1: Simulations of HPP
+## Algorithm 1: Simulations of a HPP
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
@@ -17,11 +17,11 @@ output: pdf_document
 
 3. \ \ Generate $u \sim U(0,1)$
 
-4. \ \ Set $t_{current}$ = $t + w$ where $w \sim exp(\lambda^{*} = \lambda)$ 
+4. \ \ Set $t_{}$ = $t + w$ where $w = - log(u)/ \lambda \sim exp(\lambda^{*} = \lambda)$ 
 
-5. \ \ **if** ($t_{current} \leq t_{max}$)
+5. \ \ **if** ($t_{} \leq t_{max}$)
 
-6. \ \ | Add $t_{vector}$ = $c(t_{vector}, t_{current})$
+6. \ \ | Add $t_{vector}$ = $c(t_{vector}, t_{})$
 
 6. \ \ **else**
 
@@ -30,27 +30,27 @@ output: pdf_document
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
 
-## Algorithm 2: Simulations of Hawkes Process via Thinning Algorithm
+## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
-\ \ Imput $\mu$, $\alpha$, $\beta$
+\ \ Imput $\mu$, $\alpha$, $\beta$, $\lambda$, $t_{max}$
 
 1. Simulate a HPP using Algorithm 1
 
-2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} g(t - t_i)$
+2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} \alpha e^ {-\beta x}$
 
 3. Set $\lambda^*$ = apply the $\lambda(t)$ function to the HPP
 
 4. Generate $u \sim U(0,1)$
 
-5. **if** ($u < min( \frac{\lambda^*} {\lambda}, 1)$) 
+5. **if** ($u < min( \frac{\lambda^*} {\lambda}, 1)$) where the accepting probability $= min( {\lambda^*} / {\lambda}, 1)$
 
-6. \ | Keep
+6. \ | Accept the points
 
 7. **else**
 
-8. \ | **return** $\{t_{k}\}_{k = 0, 1,... }$
+8. \ | "Thin" or reject the points and **return** $\{t_{k}\}_{k = 0, 1,... }$
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 

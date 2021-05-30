@@ -1,29 +1,67 @@
 ---
 title: "Lin_Appendix"
 author: "Frances Lin"
-date: "5/25/2021"
+date: "June 2021"
 output: pdf_document
 ---
 
 # Appendix
 
-## Algorithm 1: HPP
+Recall that for a HPP, the interarrival times between events, $W$, are exponentially distributed. In this simulation of a HPP, after initializing the initial time, $t$, and the time vector, $t_{vector}$, we generate exponential random variables and use them to index the interarrival times between events.
 
-## Algorithm 1
+Figure 2 as shown previously is a realization of a HPP with rates that are roughly constant at $\lambda = 10$.
 
-## Algorithm 2: NPP
+## Algorithm 1: Simulations of a HPP
 
-Algorithm 2: NPP is omitted. Instead, we discuss the thinning algorithm (or acceptance-rejection method) in details and show Algorithm 3 next.
+\begin{center}\rule{6in}{0.4pt}\end{center}
 
-## Algorithm 3: Hawkes
+\ \ Input $\lambda$, $t_{max}$
 
-In this example, we use the thinning algorithm  to simulate a (temporal) Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP.
+1. Initialize $t$, $t_{vector}$
 
-Broadly put, thinning algorithm involves randomly deleting points from a point pattern. **ELABORATE MORE**.
+2. **while** ($t \leq t_{max}$)
 
-## Algorithm 3
+3. \ \ Generate $u \sim U(0,1)$
 
-Figure 5 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$).
+4. \ \ Set $t_{}$ = $t + w$ where $w = - log(u)/ \lambda \sim exp(\lambda^{*} = \lambda)$ 
+
+5. \ \ **if** ($t_{} \leq t_{max}$)
+
+6. \ \ | Add $t_{vector}$ = $c(t_{vector}, t_{})$
+
+6. \ \ **else**
+
+7. \ \ | **return** $\{t_{k}\}_{k = 0, 1,... }$
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+In this simulation of a Hawkes process, we use the thinning algorithm (or acceptance-rejection method) to simulate a temporal Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. Broadly put, the thinning algorithm involves randomly deleting points from a point pattern. The process requires first simulating a HPP, creating a $\lambda(t)$ function and applying it to the HPP, and using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
+
+Figure 5 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). $\mu$ sets the background rate. $\alpha$...... , and $\beta$ controls the decay rate.
+
+## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
+
+\ \ Imput $\mu$, $\alpha$, $\beta$, $\lambda$, $t_{max}$
+
+1. Simulate a HPP using Algorithm 1
+
+2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} \alpha e^ {-\beta x}$
+
+3. Set $\lambda^*$ = apply the $\lambda(t)$ function to the HPP
+
+4. Generate $u \sim U(0,1)$
+
+5. **if** ($u < min( \frac{\lambda^*} {\lambda}, 1)$) where the accepting probability $= min( {\lambda^*} / {\lambda}, 1)$
+
+6. \ | Keep the points
+
+7. **else**
+
+8. \ | "Thin" or reject the points and **return** $\{t_{k}\}_{k = 0, 1,... }$
+
+\begin{center}\rule{6in}{0.4pt}\end{center}
 
 ## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package of `R`
 
