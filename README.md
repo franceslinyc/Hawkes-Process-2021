@@ -12,7 +12,7 @@ Committee Members: Lisa Madsen & Charlotte Wickham
 
 Description: Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior. The ability to capture events with such behavior gives Hawkes or self-exciting point processes (SEPP) the potential to become a powerful predictive tool for a wide variety of applications. In this project, we give brief introductions, review definitions, discuss properties and applications of selected spatial and temporal point processes leading up to spatio-temporal SEPP, and simulate some of the processes in 1D and 2D in hope that interested readers have the background knowledge to read and comprehend existing SEPP literature as well as explore the field further.
 
-Here [main report](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf) can be found and here [presentation slides](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf) can be found.
+Main report for this project can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Project.pdf) and presentation slides can be found [here](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf). 
 
 Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Process-2021/tree/main/analysis) folder:  
 
