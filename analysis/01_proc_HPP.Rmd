@@ -14,31 +14,33 @@ library(patchwork)
 ```{r}
 set.seed(1) # for reproducibility
 
+# Set value
 lmbda <- 10
 t_max <- 10 
 
+# Initialize
 t <- 0 
-X <- numeric(0) # vector of t
+t_vec <- numeric(0) # vector of t
 
 while(t <= t_max){
   u       <- runif(1)
-  t       <-  t - log(u)/lmbda                # t ~ exp(1/lambda)
+  t       <-  t - log(u)/lmbda                # w <- - log(u)/lmbda ~ exp(lambda)
   if(t < t_max) {
-    X <- c(X,t)                               # update index 
+    t_vec <- c(t_vec,t)                       # update index 
   }
 }
 ```
 
 ```{r}
 # Check to see if the total #s matches 
-length(X)
+length(t_vec)
 ```
 
 ```{r}
 # Create dataframe
 df_HPP = tibble(
-  x = X, 
-  y = 1:(length(X)) #0:(length(X) - 1) 
+  x = t_vec, 
+  y = 1:(length(t_vec)) #0:(length(X) - 1) 
 )
 
 # Plot HPP 

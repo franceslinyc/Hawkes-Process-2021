@@ -15,15 +15,17 @@ library(patchwork)
 # Simuluate HPP
 set.seed(1) # for reproducibility
 
+# Set value
 lmbda <- 10
 t_max <- 10 
 
+# Initialize
 t <- 0 
 t_vec <- numeric(0) # vector of t # consider change X to t_vec
 
 while(t <= t_max){
   u       <- runif(1)
-  t       <-  t - log(u)/lmbda                # t ~ exp(1/lambda)
+  t       <-  t - log(u)/lmbda
   if(t < t_max) {
     t_vec <- c(t_vec,t)
   }
@@ -34,7 +36,7 @@ while(t <= t_max){
 # Writing the thinning algorithm using James's way 
 
 # Initialize
-# Note that mu > 0 and 0 < alpha < beta ??
+# Note that mu > 0 and 0 < alpha < beta ?? Yes.
 mu = 0.025
 alpha = 0.5
 beta = 0.7
@@ -60,6 +62,10 @@ prob_keep <- lmbda / lmbda_star
 check <- runif(length(prob_keep)) < min(prob_keep, 1)
 lmdba_keep <- lmbda_star[check]
 t_keep <- t_vec[check]
+```
+
+```{r}
+# Check to see if HPP is thinned
 # length(lmbda_star) #114
 # length(t_vec) #114
 # length(lmdba_keep) #87
