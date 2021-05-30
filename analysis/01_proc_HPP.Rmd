@@ -14,11 +14,10 @@ library(patchwork)
 ```{r}
 set.seed(1) # for reproducibility
 
-t_max <- 10 
-t <- 0 
-
 lmbda <- 10
+t_max <- 10 
 
+t <- 0 
 X <- numeric(0) # vector of t
 
 while(t <= t_max){

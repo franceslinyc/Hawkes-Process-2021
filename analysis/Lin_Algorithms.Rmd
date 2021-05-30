@@ -30,29 +30,27 @@ output: pdf_document
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
 
-
-
-## Algorithm 2: Simulations of NPP via Thinning Algorithm (May skip)
+## Algorithm 2: Simulations of Hawkes Process via Thinning Algorithm
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
-1.
+\ \ Imput $\mu$, $\alpha$, $\beta$
 
-2.
+1. Simulate a HPP using Algorithm 1
 
-\begin{center}\rule{6in}{0.4pt}\end{center}
+2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} g(t - t_i)$
 
+3. Set $\lambda^*$ = apply the $\lambda(t)$ function to the HPP
 
+4. Generate $u \sim U(0,1)$
 
+5. **if** ($u < min( \frac{\lambda^*} {\lambda}, 1)$) 
 
+6. \ | Keep
 
-## Algorithm 3: Simulations of Hawkes Process via Thinning Algorithm
+7. **else**
 
-\begin{center}\rule{6in}{0.4pt}\end{center}
-
-1.
-
-2.
+8. \ | **return** $\{t_{k}\}_{k = 0, 1,... }$
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
