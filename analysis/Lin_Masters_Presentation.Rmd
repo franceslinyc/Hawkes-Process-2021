@@ -49,7 +49,7 @@ The ability to capture events with such behavior gives SEPP the potential to bec
 
 ## Background and Objectives
 
-SEPP have not gained enough attention from the machine learning communities given their predictive capabilities beneficial. Some relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
+SEPP have not gained enough attention from the machine learning communities given their predictive capabilities. Some relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
 
 The objective of this project is then to give an overview of various types of point processes so that readers of interest have the background knowledge to understand to read and comprehend existing SEPP literature as well as explore the field further.
 
@@ -64,9 +64,33 @@ The objective of this project is then to give an overview of various types of po
 
 ## Counting Process
 
+A counting process counts the occurrence (or number) of events over time, space, space-time, etc. For example, 
+
+- the time of arrival for customers at a super market
+
+- the location of trees occuring at a point in space
+
+- earthquake's epicenter as a point in space and time
+
 ## Counting Process
 
-![](../results/plot_1D_Counting.png)
+*Corollary* **2.1.1** A counting process satisfies that
+
+1. $N(t) \geq 0$
+
+2. $N(t)$ is an integer
+
+3. If $t \leq t+h$, then $N(t) \leq N(t+h)$
+
+4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$.
+
+Counting processes are independent, stationary, and homogeneous. 
+
+## Counting Process
+
+![Counting Process](../results/plot_1D_Counting.png)
+
+Suppose that $N(t)$ counts the number of events up to some time $t$ and events occur at times $t = 0.1, 1, 1.5, 3, 5$, etc. then $N(2) = 3$ since events occuring at 0.01, 1, and 1.5 all occur in the time interval $(0, 2]$. Similiarily, $N(4) = 4$ since 4 events occur in the time interval $(0, 4]$.
 
 ## HPP (Homogeneous Poisson Process)
 
