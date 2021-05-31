@@ -53,7 +53,9 @@ SEPP have not gained enough attention from the machine learning communities even
 
 The objective of this project is then to give an overview of various types of point processes so that readers of interest have the background knowledge to understand to read and comprehend existing SEPP literature as well as explore the field further.
 
-## Introductions, Definitions, Properties, and Applications
+## Outline
+
+Introductions, Definitions, Properties, and Applications
 
 1. Counting Process
 
@@ -67,17 +69,21 @@ The objective of this project is then to give an overview of various types of po
 
 6. Spatio-Temporal SEPP (Self-Exciting Point Process)
 
-7. Recent Advancement and Future Work of SEPP
+*Disclaimer:* Process 1-3 are perhaps review with details omitting. Check paper or the reference section of the paper for more!
+
+Recent Advancement and Future Work of SEPP
 
 ## Counting Process
 
 A counting process counts the occurrence (or number) of events over time, space, space-time, etc. For example, 
 
-- the time of arrival for customers at a super market
+- the time of arrival for customers at a super market, 
 
-- the location of trees occuring at a point in space
+- the location of trees occuring at a point in space,
 
-- earthquake's epicenter as a point in space and time
+- earthquake's epicenter as a point in space and time.
+
+## Counting Process
 
 *Corollary* **2.1.1** A counting process satisfies that
 
@@ -89,15 +95,13 @@ A counting process counts the occurrence (or number) of events over time, space,
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$.
 
+In other words, 1. The number of events $N(t)$ up to some time $t$ to be greater than zero. 2. The number of events must be an integer. 3. The counts always increase. 4. the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval.
+
 ## Counting Process
 
-Counting processes are independent, stationary, and homogeneous. In other words, 
+Counting processes are independent, stationary, and homogeneous.
 
-- the number of events $N(t)$ occurring in disjoint interval $t$ are independent,
-
-- the distribution of the number of events depends only on the length of the interval $t$, and 
-
-- the transition probability (i.e. the probability moving from one state to another state) between any two states at two times depends only on the difference between the states.
+In other words, 1. The number of events $N(t)$ occurring in disjoint interval $t$ are independent. 2. The distribution of the number of events depends only on the length of the interval $t$, and 3. the transition probability (i.e. the probability moving from one state to another state) between any two states at two times depends only on the difference between the states.
 
 ## Counting Process
 
@@ -109,7 +113,13 @@ Suppose that $N(t)$ counts the number of events up to some time $t$ and events o
 
 The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes (Baddeley et al., 2015).
 
-HPPs can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site, or the document requests on a web server over time.
+HPPs can be used to model the number of events such as 
+
+- bus arrivals at a bus stop, 
+
+- car accidents at a site,
+
+- the document requests on a web server over time, etc.
 
 ## HPP 
 
@@ -180,11 +190,7 @@ Thinning algorithm is also called acceptance-rejection method.
 
 8. \ | "Thin" or reject the points and **return** $\{t_{k}\}_{k = 0, 1,... }$
 
-
-
 ## Spatio-temporal SEPP (Self-Exciting Point Process)
-
-
 
 ## Recent Advancement and Future Work of SEPP
 
