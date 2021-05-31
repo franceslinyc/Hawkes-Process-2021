@@ -29,7 +29,7 @@ In seismology, an event can be an earthquake that causes aftershocks. In crimino
 
 ## Background: Applications
 
-The ability to capture events with such behavior gives SEPP the potential to become a powerful predictive tool for a wide variety of applications. The models have been used to model
+SEPP have the potential to become a powerful predictive tool for a wide variety of applications and have been used to model events such as
 
 - earthquake epicenters (Ogata, 1988, 1998)
 
@@ -45,22 +45,29 @@ The ability to capture events with such behavior gives SEPP the potential to bec
 
 - neuron activities (Johnson, 1996; Gerhard et al., 2017), and 
 
-- disease spread or transmission (Meyer et al., 2012; Meyer & Held, 2014)
+- disease spread or transmission (Meyer et al., 2012; Meyer & Held, 2014).
 
 ## Background and Objectives
 
-SEPP have not gained enough attention from the machine learning communities given their predictive capabilities. Some relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
+SEPP have not gained enough attention from the machine learning communities even with their predictive capabilities. Some relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
 
 The objective of this project is then to give an overview of various types of point processes so that readers of interest have the background knowledge to understand to read and comprehend existing SEPP literature as well as explore the field further.
 
 ## Introductions, Definitions, Properties, and Applications
 
 1. Counting Process
+
 2. HPP (Homogeneous Poisson Process)
+
 3. NPP (Nonhomogeneous Poisson Process)
-4. Cox and Cluster Processes 
-5. Hawkes Process 
-6. Spatio-Temporal SEPP (Self-Exciting Point Process) 
+
+4. Cox and Cluster Processes
+
+5. Hawkes Process
+
+6. Spatio-Temporal SEPP (Self-Exciting Point Process)
+
+7. Recent Advancement and Future Work of SEPP
 
 ## Counting Process
 
@@ -72,8 +79,6 @@ A counting process counts the occurrence (or number) of events over time, space,
 
 - earthquake's epicenter as a point in space and time
 
-## Counting Process
-
 *Corollary* **2.1.1** A counting process satisfies that
 
 1. $N(t) \geq 0$
@@ -84,7 +89,15 @@ A counting process counts the occurrence (or number) of events over time, space,
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$.
 
-Counting processes are independent, stationary, and homogeneous. 
+## Counting Process
+
+Counting processes are independent, stationary, and homogeneous. In other words, 
+
+- the number of events $N(t)$ occurring in disjoint interval $t$ are independent,
+
+- the distribution of the number of events depends only on the length of the interval $t$, and 
+
+- the transition probability (i.e. the probability moving from one state to another state) between any two states at two times depends only on the difference between the states.
 
 ## Counting Process
 
@@ -94,9 +107,36 @@ Suppose that $N(t)$ counts the number of events up to some time $t$ and events o
 
 ## HPP (Homogeneous Poisson Process)
 
+The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes (Baddeley et al., 2015).
+
+HPPs can be used to model the number of events such as bus arrivals at a bus stop, car accidents at a site, or the document requests on a web server over time.
+
+## HPP 
+
+**Definition 2.2.1** (Poisson Process) If the following conditions hold, a counting process is said to be a Poisson Process with constant rate (or intensity) $\lambda > 0$
+
+1. $N(0) = 0$
+
+2. $N(t)$ has independent increments
+
+3. $P(N(t + h)) - N(t) = 1)) = \lambda h + o(h)$
+
+4. $P(N(t + h)) - N(t) > 1)) = o(h)$.
+
+In other words, 1. An event has to occur for it to be counted. 2. For any disjoint time intervals, the occurrence of an event does not affect the probability of the occurrence of one another event. 3. $\lambda$ is the rate (i.e. events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location.
+
 ## HPP
 
-![](../results/plot_1D_HPP.png)
+Like counting processes, HPPs are also independent, stationary, and homogeneous. 
+
+We also assume that the numbers of events, $N(t)$, follow a Poisson distribution with a constant rate $\lambda$ (i.e. events over time) and the interarrival times between events, $W$, are exponentially distributed.
+
+
+## HPP
+
+![Homogeneous Poisson process (rate = 10)](../results/plot_1D_HPP.png)
+
+First, we note that the cumulative number of points is growing at a constant linear rate. We can also see that the histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$.
 
 ## NPP (Nonhomogeneous Poisson Process)
 
