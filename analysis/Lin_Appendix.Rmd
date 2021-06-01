@@ -1,17 +1,17 @@
 ---
-title: "Lin_Appendix"
+title: "Appendix"
 author: "Frances Lin"
 date: "June 2021"
 output: pdf_document
 ---
 
-# Appendix
+## Simulation of a HPP
 
 Recall that for a HPP, the interarrival times between events, $W$, are exponentially distributed. In this simulation of a HPP, after initializing the initial time, $t$, and the time vector, $t_{vector}$, we generate exponential random variables and use them to index the interarrival times between events.
 
 Figure 2 as shown previously is a realization of a HPP with rates that are roughly constant at $\lambda = 10$.
 
-## Algorithm 1: Simulations of a HPP
+## Algorithm 1: Simulation of a HPP
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
@@ -35,11 +35,13 @@ Figure 2 as shown previously is a realization of a HPP with rates that are rough
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
-In this simulation of a Hawkes process, we use the thinning algorithm (or acceptance-rejection method) to simulate a temporal Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP. Broadly put, the thinning algorithm involves randomly deleting points from a point pattern. The process requires first simulating a HPP, creating a $\lambda(t)$ function and applying it to the HPP, and using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
+## Simulation of a Hawkes Process
 
-Figure 5 as shown previously is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.7, \beta = 0.5$). $\mu$ sets the background rate. $\alpha$...... , and $\beta$ controls the decay rate.
+In this simulation of a Hawkes process, we use the thinning algorithm (or acceptance-rejection method) to simulate a temporal Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP (Pasupathy, 2010). Broadly put, the thinning algorithm involves randomly deleting points from a point pattern. The process requires first simulating a HPP, creating a $\lambda(t)$ function and applying it to the HPP, and using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
 
-## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
+Figure 5 as shown previously is a realization of a Hawkes process with parameters such that $\mu = 0.5, \alpha = 0.7$, and $\beta = 0.5$. $\mu$ sets the background rate. $\alpha$ and $\beta$ controls the shape and decay rate of the the exponentially decaying triggering function function.
+
+## Algorithm 2: Simulation of a Hawkes Process via Thinning Algorithm
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
@@ -63,19 +65,25 @@ Figure 5 as shown previously is a realization of a Hawkes process with the expon
 
 \begin{center}\rule{6in}{0.4pt}\end{center}
 
-## Simulations of HPP, NPP, Cox and Matern Cluster Process in 2D using the **spatstat** package of `R`
+## Simulations of a HPP, NPP, Cox and Matern Cluster Process in 2D
 
-All of the corresponding plots in 2D are created using the **spatstat** package of `R`.
+All of the corresponding plots in 2D are created using the **spatstat** package of `R` (Baddeley & Turner, 2005).
 
 **HPP**
 
+The `rpoispp` function can be used to generate a random point pattern as a realization of a HPP or NPP. `lambda` controls the rate (or intensity) of a HPP and `win` sets the window in which the simulated pattern is observed. In Figure 3, we set `lambda` $=100$ and `win` $=square(1)$.
+
 **NPP**
+
+Similar to the above simulation, `lambda` can be set to control the intensity of a NPP. In the second figure of Figure 3, `lambda` $=400*x*y$.
 
 **Cox Process**
 
+Instead of setting `lambda` to be a deterministic function as in the NPP case, here we can set `lambda` to be a random function or variable. In Figure 3, `lambda` is set to be $=rexp(n = 1, rate = 1/100)$.
+
 **Matern Cluster Process**
 
-Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster.
+Simulations of Matern cluster process are generated using the `rMatClust` function. Specifically, the process involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent. `kappa` controls the intensity of the cluster centers and allows us to specify the number of clusters. `r` specifies how far away cluster is from one another in radius, and `mu` gives the mean number of points per cluster. In the second figure of Figure 4, $kappa = 20, r = 0.05$, and $mu = 5$. 
 
 
 
