@@ -24,5 +24,5 @@ Other reports are in the [analysis](https://github.com/franceslinyc/Hawkes-Proce
 
 [Lin_Appendix.pdf](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Appendix.pdf) contains the algorithm in particular the thinning algorithm and **spatstat** package of `R` used for simulating some of the processes in 1D or 2D
 
-Lin_Presentation.Rmd contains codes that produce slides for the [presentation](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Presentation.pdf)
+Lin_Presentation.Rmd contains codes that produce slides for the [presentation](https://github.com/franceslinyc/Hawkes-Process-2021/blob/main/analysis/Lin_Masters_Presentation.pdf)
 
