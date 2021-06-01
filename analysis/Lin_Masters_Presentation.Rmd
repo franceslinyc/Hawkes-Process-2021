@@ -95,7 +95,7 @@ A counting process counts the occurrence (or number) of events over time, space,
 
 4. If $t < t+h$, then $N(t+h) - N(t)$ is the number of events occur in the interval $(t, t+h]$.
 
-In other words, 1. The number of events $N(t)$ up to some time $t$ to be greater than zero. 2. The number of events must be an integer. 3. The counts always increase. 4. the number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval.
+In other words, 1. The number of events $N(t)$ up to some time $t$ to be greater than zero. 2. The number of events must be an integer. 3. The counts always increase. 4. The number of events in specific time interval can be obtained by subtracting the number of events in previous interval from that in current interval.
 
 ## Counting Process
 
@@ -133,13 +133,13 @@ HPPs can be used to model the number of events such as
 
 4. $P(N(t + h)) - N(t) > 1)) = o(h)$.
 
-In other words, 1. An event has to occur for it to be counted. 2. For any disjoint time intervals, the occurrence of an event does not affect the probability of the occurrence of one another event. 3. $\lambda$ is the rate (i.e. events over time) at which points occur and is constant. 4. No more than 1 event can occur at the same location.
+In other words, 1. An event has to occur for it to be counted. 2. For any disjoint time intervals, the occurrence of an event does not affect the probability of the occurrence of one another event. 3. $\lambda$ is the rate (i.e. events over time) at which points occur and is *constant*. 4. No more than 1 event can occur at the same location.
 
 ## HPP
 
 Like counting processes, HPPs are also independent, stationary, and homogeneous. 
 
-We also assume that the numbers of events, $N(t)$, follow a Poisson distribution with a constant rate $\lambda$ (i.e. events over time) and the interarrival times between events, $W$, are exponentially distributed.
+We also assume that the numbers of events, $N(t)$, follow a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events, $W$, are exponentially distributed.
 
 
 ## HPP
@@ -149,6 +149,8 @@ We also assume that the numbers of events, $N(t)$, follow a Poisson distribution
 First, we note that the cumulative number of points is growing at a constant linear rate. We can also see that the histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$.
 
 ## NPP (Nonhomogeneous Poisson Process)
+
+Assuming that the rate in which points occur is constant is often not realistic in practice. 
 
 ## HPP vs. NPP in 2D
 
@@ -174,7 +176,7 @@ Thinning algorithm is also called acceptance-rejection method.
 
 \ \ Imput $\mu$, $\alpha$, $\beta$, $\lambda$, $t_{max}$
 
-1. Simulate a HPP using Algorithm 1
+1. Simulate a HPP using Algorithm 1 (Appendix)
 
 2. Create a $\lambda(t)$ function where the function $= \mu + \sum^{}_{i: T_i < t} \alpha e^ {-\beta x}$
 
