@@ -79,7 +79,7 @@ Similar to the above simulation, `lambda` can be set to control the intensity of
 
 **Cox Process**
 
-Instead of setting `lambda` to be a deterministic function as in the NPP case, here we can set `lambda` to be a random function or variable. In Figure 3, `lambda` is set to be $=rexp(n = 1, rate = 1/100)$.
+Instead of setting `lambda` to be a deterministic function as in the NPP case, here we can set `lambda` to be a random function or variable. In Figure 4, `lambda` is set to be $=rexp(n = 1, rate = 1/100)$.
 
 **Matern Cluster Process**
 
