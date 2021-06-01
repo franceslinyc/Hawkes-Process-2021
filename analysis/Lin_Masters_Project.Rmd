@@ -256,7 +256,7 @@ $$
 \phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
 $$
 
-Exponentially decaying functions, which decay faster, has been applied to financial data (Embrechts et al., 2011). On the other hand, power-law kernel, which has a flatter tail, has been used in seismology (Ozaki, 1979) and social media (Rizoiu et al., 2017).
+Exponentially decaying function, which decays faster, has been applied to financial data (Embrechts et al., 2011). On the other hand, power-law kernel, which has a flatter tail, has been used in seismology (Ozaki, 1979) and social media (Rizoiu et al., 2017).
 
 In Figure 5, we show a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.5, \beta = 0.7$). Each time the event arrives, the intensity (conditional intensity function) increases and then it declines back to the background rate. When the next event arrives, the intensity jumps again and then declines. The intensity for this realization gradually increases over time too since the points of this simulation occur fairly regularly. The algorithm used for simulating this Hawkes process can be found in the Appendix section.
 
