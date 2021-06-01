@@ -220,7 +220,15 @@ GitHub: franceslinyc, [Hawkes-Process-2021](https://github.com/franceslinyc/Hawk
 
 ## Acknowledgments
 
-I want to thank Dr. James Molyneux for his constant support and encouragement while advising this Master's project, Dr. Lisa Madsen & Dr. Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, Dr. Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, my cohort, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, my family and friends, and especially my 92-year-old grandma for hanging in there while battling brain tumor since last year. 
+I want to thank 
+
+- James Molyneux for his constant support and encouragement while advising this Master's project, 
+
+- Lisa Madsen & Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, 
+
+- Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, and 
+
+- my cohort, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges.
 
 But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
 
