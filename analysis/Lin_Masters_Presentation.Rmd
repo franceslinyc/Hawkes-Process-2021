@@ -1,7 +1,7 @@
 ---
-title: 'Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations'
+title: "Prequel to Hawkes Processes: An Overview of Spatial, Temporal and Spatio-Temporal Point Processes and Some Simulations"
 author: "Frances Lin"
-date: " June 2021"
+date: "June 2021"
 output: beamer_presentation
 ---
 
@@ -17,9 +17,9 @@ library(here)
 
 ## Background: Hawkes Process 
 
-Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior.
+Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior. 
 
-Hawkes process are also known as self-exciting point processes (SEPP). The original Hawkes processes are temporal, whereas the more recently developed SEPP have been extended to account for both the spatial and temporal aspects of the data.
+Hawkes process, also known as self-exciting point process (SEPP), can be used to capture events with such behavior. The original Hawkes processes are temporal, whereas the more recently developed SEPP have been extended to account for both the spatial and temporal aspects of the data.
 
 ## Background: Characteristics
 
@@ -51,7 +51,7 @@ SEPP have the potential to become a powerful predictive tool for a wide variety 
 
 SEPP have not gained enough attention from the machine learning communities even with their predictive capabilities. Some relevant point processes (e.g. nonhomogeneous Poisson, Cox and cluster processes) are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
 
-The objective of this project is then to give an overview of various types of point processes so that readers of interest have the background knowledge to understand to read and comprehend existing SEPP literature as well as explore the field further.
+The objective of this project is then to give an overview of various types of point processes so that interested readers have the background knowledge to comprehend existing SEPP literature as well as explore the field further.
 
 ## Outline
 
@@ -69,19 +69,22 @@ Introductions, Definitions, Properties, and Applications
 
 6. Spatio-Temporal SEPP (Self-Exciting Point Process)
 
-*Disclaimer:* Process 1-3 are perhaps review with details omitting. Check paper or the reference section of the paper for more!
+*Disclaimer:* Process 1-3 are perhaps review so details are omitted. Check paper or the reference section of the paper for more!
 
 Recent Advancement and Future Work of SEPP
 
 ## Counting Process
 
-A counting process counts the occurrence (or number) of events over time, space, space-time, etc. For example, 
+A counting process counts the occurrence (or number) of events over time, space, space-time, etc. 
+
+For example, 
 
 - the time of arrival for customers at a super market, 
 
 - the location of trees occuring at a point in space,
 
 - earthquake's epicenter as a point in space and time.
+
 
 ## Counting Process
 
@@ -107,13 +110,13 @@ In other words, 1. The number of events $N(t)$ occurring in disjoint interval $t
 
 ![Counting Process](../results/plot_1D_Counting.png)
 
-Suppose that $N(t)$ counts the number of events up to some time $t$ and events occur at times $t = 0.1, 1, 1.5, 3, 5$, etc. then $N(2) = 3$ since events occuring at 0.01, 1, and 1.5 all occur in the time interval $(0, 2]$. Similiarily, $N(4) = 4$ since 4 events occur in the time interval $(0, 4]$.
+Suppose that $N(t)$ counts the number of events up to some time $t$ and events occur at times $t = 0.1, 1, 1.5, 3, 5$, etc. then $N(2) = 3$ since events occuring at 0.01, 1, and 1.5 all occur in the time interval $(0, 2]$. Similarly, $N(4) = 4$ since 4 events occur in the time interval $(0, 4]$. 
 
 ## HPP (Homogeneous Poisson Process)
 
-The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes (Baddeley et al., 2015).
+The homogeneous Poisson process (HPP) is one of the simplest yet most-widely used point processes (Baddeley et al., 2015). Like counting processes, HPPs can be used to model the number of events over time, space, etc.
 
-HPPs can be used to model the number of events such as 
+For example, 
 
 - bus arrivals at a bus stop, 
 
@@ -141,20 +144,33 @@ Like counting processes, HPPs are also independent, stationary, and homogeneous.
 
 We also assume that the numbers of events, $N(t)$, follow a Poisson distribution with a constant rate $\lambda$ and the interarrival times between events, $W$, are exponentially distributed.
 
-
 ## HPP
 
 ![Homogeneous Poisson process (rate = 10)](../results/plot_1D_HPP.png)
 
-First, we note that the cumulative number of points is growing at a constant linear rate. We can also see that the histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$.
+The cumulative number of points is growing at a constant linear rate. The histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$.
 
 ## NPP (Nonhomogeneous Poisson Process)
 
 Assuming that the rate in which points occur is constant is often not realistic in practice. 
 
-## HPP vs. NPP in 2D
+This would be the case if, as in the supermarket example, we have reasons to believe that the arrival rate of customers is higher during lunch time as compared to say, 2am, or as in the trees in a forest example, we speculate that environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
 
-![](../results/plot_2D_All.png){height=50%, width=50%}
+## NPP 
+
+NPPs are independent but not stationary nor homogeneous. Recall for HPP, the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval, but not the location of the interval, NPP, in contrast, are not stationary since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous.
+
+Like HPP, we assume for NPP that $N(t)$ follow a Poisson distribution too but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time.
+
+## A Motivating Example: HPP vs. NPP in 2D
+
+Before we delve further into other point processes, let us look at a motivating example. 
+
+![Left: HPP (rate = 100) Right: NPP (intensity = 400*x*y)](../results/plot_2D_All.png){height=50%, width=50%}
+
+HPP in space is also called complete spatial randomness (CSR) (Baddeley et al., 2015). For HPP in space, the number of events in $u$ with area $|u|$, denoted as $N(u)$, $\sim Pos(\lambda |u|)$. As shown in the left figure of Figure 3, HPP points appear uniformly distributed in $u$.
+
+
 
 ## Cox and Cluter Processes
 
@@ -230,7 +246,7 @@ I want to thank
 
 - my cohort, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges.
 
-But no thanks, COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement. 
+But no thanks for the COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement.
 
 
 
