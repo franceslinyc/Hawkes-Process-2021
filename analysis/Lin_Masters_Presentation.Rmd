@@ -135,7 +135,7 @@ For example,
 
 - the document requests on a web server over time, etc.
 
-HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval.
+HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval $h$.
 
 The defining characteristic of HPP is that $N(t)$ follow a Poisson distribution with a constant rate $\lambda$ (e.g. events over time).
 
@@ -159,7 +159,7 @@ For example,
 
 - environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
 
-NPPs are independent but not stationary nor homogeneous. The distribution of $N(t)$ can change when shifted in $t$.
+NPPs are independent but not stationary nor homogeneous. The distribution of $N(t)$ can change when shifted in the location of the interval $t$.
 
 For HPP, $N(t)$ still follow a Poisson distribution but with an intensity function $\lambda(t)$ such that the rate/intensity now varies with a function of time.
 
@@ -173,7 +173,7 @@ Right: A realization of a HPP (rate/intensity $= 400 x y$). NPP points appear to
 
 ## Cox and Cluster Processes
 
-Relaxing the independence assumption make the models even more flexible models 
+Relaxing the independence assumptiont to allow for dependence between events make the models even more flexible
 
 - Cox processes 
 
