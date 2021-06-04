@@ -42,7 +42,7 @@ p2 <- ggplot(df2, aes(x=x, y=y)) + geom_point(size=n) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
         axis.text.y=element_blank(), axis.ticks.y=element_blank(),
         axis.title=element_blank()) +
-  labs(title="NPP")
+  labs(title="NPP (rate/intensity = 400xy)")
 
 p3 <- ggplot(df3, aes(x=x, y=y)) + geom_point(size=n) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
@@ -54,7 +54,7 @@ p4 <- ggplot(df4, aes(x=x, y=y)) + geom_point(size=n) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), 
         axis.text.y=element_blank(), axis.ticks.y=element_blank(),
         axis.title=element_blank()) +
-  labs(title="Matern Cluter Process")
+  labs(title="Matern Cluster Process")
 
 # Combine plots
 p1 + p2 + p3 + p4 + plot_layout(ncol = 4) + coord_fixed(ratio = 1)

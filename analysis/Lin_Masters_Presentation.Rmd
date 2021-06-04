@@ -35,7 +35,7 @@ library(here)
 
 Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and/or clustering behavior. 
 
-Hawkes processes, also known as self-exciting point processes (SEPP), can be used to capture events with such behavior.
+Being able to capture events with such behavior, Hawkes processes, also known as self-exciting point processes (SEPP), have the potential to be a powerful predictive tool.
 
 ## Background: Characteristics
 
@@ -71,13 +71,15 @@ SEPP find applications in a wide variety of fields since they have been used to 
 
 ## Background and Objectives
 
-SEPP have not gained much attention from the machine learning communities even with their predictive capabilities. Some relevant point processes are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
+SEPP have not gained much attention from the machine learning communities even with their predictive capabilities. 
+
+Some relevant point processes are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
 
 **Project Goal:** Give an overview of various types of point processes so that interested readers have the background knowledge to comprehend existing SEPP literature as well as explore the field further.
 
 ## Outline
 
-Give introductions, definitions, properties, and applications of
+Give introductions, discuss properties and applications of
 
 1. Counting Process
 
@@ -91,7 +93,7 @@ Give introductions, definitions, properties, and applications of
 
 6. **Spatio-Temporal Self-Exciting Point Process**
 
-Wrap up with Recent Advancements and Future Work of SEPP & Thinning Algorithm (if have time)
+Wrap up with Recent Advancements and Future Work of SEPP & (if time permits) Thinning Algorithm 
 
 ## Counting Process
 
@@ -99,23 +101,33 @@ A counting process counts the occurrence (or number) of events over time, space,
 
 For example, 
 
-- the arrival time of customers at a super market for a set of points in time, 
+- the arrival time of customers at a super market, 
 
-- the location of trees occuring at a point in space over some bounded region of the space,
+- the location of trees occuring at a point in space,
 
 - earthquake's epicenter as a point in space and time, 
 
-as long as we are able to count them. 
+so long as they are countable. 
 
 ## Counting Process
 
 ![](../results/plot_1D_Counting.png)
 
-*Let $N(t)$ counts the number of events up to some time $t$, \textcolor{blue}{1.} $N(t)$ > 0, \textcolor{blue}{2.} $N(t)$ integer, \textcolor{blue}{3.} increasing function, and \textcolor{blue}{4.} $N(2) = 3$ and $N(4) = 4$.*
+Let $N(t)$ counts the number of events up to some time $t$, 
+
+1. $N(t)$ > 0, 
+
+2. $N(t)$ is an integer, 
+
+3. $N(t)$ is an increasing function,
+
+4. $N(2) = 3$, $N(4) = 4$, etc.
 
 ## HPP (Homogeneous Poisson Process)
 
-HPP is one of the simplest yet most-widely used point processes (Baddeley et al., 2015). For example, 
+HPP is one of the simplest yet most-widely used point processes (Baddeley et al., 2015). 
+
+For example, 
 
 - bus arrivals at a bus stop, 
 
@@ -123,7 +135,7 @@ HPP is one of the simplest yet most-widely used point processes (Baddeley et al.
 
 - the document requests on a web server over time, etc.
 
-HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval and rate $=\lambda$. 
+HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval.
 
 The defining characteristic of HPP is that $N(t)$ follow a Poisson distribution with a constant rate $\lambda$ (e.g. events over time).
 
@@ -131,23 +143,29 @@ The defining characteristic of HPP is that $N(t)$ follow a Poisson distribution 
 
 ![](../results/plot_1D_HPP.png)
 
-*The cumulative number of points is growing at a constant linear rate. The histogram of rate appears roughly uniform. $N(3) \approx 30$ and $N(4) \approx 40$.*
+1. The cumulative number of points is growing at a constant linear rate,
+
+2. The histogram of rate appears roughly uniform, 
+
+3. $N(3) \approx 30$, $N(4) \approx 40$, etc.
 
 ## NPP (Nonhomogeneous Poisson Process)
 
-Assuming that the rate in which points occur is constant is often not realistic in practice. For example, 
+Assuming that the rate in which points occur is constant is often not realistic in practice. 
 
-- the arrival rate of customers is higher during lunch time as compared to say, 2am, as in the supermarket example, 
+For example, 
 
-- environmental factors such as temperature and rainfall affect the spatial distribution of the trees as in the trees in a forest example.
+- the arrival rate of customers is higher during lunch time as compared to say, 2am, 
 
-NPPs are independent but not stationary nor homogeneous. The distribution of $N(t)$ can change when shifted in $t$ and rate = $\lambda(t)$.
+- environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
 
-For HPP, $N(t)$ still follow a Poisson distribution but with an intensity function $\lambda(t)$ such that the intensity now varies with a function of time.
+NPPs are independent but not stationary nor homogeneous. The distribution of $N(t)$ can change when shifted in $t$.
+
+For HPP, $N(t)$ still follow a Poisson distribution but with an intensity function $\lambda(t)$ such that the rate/intensity now varies with a function of time.
 
 ## A Motivating Example: HPP vs. NPP in 2D
 
-![](../results/plot_2D_All.png){height=50%, width=50%}
+![](../results/plot_2D_All.png){height=70%, width=70%}
 
 Left: A realization of a HPP (rate = 100). HPP points appear uniformly distributed in area $|u|$. 
 
@@ -155,17 +173,153 @@ Right: A realization of a HPP (rate/intensity $= 400 x y$). NPP points appear to
 
 ## Cox and Cluster Processes
 
-## Cox vs. Matern Cluter in 2D
+Relaxing the independence assumption make the models even more flexible models 
 
-![](../results/plot_2D_All2.png){height=50%, width=50%}
+- Cox processes 
 
-## (Temporal) Hawkes Process
+- Cluster processes 
+
+## Cox Processes
+
+Cox process (or doubly stochastic Poisson processes) can be viewed as a Poisson process with a random intensity function $\Lambda$. 
+
+Examples include
+
+- locations of emergent bramble cane (blackberry) plants and
+
+- *Beilschmiedia* trees (Baddeley et al., 2015), etc.  
+
+In these examples, there appears to be some observed spatial covariate (e.g. light, humidity, soil quality) or unobserved external factor that makes it more likely to observe the plants or trees preferentially in some areas.
+
+## Cox Processes
+
+For a Cox process, 
+
+- We now treat this spatially varying intensity function, $\Lambda(u)$, as *random* since it relies on an underlying set of random variables, called a random field (Baddeley et al., 2015).
+
+- When the intensity is relatively high in some area of space, points occur more frequently. When the intensity is low, fewer points occur. 
+
+Within the general class of Cox processes, we will show a mixed Poisson process, the simplest example of all, as a demonstration. 
+
+
+## Cluster Processes 
+
+There is a significant overlap between Cox processes and cluster processes. However, while Cox processes can sometimes appear to exhibit clustering of points, cluster processes tend to make the clustering of points more explicit.
+
+Example that can be modeled as *cluster processes* includes seedlings and saplings of California redwood (Baddeley et al., 2015).
+
+In this example, unobserved 'parent' trees give rise to clusters of observed 'offspring' trees but only 'offspring' trees are observed.
+
+## Cluster Processes 
+
+For a cluster process, 
+
+1. We first have some set of unobserved 'parent' points $\mathbf{Y}$ generated by the process. 
+
+2. Next, each 'parent' point $y_i \in$ $\mathbf{Y}$ gives rise to a random number of 'offspring' points $z_{ij}$. 
+
+3. These 'offspring' points $Z_{ij}$ then form a cluster process $\mathbf{X}$ but only the 'offspring' points are observed.
+
+Within the general class of cluster processes, we will show a Matern cluster process as a demonstration.
+
+## Cox vs. Matern Cluster Processes in 2D
+
+![](../results/plot_2D_All2.png){height=70%, width=70%}
+
+Mixed Poisson process (intensity = exp(n = 1, rate = 1/100) 
+
+- involves generating a random variable $\Lambda$ and, given the value of $\Lambda$, generating a Poisson process with intensity function $\Lambda$, 
+
+- clusters accordingly to some specified distribution (i.e. an exponential r.v.).
+
+## Cox vs. Matern Cluster Processes in 2D
+
+![](../results/plot_2D_All2.png){height=70%, width=70%}
+
+Matern cluster process (kappa = 20, r = 0.05, mu = 5) 
+
+- involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent, 
+
+- clusters in some defined area (i.e. a disc).
+
+## Hawkes Process: Examples
+
+Hawkes processes also allow for dependence between events. The distinguishing feature of the Hawkes processes is that they depends on past events, which is also what makes Hawkes processes 'self-excite'. 
+
+For example, 
+
+- a mainshock earthquake is often followed by aftershocks, 
+
+- one act of violence often features an act of retaliatory violence, 
+
+- one patient may infect others.
+
+In these examples, the occurrence of an event increases the occurrence of future events nearby in space and/or time (i.e. 'self-exciting). 
 
 ## Hawkes Process
 
+Since the intensity of the process is now as a function of past history, we refer to the expected rate as a *conditional intensity function*, $\lambda(t | \mathcal{H}_{t}^{})$.
+
+Characteristics for Hawkes processes are such that
+
+- When points have occurred in nearby time and/or space, the intensity $\lambda(t | \mathcal{H}_{t}^{})$ at which points occur are expected to be higher and then they gradually decline as the events get further away.
+
+- More recent events exert more influence on the intensity but the intensity will fade out or decay until the next event.
+
+## Conditional Intensity Function
+
+**Definition 2.5.2** (Hawkes Process) A counting process associated with past events is said to be a Hawkes process with a conditional intensity function, which takes the form
+$$
+\lambda(t | \mathcal{H}_{t}^{}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i) , 
+$$
+where 
+
+- $\lambda_0(t)$ (sometimes denoted as $\mu$) is the the constant background rate,
+
+- $\sum(\cdot)$ is what makes Hawkess process 'self-excites', 
+
+- $T_i < t$ are the events time occur before current time $t$, 
+
+- $\phi(\cdot)$ is the kernel function (or $g(\cdot)$ the triggering function) through which the intensity depends on past events, and
+
+- $\mathcal{H}_{t}^{}$ is the past history up to time $t$.
+
+## Triggering Function
+
+Typical choices of $\phi(\cdot)$ include, for example, exponentially decaying function and power-law kernel (Rizoiu, 2017), which take the forms of
+$$
+\phi(x) = \alpha e^ {-\beta x}
+$$
+and
+$$
+\phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
+$$
+
+Exponentially decaying function has been applied to financial data (Embrechts et al., 2011).
+
+Power-law kernel, which decays faster initially but ends with a flatter tail, has been used in seismology (Ozaki, 1979) and social media (Rizoiu et al., 2017).
+
+## Simulations of a Hawkes Process
+
 ![](/Users/franceslinyc/Hawkes-Process-2021/results/plot_1D_Hawkes.png)
 
+*Here is a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.5, \beta = 0.7$). Each time the event arrives, the intensity increases and then it declines back to the background rate. The intensity for this realization gradually increases over time too.*
+
 ## Spatio-temporal SEPP (Self-Exciting Point Process)
+
+Spatio-temporal SEPP are an extension of temporal Hawkes processes. The conditional intensity function for SEPP take the form of
+$$
+\lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i), 
+$$
+where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events.
+
+Note that, 
+
+1. The triggering function is often defined to be separable in space and time.
+
+2. The background rate here can be taken to be a function of space, which is often a NPP or constant.
+
+3. Events that are closer to some given spatial and temporal location are more heavily influenced by the points that occur nearby in *both* space and time.
 
 ## Recent Advancements and Future Work of SEPP
 
@@ -223,9 +377,11 @@ I want to thank
 
 - Lisa Madsen & Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, 
 
-- Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, and 
+- Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here, 
 
-- my cohort, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges.
+- my cohort, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, 
+
+- my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumors since last year.
 
 But no thanks for the COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement.
 
