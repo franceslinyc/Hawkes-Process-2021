@@ -17,7 +17,7 @@ header-includes:
 
 # Abstract
 
-> Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior. The ability to capture events with such behavior gives Hawkes or self-exciting point processes (SEPP) the potential to become a powerful predictive tool for a wide variety of applications. In this project, we give brief introductions, review definitions, discuss properties and applications of selected spatial and temporal point processes leading up to spatio-temporal SEPP, and simulate some of the processes in 1D and 2D in hope that interested readers have the background knowledge to read and comprehend existing SEPP literature as well as explore the field further.
+> Events such as earthquake epicenters, crime patterns, forest wildfires, financial transcations, etc. often exhibit triggering and clustering behavior. The ability to capture events with such behavior gives Hawkes or self-exciting point processes (SEPP) the potential to become a powerful predictive tool for a wide variety of applications. In this project, we give brief introductions, review definitions, discuss properties and applications of selected spatial and temporal point processes leading up to spatio-temporal SEPP, and simulate some of the processes in 1D and 2D in hope that interested readers have the background knowledge to comprehend existing SEPP literature as well as explore the field further.
 
 # 1 Introduction
 
@@ -134,7 +134,7 @@ $$
 
 ## 2.3 Nonhomogeneous Poisson Process
 
-Assuming that the rate in which points occur is constant is often not realistic in practice. We may want a model that allows for more flexibility. The nonhomogeneous Poisson processes (NPPs) are a generalization of homogeneous Poisson processes that allow for the rate (or intensity) $\lambda$ to vary as function of time $t$ or space $s$. We previously assumed that for the HPP the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, then we should model as a NPP instead. This would be the case if, as in the supermarket example, we have reasons to believe that the arrival rate of customers is higher during lunch time as compared to say, 2am, or as in the trees in a forest example, we speculate that environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
+Assuming that the rate in which points occur is constant is often not realistic in practice. We may want a model that allows for more flexibility. The nonhomogeneous Poisson processes (NPPs) are a generalization of HPPs that allow for the rate (or intensity) $\lambda$ to vary as function of time $t$ or space $s$. We previously assumed that for the HPP the intensity $\lambda$ is constant. If we have reasons to believe that the intensity is not constant, then we should model as a NPP instead. This would be the case if, as in the supermarket example, we have reasons to believe that the arrival rate of customers is higher during lunch time as compared to say, 2am, or as in the trees in a forest example, we speculate that environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
 
 NPPs are independent but not stationary nor homogeneous. Recall that HPP has stationary increments since the distribution of the numbers of events $N(t)$ that occur in any interval of time $t$ depends only on the length of the interval $t$ but not the location of the interval $t$, NPP, in contrast, does not have stationary increments since the distribution of $N(t)$ can change when shifted in $t$. Since stationary implies homogeneity, NPP is nonhomogeneous.
 
@@ -179,9 +179,9 @@ Examples that are potentially better modeled as Cox processes than HPP include l
 
 Cox process (or doubly stochastic Poisson processes) can be defined as a Poisson process with a random intensity function; if the intensity surface $\Lambda(u)$ is known, then it becomes a Poisson process with intensity function $\Lambda(u)$ (Baddeley et al., 2015). This spatially varying intensity function of the Cox process is random since it relies on an underlying set of random variables, called a random field, to capture the covariates or external factors (Baddeley et al., 2015). When the intensity is relatively high in some area of space, points occur more frequently. When the intensity is low, fewer points occur. Since the intensity is random and changes based on a set of observed or potentially unobserved set of random variables, this accumulation of points sometimes appears to be clustered, and this is one way to observe the dependence structure of the Cox process. Within the general class of Cox processes, mixed Poisson process, the simplest example of all, involves generating a random variable $\Lambda$ and, given the value of $\Lambda$, generating a Poisson process with intensity function $\Lambda$.
 
-On the other hand, examples that can be modeled as *cluster processes* includes seedlings and saplings of California redwood (Baddeley et al., 2015). In this example, unobserved *parent* trees give rise to clusters of observed 'offspring' trees. It is also not hard to notice significant overlap between Cox processes and cluster processes since these processes tend to share a considerable amount of information in their constructions. While Cox processes can sometimes appear to exhibit clustering of points due to the underlying random field, cluster processes tend to make the clustering of points more explicit. 
+On the other hand, example that can be modeled as *cluster processes* includes seedlings and saplings of California redwood (Baddeley et al., 2015). In this example, unobserved 'parent' trees give rise to clusters of observed 'offspring' trees. It is also not hard to notice significant overlap between Cox processes and cluster processes since these processes tend to share a considerable amount of information in their constructions. While Cox processes can sometimes appear to exhibit clustering of points due to the underlying random field, cluster processes tend to make the clustering of points more explicit. 
 
-For a cluster process, we first have some set of unobserved 'parent' points $\mathbf{Y}$ generated by the process. Next, each 'parent' point $y_i \in$ $\mathbf{Y}$ gives rise to a random number of 'offspring' points $z_{ij}$. These 'offspring' points $Z_{ij}$ then form a cluster process $\mathbf{X}$ around the set of parents $\mathbf{Y}$ and only the offspring points are observed. Within the general class of cluster processes, there are numerous models which can be utilized depending on the choice of assumptions. Matern cluster processes, for one example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent.
+For a cluster process, we first have some set of unobserved 'parent' points $\mathbf{Y}$ generated by the process. Next, each 'parent' point $y_i \in$ $\mathbf{Y}$ gives rise to a random number of 'offspring' points $z_{ij}$. These 'offspring' points $Z_{ij}$ then form a cluster process $\mathbf{X}$ around the set of parents $\mathbf{Y}$ and only the 'offspring' points are observed. Within the general class of cluster processes, there are numerous models which can be utilized depending on the choice of assumptions. Matern cluster processes, for one example, involves generating homogeneous Poisson parents and each parent gives rise to Poisson number of offspring uniformly distributed in a disc of radius $r$ centered around the parent.
 
 Alternatively, we can think of Cox process as a hierarchical model with two levels and cluster process as a hierarchical model with three levels (Geyer, 2020). For the Cox process, 1) there is some set of random variables that influences the intensity function and 2) based on this intensity function, we observe the set of points. For the cluster process, 1) there is some random or non-random intensity function, 2) based on the intensity function, some set of 'parent' (or 'center') points are laid down which we often don't observe, but 3) given the location of the 'parent' points, some set of 'offspring' points are generated around the 'parent' points which we observe.
 
@@ -227,13 +227,13 @@ The final class of point process models we present are the Hawkes processes, whi
 
 As previously mentioned, examples of applications for Hawkes processes include locations of earthquake epicenters, locations of crimes, and locations of patients with a communicable disease. The major sharing feature in each of these examples is that an occurrence of an event leads to an increase in the occurrence of subsequent events (i.e. 'self-exciting') in nearby time and/or space. In seismology, a mainshock earthquake is often followed by aftershocks. In gang crimes, one act of violence often features an act of retaliatory violence. In communicable diseases, one patient may infect others.
 
-Since the intensity of the process is now as a function of past history, we refer to the expected rate as a *conditional intensity function*. Hawkes processes self-excite because of this conditional intensity function since conditioning on the past set of events, the expected rates at which points occur are expected to be higher when points have occurred in nearby time and/or space and then they gradually decline as the events get further away. This 'self-exciting' characteristic is captured by the summing part of the conditional intensity function, which we show in Definition 2.5.2.
+Since the intensity of the process is now as a function of past history, we refer to the expected rate as a *conditional intensity function*. Hawkes processes self-excite because of this conditional intensity function. Conditioning on the past set of events, when points have occurred in nearby time and/or space, the expected rates at which points occur are expected to be higher and then they gradually decline as the events get further away. This 'self-exciting' characteristic is captured by the summing part of the conditional intensity function, which we show in Definition 2.5.2.
 
 Another characteristic is that more recent events exert more influence on the intensity but the intensity will fade out or decay until the next event. This 'decaying' characteristic is captured by the *triggering* part of the conditional intensity function. The triggering function is also what makes the Hawkes process a self-exciting as well as cluster process as it allows for additional points to occur in nearby time and/or space before ultimately decaying back to the background rate. For example, an earthquake happens today, compared to a quake that happened more than a year ago, would lead us believe that there is a higher chance of another quake that will occur tomorrow.
 
 A Hawkes process can be uniquely identified through its conditional intensity function (Daley & Vere-Jones, 2003) and the formal definition of which is
 
-**Definition 2.5.1** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$ , the conditional intensity function $\lambda(t)$ with respect to the history of the process up to time $t$, $\mathcal{H}_t$, is defined as
+**Definition 2.5.1** (Conditional Intensity Function) Let $N(t)$ be the numbers of events $N(t)$ that occur in any interval of time $t$, the conditional intensity function $\lambda(t)$ with respect to the history of the process up to time $t$, $\mathcal{H}_t$, is defined as
 $$
 \lambda(t | \mathcal{H}_t) = \lim_{h\to 0^+} \frac {E(N (t, t + h) | \mathcal{H}_t)} {h} , 
 $$
@@ -241,7 +241,7 @@ where $\mathcal{H}_t$ is the history prior to time $t$.
 
 Having defined the conditional intensity function, we next more formally define the Hawkes process (Rizoiu, 2017; Reinhart, 2018)
 
-**Definition 2.5.2** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{}, t > 0\}$ is said to be a Hawkes process with conditional intensity function $\lambda(t | \mathcal{H}_{t}^{}), t > 0$ and takes the form
+**Definition 2.5.2** (Hawkes Process) A counting process $\{N(t), t \geq 0\}$ associated with past events $\{\mathcal{H}_{t}^{}, t > 0\}$ is said to be a Hawkes process with a conditional intensity function, which takes the form
 $$
 \lambda(t | \mathcal{H}_{t}^{}) = \lambda_0(t) + \sum^{}_{i: T_i < t} \phi( t - T_i) , 
 $$
@@ -256,7 +256,7 @@ $$
 \phi(x) = \frac{\alpha} { (x + \beta) ^ {\eta + 1}}.
 $$
 
-Exponentially decaying function, which decays faster, has been applied to financial data (Embrechts et al., 2011). On the other hand, power-law kernel, which has a flatter tail, has been used in seismology (Ozaki, 1979) and social media (Rizoiu et al., 2017).
+Exponentially decaying function has been applied to financial data (Embrechts et al., 2011). On the other hand, power-law kernel, which decays faster initially but ends with a flatter tail, has been used in seismology (Ozaki, 1979) and social media (Rizoiu et al., 2017).
 
 In Figure 5, we show a realization of a Hawkes process with the exponentially decaying triggering function ($\mu = 0.5, \alpha = 0.5, \beta = 0.7$). Each time the event arrives, the intensity (conditional intensity function) increases and then it declines back to the background rate. When the next event arrives, the intensity jumps again and then declines. The intensity for this realization gradually increases over time too since the points of this simulation occur fairly regularly. The algorithm used for simulating this Hawkes process can be found in the Appendix section.
 
@@ -264,16 +264,16 @@ In Figure 5, we show a realization of a Hawkes process with the exponentially de
 
 ## 2.6 Spatio-Temporal Self-Exciting Point Process
 
-Spatio-temporal SEPP are an extension of temporal Hawkes processes. Recall that the conditional intensity function for Hawkes processes take the form of
+Spatio-temporal SEPP are an extension of temporal Hawkes processes. Recall that the conditional intensity function for Hawkes processes takes the form of
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu + \sum^{}_{i: T_i < t} g(t - t_i) , 
 $$
 
-the conditional intensity function for SEPP take the form of
+the conditional intensity function for SEPP takes the form of
 $$
 \lambda(t | \mathcal{H}_{t}) = \mu(s) + \sum^{}_{i: T_i < t} g(s - s_i, t - t_i), 
 $$
-where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, The triggering function is often defined to be separable in space and time. In addition, the background rate here can be taken to be a function of space, which is often a NPP or constant. Further, the triggering function here is now a function of space and time and, as a result, events that are closer to some given spatial and temporal location are more heavily influenced by the points that occur nearby in both space and time.
+where ${s_i, i = 1,2,...}$ are the sequence of locations of events and ${t_i, i = 1,2,...}$ are the times of events. For simplicity, the triggering function is often defined to be separable in space and time. In addition, the background rate here can be taken to be a function of space, which is often a NPP or constant. Further, the triggering function here is now a function of space and time and, as a result, events that are closer to some given spatial and temporal location are more heavily influenced by the points that occur nearby in both space and time.
 
 # 3 Conclusions and Discussion
 
@@ -281,7 +281,7 @@ In this project, we first introduce the counting process, which can be used to c
 
 # Acknowledgments
 
-I want to thank Dr. James Molyneux for his constant support and encouragement while advising this Master's project, Dr. Lisa Madsen & Dr. Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, Dr. Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here at OSU, my cohort for summer comp (comprehensive exam) studies, theories HW and various other group projects, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumors since last year. But no thanks for the COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement.
+I want to thank Dr. James Molyneux for his constant support and encouragement while advising this Master's project, Dr. Lisa Madsen & Dr. Charlotte Wickham for their willingness to co-advise as I press on for the PhD program here at OSU, Dr. Sarah Emerson for both academic and nonacademic support that played major roles in my decision to pursue the PhD here at OSU, my cohort for summer comp (comprehensive exam) studies, theories HW and various other group projects, our previous cohort and other PhD students for reassuring us that we will make it too despite the ongoing challenges, my family and friends for keeping me sane while being remote, and my 92-year-old grandma for hanging in there while battling brain tumors since last year.  But no thanks for the COVID-19 pandemic, 2020 Oregon wildfires and the social unrest that sparked the Black Lives Matter & Stop Asian Hate movement.
 
 \newpage
 
