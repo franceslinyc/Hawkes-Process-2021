@@ -120,7 +120,7 @@ p_Hawkes_time <- ggplot(data=df_Hawkes, mapping=aes(x=x, ymin = -0.5, ymax = 0.5
 p_Hawkes_Int2 <- ggplot(df_Hawkes2, aes(x=x, y=y)) + 
   geom_line() + 
   geom_point(aes(x=x, y=lmbda2), data = df_Hawkes) +
-  labs(title = "Intensity Function",
+  labs(title = "Conditional Intensity Function",
        x = "t", 
        y = "lambda(t)") 
 p_Hawkes_Int2
