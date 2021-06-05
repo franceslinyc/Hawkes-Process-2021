@@ -113,7 +113,7 @@ In other words, 1. An event has to occur for it to be counted. 2. For any disjoi
 
 An alternative way to think of HPP is that it is a uniformly random process. If we were to take a realization of a HPP over some time interval $(0, T]$ and 'bin' the number of events occurring in some set of equal intervals, then the histogram for the realization would resemble a realization of a uniform distribution over time 0 to T.
 
-Figure 2 shows a realization of a HPP in time. First, we note that the cumulative number of points is growing at a constant linear rate. We can also see that the histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$. The algorithm used for simulating this HPP can be found in the Appendix section.
+Figure 2 shows a realization of a HPP in time. First, we note that the cumulative number of points grows at a constant linear rate. We can also see that the histogram of rate appears roughly uniform, i.e., the rates are roughly constant at $\lambda = 10$. The algorithm used for simulating this HPP can be found in the Appendix section.
 
 ![Homogeneous Poisson process (rate = 10)](../results/plot_1D_HPP.png)
 
