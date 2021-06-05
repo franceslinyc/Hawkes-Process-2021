@@ -347,7 +347,15 @@ However, there is still much work to be done which include computational advance
 
 ## Thinning Algorithm
 
-Thinning algorithm is also called acceptance-rejection method. 
+Thinning algorithm is also called acceptance-rejection method. Broadly put, the thinning algorithm involves randomly deleting points from a point pattern. 
+
+The process requires 
+
+1. first simulating a HPP, 
+
+2. creating a $\lambda(t)$ function and applying it to the HPP, and 
+
+3. using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
 
 ## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
 
