@@ -379,13 +379,13 @@ The process requires
 
 ## Thank you!
 
-Prequel to Hawkes Processes: An Overview of Temporal and Spatio-Temporal Point Processes and Some Simulations
+Prequel to Hawkes Processes: An Overview of Spatial, Temporal and Spatio-Temporal Point Processes and Some Simulations
 
 Frances Lin
 
 MS student, Dept. of Statistics, Oregon State University
 
-Report, code, etc. are available at 
+Full report, code, etc. are available at 
 
 GitHub: franceslinyc, [Hawkes-Process-2021](https://github.com/franceslinyc/Hawkes-Process-2021)
 
