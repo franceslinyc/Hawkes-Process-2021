@@ -135,7 +135,7 @@ For example,
 
 - the document requests on a web server over time, etc.
 
-HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval $h$.
+HPPs are independent, stationary, and homogeneous. The distribution of the numbers of events, $N(t)$, depends only on the length of the interval $h$ (e.g. $(t, t+h]$).
 
 The defining characteristic of HPP is that $N(t)$ follow a Poisson distribution with a constant rate $\lambda$ (e.g. events over time).
 
@@ -155,13 +155,13 @@ Assuming that the rate in which points occur is constant is often not realistic 
 
 For example, 
 
-- the arrival rate of customers is higher during lunch time as compared to say, 2am, 
+- the arrival rate of customers is higher during lunch time as compared to say, 2am,
 
 - environmental factors such as temperature and rainfall affect the spatial distribution of the trees.
 
 NPPs are independent but not stationary nor homogeneous. The distribution of $N(t)$ can change when shifted in the location of the interval $t$.
 
-For HPP, $N(t)$ still follow a Poisson distribution but with an intensity function $\lambda(t)$ such that the rate/intensity now varies with a function of time.
+For NPP, $N(t)$ still follow a Poisson distribution but with an intensity function $\lambda(t)$ such that the rate/intensity now varies with a function of time.
 
 ## A Motivating Example: HPP vs. NPP in 2D
 
@@ -270,7 +270,7 @@ Since the intensity of the process is now as a function of past history, we refe
 
 Characteristics of Hawkes processes are such that
 
-- When points have occurred in nearby time and/or space, the intensity at which points occur are expected to be higher and then the intensity gradually decline as the events get further away.
+- When points have occurred in nearby time and/or space, the intensity at which points occur are expected to be higher and then it gradually declines as the events get further away.
 
 - More recent events exert more influence on the intensity but the intensity will decay until the next event.
 
@@ -355,7 +355,7 @@ The process requires
 
 2. creating a $\lambda(t)$ function and applying it to the HPP, and 
 
-3. using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
+3. using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or delete/*thin* the points.
 
 ## Algorithm 2: Simulations of a Hawkes Process via Thinning Algorithm
 

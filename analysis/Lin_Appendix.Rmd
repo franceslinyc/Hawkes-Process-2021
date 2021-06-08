@@ -39,7 +39,7 @@ Figure 2 as shown previously is a realization of a HPP with rates that are rough
 
 In this simulation of a Hawkes process, we use the thinning algorithm (or acceptance-rejection method) to simulate a temporal Hawkes process since it is one of the most popular choices for simulating both temporal and spatio-temporal NPP (Pasupathy, 2010). Broadly put, the thinning algorithm involves randomly deleting points from a point pattern. The process requires first simulating a HPP, creating a $\lambda(t)$ function and applying it to the HPP, and using $min( {\lambda^*} / {\lambda}, 1)$ as the accepting probability to randomly keep or 'thin' the points.
 
-Figure 5 as shown previously is a realization of a Hawkes process with parameters such that $\mu = 0.5, \alpha = 0.5$, and $\beta = 0.7$. $\mu$ sets the background rate. $\alpha$ and $\beta$ control the shape and decay rate of the the exponentially decaying triggering function function.
+Figure 5 as shown previously is a realization of a Hawkes process with parameters such that $\mu = 0.5, \alpha = 0.5$, and $\beta = 0.7$. $\mu$ sets the background rate. $\alpha$ and $\beta$ control the shape and decay rate of the the exponentially decaying triggering function.
 
 ## Algorithm 2: Simulation of a Hawkes Process via Thinning Algorithm
 
