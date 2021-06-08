@@ -71,7 +71,7 @@ SEPP find applications in a wide variety of fields since they have been used to 
 
 ## Background and Objectives
 
-SEPP have not gained much attention from the machine learning communities even with their predictive capabilities. 
+SEPP have not gained much attention from the machine learning communities even with their wide applications and predictive capabilities. 
 
 Some relevant point processes are often left out from graduate-level, introductory spatial statistics and stochastic processes courses.
 

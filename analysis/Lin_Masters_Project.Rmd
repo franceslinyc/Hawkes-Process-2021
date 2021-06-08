@@ -34,7 +34,6 @@ Given the flexibility and applicability of SEPP, it is surprising that SEPP have
 
 The outline of this project is as follows: In *Section 2*, we introduce, define and discuss properties and applications of counting processes, homogeneous and nonhomogeneous Poisson processes, Cox processes, cluster processes, Hawkes and spatio-temporal SEPP. In *Section 3*, we wrap up the aforementioned point processes and mention future work of Hawkes and SEPP. In *Appendix*, we discuss in particular the thinning algorithm (or acceptance-rejection method) and **spatstat** package of `R` that are used to simulate selected processes in 1D and 2D, respectively.
 
-
 # 2 Introductions, Definitions and Properties
 
 ## 2.1 Counting Process
