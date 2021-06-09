@@ -272,7 +272,7 @@ Characteristics of Hawkes processes are such that
 
 - When points have occurred in nearby time and/or space, the intensity at which points occur are expected to be higher and then it gradually declines as the events get further away.
 
-- More recent events exert more influence on the intensity but the intensity will decay until the next event.
+- More recent events exert more influence on the intensity but the intensity will decay until the next event. 
 
 ## Conditional Intensity Function
 
