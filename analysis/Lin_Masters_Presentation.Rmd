@@ -7,7 +7,7 @@ author: |
   | \Large Frances Lin 
   | \vspace{0.2cm} \large Master's Presentation 
 date: | 
-  | \Large June 2020
+  | \Large June 2021
 output: 
   beamer_presentation:
     theme: "boxes"
